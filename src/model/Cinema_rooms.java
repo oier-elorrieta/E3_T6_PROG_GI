@@ -7,38 +7,34 @@ public class Cinema_rooms {
 	private int room_number;
 	private String room_name;
 	private String room_date;
-	private int room_schedule;
 	
 	// CONSTRUCTORS
 	public Cinema_rooms() {
 		
 	}
 	
-	public Cinema_rooms(int room_number, String room_name, String room_date, int room_schedule) {
+	public Cinema_rooms(int room_number, String room_name, String room_date) {
 		this.room_number = room_number;
 		this.room_name = room_name;
 		this.room_date = room_date;
-		this.room_schedule = room_schedule;
 	}
 	
 	public Cinema_rooms(String room_number, String room_name, String room_date, String room_schedule) {
 		this.room_number = Converters.stringToInt(room_number);
 		this.room_name = room_name;
 		this.room_date = room_date;
-		this.room_schedule = Converters.stringToInt(room_schedule);
 	}
 	
 	@Override
 	public String toString() {
 		return "Cinema_rooms [room_number=" + room_number + ", room_name=" + room_name + ", room_date=" + room_date
-				+ ", room_schedule=" + room_schedule + "]";
+				+ "]";
 	}
 
 	public boolean equals(Cinema_rooms object) {
         if (this.room_number == object.room_number &&
             this.room_name.equals(object.room_name) &&
-            this.room_date.equals(object.room_date) &&
-            this.room_schedule == object.room_schedule) {
+            this.room_date.equals(object.room_date)) {
             return true;
         }
         
@@ -63,12 +59,6 @@ public class Cinema_rooms {
 	}
 	public void setRoom_date(String room_date) {
 		this.room_date = room_date;
-	}
-	public int getRoom_schedule() {
-		return room_schedule;
-	}
-	public void setRoom_schedule(int room_schedule) {
-		this.room_schedule = room_schedule;
 	}
 	
 	// METHODS
