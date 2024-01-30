@@ -28,6 +28,12 @@ public class Customers {
 		this.password = password;
 	}
 
+	@Override
+	public String toString() {
+		return "Customers [id_card_number=" + id_card_number + ", customer_name=" + customer_name
+				+ ", customer_surname=" + customer_surname + ", password=" + password + "]";
+	}
+
 	public boolean equals(Customers object) {
         if (this.id_card_number == object.id_card_number) {
             return true;

@@ -31,6 +31,12 @@ public class Tickets {
 		this.price = Converters.stringToDouble(price);
 	}
 	
+	@Override
+	public String toString() {
+		return "Tickets [ticket_number=" + ticket_number + ", date=" + date + ", film=" + film + ", room=" + room
+				+ ", price=" + price + "]";
+	}
+
 	public boolean equals(Tickets object) {
         if (this.ticket_number == object.ticket_number &&
             this.date.equals(object.date) &&

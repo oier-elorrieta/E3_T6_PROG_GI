@@ -28,6 +28,12 @@ public class Films {
 		this.film_genre = film_genre;
 	}
 	
+	@Override
+	public String toString() {
+		return "Films [film_number=" + film_number + ", film_duration=" + film_duration + ", film_price=" + film_price
+				+ ", film_genre=" + film_genre + "]";
+	}
+
 	public boolean equals(Films object) {
         if (this.film_number  == object.film_number &&
             this.film_duration == object.film_duration &&

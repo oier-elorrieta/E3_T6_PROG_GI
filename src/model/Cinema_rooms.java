@@ -28,6 +28,12 @@ public class Cinema_rooms {
 		this.room_schedule = Converters.stringToInt(room_schedule);
 	}
 	
+	@Override
+	public String toString() {
+		return "Cinema_rooms [room_number=" + room_number + ", room_name=" + room_name + ", room_date=" + room_date
+				+ ", room_schedule=" + room_schedule + "]";
+	}
+
 	public boolean equals(Cinema_rooms object) {
         if (this.room_number == object.room_number &&
             this.room_name.equals(object.room_name) &&

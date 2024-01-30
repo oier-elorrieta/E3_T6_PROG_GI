@@ -22,6 +22,11 @@ public class Cinema {
 		this.cinema_room = Converters.stringToInt(cinema_room);
 	}
 	
+	@Override
+	public String toString() {
+		return "Cinema [cinema_number=" + cinema_number + ", cinema_room=" + cinema_room + "]";
+	}
+
 	public boolean equals(Cinema object) {
         if (this.cinema_number == object.cinema_number &&
             this.cinema_room == object.cinema_room) {
