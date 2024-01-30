@@ -1,6 +1,6 @@
-package model;
+package model.methods;
 
-public class CheckConstructors {
+public class Converters {
 
 	public static int stringToInt(String toCheck){
 		int checked = Integer.parseInt(toCheck);

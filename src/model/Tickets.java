@@ -1,5 +1,7 @@
 package model;
 
+import model.methods.Converters;
+
 public class Tickets {
 	// VARIABLES
 	private int ticket_number;
@@ -22,11 +24,11 @@ public class Tickets {
 	}
 	
 	public Tickets(String ticket_number, String date, String film, String room, String price) {
-		this.ticket_number = CheckConstructors.stringToInt(ticket_number);
+		this.ticket_number = Converters.stringToInt(ticket_number);
 		this.date = date;
-		this.film = CheckConstructors.stringToInt(film);
-		this.room = CheckConstructors.stringToInt(room);
-		this.price = CheckConstructors.stringToDouble(price);
+		this.film = Converters.stringToInt(film);
+		this.room = Converters.stringToInt(room);
+		this.price = Converters.stringToDouble(price);
 	}
 	
 	public boolean equals(Tickets object) {

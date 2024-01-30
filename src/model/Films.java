@@ -1,5 +1,7 @@
 package model;
 
+import model.methods.Converters;
+
 public class Films {
 	//VARIABLES
 	private int film_number;
@@ -20,9 +22,9 @@ public class Films {
 	}
 	
 	public Films(String film_number, String film_duration, String film_price, String film_genre) {
-		this.film_number = CheckConstructors.stringToInt(film_number);
-		this.film_duration = CheckConstructors.stringToDouble(film_duration);
-		this.film_price = CheckConstructors.stringToDouble(film_price);
+		this.film_number = Converters.stringToInt(film_number);
+		this.film_duration = Converters.stringToDouble(film_duration);
+		this.film_price = Converters.stringToDouble(film_price);
 		this.film_genre = film_genre;
 	}
 	

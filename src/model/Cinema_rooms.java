@@ -1,5 +1,7 @@
 package model;
 
+import model.methods.Converters;
+
 public class Cinema_rooms {
 	// VARIABLES
 	private int room_number;
@@ -20,10 +22,10 @@ public class Cinema_rooms {
 	}
 	
 	public Cinema_rooms(String room_number, String room_name, String room_date, String room_schedule) {
-		this.room_number = CheckConstructors.stringToInt(room_number);
+		this.room_number = Converters.stringToInt(room_number);
 		this.room_name = room_name;
 		this.room_date = room_date;
-		this.room_schedule = CheckConstructors.stringToInt(room_schedule);
+		this.room_schedule = Converters.stringToInt(room_schedule);
 	}
 	
 	public boolean equals(Cinema_rooms object) {

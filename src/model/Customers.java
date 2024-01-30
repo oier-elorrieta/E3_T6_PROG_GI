@@ -1,5 +1,7 @@
 package model;
 
+import model.methods.Converters;
+
 public class Customers {
 	// VARIABLES
 	private int id_card_number;
@@ -20,7 +22,7 @@ public class Customers {
 	}
 	
 	public Customers(String id_card_number, String customer_name, String customer_surname, String password) {
-		this.id_card_number = CheckConstructors.stringToInt(id_card_number);
+		this.id_card_number = Converters.stringToInt(id_card_number);
 		this.customer_name = customer_name;
 		this.customer_surname = customer_surname;
 		this.password = password;
