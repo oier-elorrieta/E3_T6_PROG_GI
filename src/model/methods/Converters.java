@@ -11,7 +11,5 @@ public class Converters {
 		double checked = Double.parseDouble(toCheck);
 		return checked;
 	}
-	
-	
-	
+		
 }

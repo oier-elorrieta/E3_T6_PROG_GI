@@ -1,11 +1,13 @@
 package model;
 
+
+import java.util.Date;
 import java.util.Objects;
 
 public class Session {
 	// VARIABLES
 	private int session_id;
-	private String session_date;
+	private Date session_date;
 	private String session_film_name;
 	private String session_room_name;
 	private String session_cinema_name;
@@ -14,7 +16,7 @@ public class Session {
 		
 	}
 
-	public Session(int session_id, String session_date, String session_film_name, String session_room_name,
+	public Session(int session_id, Date session_date, String session_film_name, String session_room_name,
 			String session_cinema_name) {
 		this.session_id = session_id;
 		this.session_date = session_date;
@@ -51,10 +53,10 @@ public class Session {
 	public void setSession_id(int session_id) {
 		this.session_id = session_id;
 	}
-	public String getSession_date() {
+	public Date getSession_date() {
 		return session_date;
 	}
-	public void setSession_date(String session_date) {
+	public void setSession_date(Date session_date) {
 		this.session_date = session_date;
 	}
 	public String getSession_film_name() {
