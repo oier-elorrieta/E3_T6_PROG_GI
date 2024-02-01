@@ -1,53 +1,61 @@
 package model;
 
+import java.util.Objects;
+
 import model.methods.Converters;
 
 public class Cinema {
 	// VARIABLES
-	private int cinema_number;
-	private int cinema_room;
+	private int cinema_id;
+	private String cinema_name;
 	
 	// CONSTRUCTORS
 	public Cinema() {
 		
 	}
 	
-	public Cinema(int cinema_number, int cinema_room) {
-		this.cinema_number = cinema_number;
-		this.cinema_room = cinema_room;
+	public Cinema(int cinema_id, String cinema_name) {
+		this.cinema_id = cinema_id;
+		this.cinema_name = cinema_name;
 	}
 	
-	public Cinema(String cinema_number, String cinema_room) {
-		this.cinema_number = Converters.stringToInt(cinema_number);
-		this.cinema_room = Converters.stringToInt(cinema_room);
+	public Cinema(String cinema_id, String cinema_name) {
+		this.cinema_id = Converters.stringToInt(cinema_id);
+		this.cinema_name = cinema_name;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Cinema [cinema_number=" + cinema_number + ", cinema_room=" + cinema_room + "]";
+		return "Cinema [cinema_id=" + cinema_id + ", cinema_name=" + cinema_name + "]";
 	}
 
-	public boolean equals(Cinema object) {
-        if (this.cinema_number == object.cinema_number &&
-            this.cinema_room == object.cinema_room) {
-                return true;
-        }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cinema other = (Cinema) obj;
+		return cinema_id == other.cinema_id && Objects.equals(cinema_name, other.cinema_name);
+	}
 
-        return false;
-    }
-	
 	// SETTERS & GETTERS
-	public int getCinema_number() {
-		return cinema_number;
+	public int getCinema_id() {
+		return cinema_id;
 	}
-	public void setCinema_number(int cinema_number) {
-		this.cinema_number = cinema_number;
+
+	public void setCinema_id(int cinema_id) {
+		this.cinema_id = cinema_id;
 	}
-	public int getCinema_room() {
-		return cinema_room;
+
+	public String getCinema_name() {
+		return cinema_name;
 	}
-	public void setCinema_room(int cinema_room) {
-		this.cinema_room = cinema_room;
+
+	public void setCinema_name(String cinema_name) {
+		this.cinema_name = cinema_name;
 	}
 	
 	// METHODS
