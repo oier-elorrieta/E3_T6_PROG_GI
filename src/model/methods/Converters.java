@@ -12,6 +12,11 @@ public class Converters {
 		return checked;
 	}
 	
+	public static char stringToChar(String toCheck) {
+		char checked = toCheck.charAt(0);
+		return checked;
+	}
+	
 	
 	
 }
