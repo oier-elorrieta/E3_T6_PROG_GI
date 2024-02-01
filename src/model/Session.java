@@ -4,6 +4,8 @@ package model;
 import java.util.Date;
 import java.util.Objects;
 
+import model.methods.Converters;
+
 public class Session {
 	// VARIABLES
 	private int session_id;
@@ -24,7 +26,16 @@ public class Session {
 		this.session_room_name = session_room_name;
 		this.session_cinema_name = session_cinema_name;
 	}
-
+	
+	public Session(String session_id, Date session_date, String session_film_name, String session_room_name,
+			String session_cinema_name) {
+		this.session_id = Converters.stringToInt(session_id);
+		this.session_date = session_date;
+		this.session_film_name = session_film_name;
+		this.session_room_name = session_room_name;
+		this.session_cinema_name = session_cinema_name;
+	}
+	
 	@Override
 	public String toString() {
 		return "Session [session_id=" + session_id + ", session_date=" + session_date + ", session_film_name="
