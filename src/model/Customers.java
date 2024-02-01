@@ -6,7 +6,7 @@ import model.methods.Converters;
 
 public class Customers {
 	// VARIABLES
-	private int id_card_number;
+	private String id_card_number;
 	private String customer_name;
 	private String customer_surname;
 	private String password;
@@ -17,7 +17,7 @@ public class Customers {
 		
 	}
 	
-	public Customers(int id_card_number, String customer_name, String customer_surname, String password, int age) {
+	public Customers(String id_card_number, String customer_name, String customer_surname, String password, int age) {
 		this.id_card_number = id_card_number;
 		this.customer_name = customer_name;
 		this.customer_surname = customer_surname;
@@ -26,25 +26,20 @@ public class Customers {
 	}
 	
 	public Customers(String id_card_number, String customer_name, String customer_surname, String password, String age) {
-		this.id_card_number = Converters.stringToInt(id_card_number);
+		this.id_card_number = id_card_number;
 		this.customer_name = customer_name;
 		this.customer_surname = customer_surname;
 		this.password = password;
 		this.age = Converters.stringToInt(age);
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+
+	public boolean equals(String id) {
+		if (this.id_card_number.equals(id)) {
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Customers other = (Customers) obj;
-		return age == other.age && Objects.equals(customer_name, other.customer_name)
-				&& Objects.equals(customer_surname, other.customer_surname) && id_card_number == other.id_card_number
-				&& Objects.equals(password, other.password);
+		}
+		return false;
+		
 	}
 
 	@Override
@@ -55,11 +50,11 @@ public class Customers {
 
 	// GETTERS & SETTERS
 	
-	public int getId_card_number() {
+	public String getId_card_number() {
 		return id_card_number;
 	}
 
-	public void setId_card_number(int id_card_number) {
+	public void setId_card_number(String id_card_number) {
 		this.id_card_number = id_card_number;
 	}
 
