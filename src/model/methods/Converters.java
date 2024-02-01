@@ -11,5 +11,10 @@ public class Converters {
 		double checked = Double.parseDouble(toCheck);
 		return checked;
 	}
-		
+
+	
+	public static char stringToChar(String toCheck) {
+		char checked = toCheck.charAt(0);
+		return checked;
+	}
 }
