@@ -8,11 +8,10 @@ import model.methods.Converters;
 
 public class Session {
 	// VARIABLES
-	private int session_id;
 	private Date session_date;
-	private String session_film_name;
+	private Films film;
 	private String session_room_name;
-	private String session_cinema_name;
+
 	
 	public Session() {
 		

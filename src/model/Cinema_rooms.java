@@ -6,6 +6,7 @@ import model.methods.Converters;
 
 public class Cinema_rooms {
 	// VARIABLES
+	private String ID_room;
 	private String room_name;
 	
 	// CONSTRUCTORS

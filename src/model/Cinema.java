@@ -8,7 +8,9 @@ import model.methods.Converters;
 public class Cinema {
 	// VARIABLES
 	private String cinema_name;
-	private ArrayList<String> rooms;
+	private Cinema_rooms[] cinema_rooms = new Cinema_rooms[20];
+	private Session[] sessions = new Session[100];
+	
 	
 	// CONSTRUCTORS
 	public Cinema() {
