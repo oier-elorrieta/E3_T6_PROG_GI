@@ -1,12 +1,11 @@
 package view;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class SignIn extends JFrame {
+public class DataAukera extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -18,7 +17,7 @@ public class SignIn extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SignIn frame = new SignIn();
+					DataAukera frame = new DataAukera();
 					frame.setVisible(false);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +29,7 @@ public class SignIn extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SignIn() {
+	public DataAukera() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
