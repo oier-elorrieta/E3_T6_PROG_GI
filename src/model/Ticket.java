@@ -1,28 +1,25 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Ticket {
-	private Saioa saioa;
+	private ArrayList<Saioa> saioa = new ArrayList<Saioa>();
 	private double ticket_prezioa;
 	private Bezeroa bezeroa;
 	
-	
-	public Ticket() {
-		
-	}
-	public Ticket(Saioa saioa, double ticket_prezioa, Bezeroa bezeroa) {
-	
+	public Ticket(ArrayList<Saioa> saioa, double ticket_prezioa, Bezeroa bezeroa) {
 		this.saioa = saioa;
 		this.ticket_prezioa = ticket_prezioa;
 		this.bezeroa = bezeroa;
 	}
 	
 	
-	public Saioa getSaioa() {
+	
+	public ArrayList<Saioa> getSaioa() {
 		return saioa;
 	}
-	public void setSaioa(Saioa saioa) {
+	public void setSaioa(ArrayList<Saioa> saioa) {
 		this.saioa = saioa;
 	}
 	public double getTicket_prezioa() {
@@ -42,7 +39,7 @@ public class Ticket {
 	public String toString() {
 		return "Ticket [saioa=" + saioa + ", ticket_prezioa=" + ticket_prezioa + ", bezeroa=" + bezeroa + "]";
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -56,5 +53,4 @@ public class Ticket {
 				&& Double.doubleToLongBits(ticket_prezioa) == Double.doubleToLongBits(other.ticket_prezioa);
 	}
 
-	
 }
