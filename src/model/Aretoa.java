@@ -38,6 +38,7 @@ public class Aretoa {
 		Aretoa other = (Aretoa) obj;
 		return Objects.equals(areto_izena, other.areto_izena);
 	}
+	
 
 
 	
