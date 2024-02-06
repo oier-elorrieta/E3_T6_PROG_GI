@@ -34,11 +34,13 @@ public class Ticket {
 	public void setBezeroa(Bezeroa bezeroa) {
 		this.bezeroa = bezeroa;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Ticket [saioa=" + saioa + ", ticket_prezioa=" + ticket_prezioa + ", bezeroa=" + bezeroa + "]";
 	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
