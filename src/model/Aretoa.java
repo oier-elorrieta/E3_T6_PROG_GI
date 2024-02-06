@@ -10,7 +10,7 @@ public class Aretoa {
 	
 	}
 	
-	public Aretoa(String areto_izena, Saioa[] saioList) {
+	public Aretoa(String areto_izena) {
 		this.areto_izena = areto_izena;
 	}
 	
