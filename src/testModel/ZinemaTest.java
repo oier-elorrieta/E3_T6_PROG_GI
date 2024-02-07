@@ -20,7 +20,7 @@ public class ZinemaTest {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		zinemaProba = new Zinema("IzenaProba","HelbideProba","TelProba", aretoakProba, saioakProba);
+		zinemaProba = new Zinema("IzenaProba","HelbideProba",123456789, aretoakProba, saioakProba);
 		zinemaSetGetProba = new Zinema();
 	}
 	
@@ -28,7 +28,7 @@ public class ZinemaTest {
 	
 	@Test
 	public void zinemaEqualsTrueTest() {				
-		Zinema zinemaProbaEquals = new Zinema("IzenaProba","HelbideProba","TelProba", aretoakProba, saioakProba);
+		Zinema zinemaProbaEquals = new Zinema("IzenaProba","HelbideProba",123456789, aretoakProba, saioakProba);
 		assertTrue(zinemaProba.equals(zinemaProbaEquals));
 	}
 	
@@ -53,7 +53,7 @@ public class ZinemaTest {
 	
 	@Test
 	public void zinemaToStringTest() {
-		String txt = "Zinema [zinema_izena=IzenaProba, zinema_helbidea=HelbideProba, zinema_telefonoa=TelProba, zinema_aretoak=" + Arrays.toString(aretoakProba) + ", saioak="
+		String txt = "Zinema [zinema_izena=IzenaProba, zinema_helbidea=HelbideProba, zinema_telefonoa=123456789, zinema_aretoak=" + Arrays.toString(aretoakProba) + ", saioak="
 				+ Arrays.toString(saioakProba) + "]";
 		assertEquals(zinemaProba.toString(), txt);
 	}
@@ -74,8 +74,8 @@ public class ZinemaTest {
 	
 	@Test
 	public void zinemaTelefonoaGetSetTest() {
-		zinemaSetGetProba.setZinema_telefonoa("ZinemaTelefonoaProba");
-		assertEquals("ZinemaTelefonoaProba", zinemaSetGetProba.getZinema_telefonoa());
+		zinemaSetGetProba.setZinema_telefonoa(123456789);
+		assertEquals(123456789, zinemaSetGetProba.getZinema_telefonoa());
 	}
 	
 	@Test

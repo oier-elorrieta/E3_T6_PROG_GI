@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Zinema {
 	private String zinema_izena;
 	private String zinema_helbidea;
-	private String zinema_telefonoa;
+	private int zinema_telefonoa;
 	private Aretoa[] zinema_aretoak = new Aretoa[20];
 	private Saioa[] saioak = new Saioa[100];
 	
@@ -14,7 +14,7 @@ public class Zinema {
 		
 	}
 	
-	public Zinema(String zinema_izena, String zinema_helbidea, String zinema_telefonoa, Aretoa[] zinema_aretoak,
+	public Zinema(String zinema_izena, String zinema_helbidea, int zinema_telefonoa, Aretoa[] zinema_aretoak,
 			Saioa[] saioak) {
 		this.zinema_izena = zinema_izena;
 		this.zinema_helbidea = zinema_helbidea;
@@ -57,10 +57,10 @@ public class Zinema {
 	public void setZinema_helbidea(String zinema_helbidea) {
 		this.zinema_helbidea = zinema_helbidea;
 	}
-	public String getZinema_telefonoa() {
+	public int getZinema_telefonoa() {
 		return zinema_telefonoa;
 	}
-	public void setZinema_telefonoa(String zinema_telefonoa) {
+	public void setZinema_telefonoa(int zinema_telefonoa) {
 		this.zinema_telefonoa = zinema_telefonoa;
 	}
 	public Aretoa[] getZinema_aretoak() {
