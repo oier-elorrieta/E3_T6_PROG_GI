@@ -5,10 +5,6 @@ import java.util.Arrays;
 public class Karteldegia {
 	public Filma[] filmaList = new Filma[20];
 
-	
-	public Karteldegia() {
-		
-	}
 
 	public Karteldegia(Filma[] filmaList) {
 	
