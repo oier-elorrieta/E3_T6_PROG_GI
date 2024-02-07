@@ -5,22 +5,28 @@ import java.util.Objects;
 
 public class Ticket {
 	private ArrayList<Saioa> saioa = new ArrayList<Saioa>();
+	private ArrayList<Integer> pertsonaKantitatea = new ArrayList<Integer>();
 	private double ticket_prezioa;
 	private Bezeroa bezeroa;
 	
-	public Ticket(ArrayList<Saioa> saioa, double ticket_prezioa, Bezeroa bezeroa) {
+	public Ticket(ArrayList<Saioa> saioa, ArrayList<Integer> pertsonaKantitatea, double ticket_prezioa, Bezeroa bezeroa) {
 		this.saioa = saioa;
+		this.pertsonaKantitatea = pertsonaKantitatea;
 		this.ticket_prezioa = ticket_prezioa;
 		this.bezeroa = bezeroa;
 	}
-	
-	
 	
 	public ArrayList<Saioa> getSaioa() {
 		return saioa;
 	}
 	public void setSaioa(ArrayList<Saioa> saioa) {
 		this.saioa = saioa;
+	}
+	public ArrayList<Integer> getPertsonaKantitatea() {
+		return pertsonaKantitatea;
+	}
+	public void setPertsonaKantitatea(ArrayList<Integer> pertsonaKantitatea) {
+		this.pertsonaKantitatea = pertsonaKantitatea;
 	}
 	public double getTicket_prezioa() {
 		return ticket_prezioa;
@@ -37,10 +43,9 @@ public class Ticket {
 
 	@Override
 	public String toString() {
-		return "Ticket [saioa=" + saioa + ", ticket_prezioa=" + ticket_prezioa + ", bezeroa=" + bezeroa + "]";
+		return "Ticket [saioa=" + saioa + ", ticket_prezioa=" + ticket_prezioa + ", bezeroa=" + bezeroa
+				+ ", pertsonaKantitatea=" + pertsonaKantitatea + "]";
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -51,8 +56,11 @@ public class Ticket {
 		if (getClass() != obj.getClass())
 			return false;
 		Ticket other = (Ticket) obj;
-		return Objects.equals(bezeroa, other.bezeroa) && Objects.equals(saioa, other.saioa)
+		return Objects.equals(bezeroa, other.bezeroa) && Objects.equals(pertsonaKantitatea, other.pertsonaKantitatea)
+				&& Objects.equals(saioa, other.saioa)
 				&& Double.doubleToLongBits(ticket_prezioa) == Double.doubleToLongBits(other.ticket_prezioa);
 	}
+	
+	
 
 }
