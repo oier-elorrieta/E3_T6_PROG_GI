@@ -3,8 +3,10 @@ package model;
 import java.util.Objects;
 
 public class Aretoa {
+	// ALDAGAIAK
 	private String areto_izena;
 
+	// KONSTRUKTOREAK
 	public Aretoa() {
 		
 	}
@@ -13,6 +15,7 @@ public class Aretoa {
 		this.areto_izena = areto_izena;
 	}
 	
+	// EQUALS
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -25,11 +28,13 @@ public class Aretoa {
 		return Objects.equals(areto_izena, other.areto_izena);
 	}
 	
+	// TOSTRING
 	@Override
 	public String toString() {
 		return "Aretoa [areto_izena=" + areto_izena + "]";
 	}
 	
+	// GETTERS & SETTERS
 	public String getAreto_izena() {
 		return areto_izena;
 	}

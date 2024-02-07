@@ -3,12 +3,14 @@ package model;
 import java.util.Objects;
 
 public class Bezeroa {
+	// ALDAGAIAK
 	private String bezeroa_NAN;
 	private String bezeroa_izena;
 	private String bezeroa_abizenak;
 	private String bezeroa_pasahitza;
 	private char bezeroa_sexua;
 	
+	// KONSTRUKTOREAK
 	public Bezeroa() {
 		
 	}
@@ -22,6 +24,7 @@ public class Bezeroa {
 		this.bezeroa_sexua = bezeroa_sexua;
 	}
 	
+	// EQUALS
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -37,6 +40,7 @@ public class Bezeroa {
 				&& Objects.equals(bezeroa_pasahitza, other.bezeroa_pasahitza) && bezeroa_sexua == other.bezeroa_sexua;
 	}
 	
+	// TOSTRING
 	@Override
 	public String toString() {
 		return "Bezeroa [bezeroa_NAN=" + bezeroa_NAN + ", bezeroa_izena=" + bezeroa_izena + ", bezeroa_abizenak="
@@ -44,6 +48,7 @@ public class Bezeroa {
 				+ "]";
 	}
 	
+	// GETTERS & SETTERS
 	public String getBezeroa_NAN() {
 		return bezeroa_NAN;
 	}

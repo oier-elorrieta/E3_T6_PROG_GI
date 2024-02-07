@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Ticket {
+	// ALDAGAIAK
 	private ArrayList<Saioa> saioa = new ArrayList<Saioa>();
 	private ArrayList<Integer> pertsonaKantitatea = new ArrayList<Integer>();
 	private double ticket_prezioa;
 	private Bezeroa bezeroa;
 
+	// KONSTRUKTOREA
 	public Ticket(ArrayList<Saioa> saioa, ArrayList<Integer> pertsonaKantitatea, double ticket_prezioa, Bezeroa bezeroa) {
 		this.saioa = saioa;
 		this.pertsonaKantitatea = pertsonaKantitatea;
@@ -16,6 +18,7 @@ public class Ticket {
 		this.bezeroa = bezeroa;
 	}
 	
+	// EQUALS
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -30,12 +33,14 @@ public class Ticket {
 				&& Double.doubleToLongBits(ticket_prezioa) == Double.doubleToLongBits(other.ticket_prezioa);
 	}
 	
+	// TOSTRING
 	@Override
 	public String toString() {
 		return "Ticket [saioa=" + saioa + ", pertsonaKantitatea=" + pertsonaKantitatea + ", ticket_prezioa="
 				+ ticket_prezioa + ", bezeroa=" + bezeroa + "]";
 	}
 
+	// GETTERS & SETTERS
 	public ArrayList<Saioa> getSaioa() {
 		return saioa;
 	}

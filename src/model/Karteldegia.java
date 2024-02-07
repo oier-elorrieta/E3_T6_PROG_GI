@@ -3,12 +3,14 @@ package model;
 import java.util.Arrays;
 
 public class Karteldegia {
+	// ALDAGAIAK
 	public Filma[] filmaList = new Filma[20];
 
 	public Karteldegia(Filma[] filmaList) {
 		this.filmaList = filmaList;
 	}
 
+	// EQUALS
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -21,11 +23,13 @@ public class Karteldegia {
 		return Arrays.equals(filmaList, other.filmaList);
 	}
 	
+	// TOSTRING
 	@Override
 	public String toString() {
 		return "Karteldegia [filmaList=" + Arrays.toString(filmaList) + "]";
 	}
 	
+	// GETTERS & SETTERS
 	public Filma[] getFilmaList() {
 		return filmaList;
 	}

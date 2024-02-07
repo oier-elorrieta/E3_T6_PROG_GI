@@ -4,11 +4,13 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Saioa {
+	// ALDAGAIAK
 	private Date data;
 	private Aretoa aretoa;
 	private Filma filma;
 	private double prezioa;
 
+	// KONSTRUKTOREAK
 	public Saioa() {
 		
 	}
@@ -20,6 +22,7 @@ public class Saioa {
 		this.prezioa = prezioa;
 	}
 	
+	// EQUALS
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -34,12 +37,14 @@ public class Saioa {
 				&& Double.doubleToLongBits(prezioa) == Double.doubleToLongBits(other.prezioa);
 	}
 	
+	// TOSTRING
 	@Override
 	public String toString() {
 		return "Saioa [data=" + data + ", aretoa=" + aretoa + ", filma=" + filma + ", filma_prezioa=" + prezioa
 				+ "]";
 	}
 	
+	// GETTERS & SETTERS
 	public Date getData() {
 		return data;
 	}

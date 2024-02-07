@@ -3,11 +3,13 @@ package model;
 import java.util.Objects;
 
 public class Filma {
+	// ALDAGAIAK
 	private String filma_izena;
 	private String filma_generoa;
 	private int filma_iraupena;
 	private double filma_prezioa;
 	
+	// KONSTRUKTOREAK
 	public Filma() {
 		
 	}
@@ -19,6 +21,7 @@ public class Filma {
 		this.filma_prezioa = filma_prezioa;
 	}
 	
+	// EQUALS
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -33,12 +36,14 @@ public class Filma {
 				&& Double.doubleToLongBits(filma_prezioa) == Double.doubleToLongBits(other.filma_prezioa);
 	}
 	
+	// TOSTRING
 	@Override
 	public String toString() {
 		return "Filma [filma_izena=" + filma_izena + ", filma_generoa=" + filma_generoa + ", filma_iraupena="
 				+ filma_iraupena + ", filma_prezioa=" + filma_prezioa + "]";
 	}
 
+	// GETTERS & SETTERS
 	public String getFilma_izena() {
 		return filma_izena;
 	}

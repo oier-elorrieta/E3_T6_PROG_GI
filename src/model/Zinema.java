@@ -4,12 +4,14 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Zinema {
+	// ALDAGAIAK
 	private String zinema_izena;
 	private String zinema_helbidea;
 	private int zinema_telefonoa;
 	private Aretoa[] zinema_aretoak = new Aretoa[20];
 	private Saioa[] saioak = new Saioa[100];
 	
+	// KONSTRUKTOREAK
 	public Zinema() {
 		
 	}
@@ -23,6 +25,7 @@ public class Zinema {
 		this.saioak = saioak;
 	}
 	
+	// EQUALS
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -38,6 +41,7 @@ public class Zinema {
 				&& Objects.equals(zinema_telefonoa, other.zinema_telefonoa);
 	}
 	
+	// TOSTRING
 	@Override
 	public String toString() {
 		return "Zinema [zinema_izena=" + zinema_izena + ", zinema_helbidea=" + zinema_helbidea + ", zinema_telefonoa="
@@ -45,6 +49,7 @@ public class Zinema {
 				+ Arrays.toString(saioak) + "]";
 	}
 	
+	// GETTERS & SETTERS
 	public String getZinema_izena() {
 		return zinema_izena;
 	}
