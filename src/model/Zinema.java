@@ -10,7 +10,6 @@ public class Zinema {
 	private Aretoa[] zinema_aretoak = new Aretoa[20];
 	private Saioa[] saioak = new Saioa[100];
 	
-	
 	public Zinema() {
 		
 	}
@@ -24,6 +23,27 @@ public class Zinema {
 		this.saioak = saioak;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Zinema other = (Zinema) obj;
+		return Arrays.equals(saioak, other.saioak) && Arrays.equals(zinema_aretoak, other.zinema_aretoak)
+				&& Objects.equals(zinema_helbidea, other.zinema_helbidea)
+				&& Objects.equals(zinema_izena, other.zinema_izena)
+				&& Objects.equals(zinema_telefonoa, other.zinema_telefonoa);
+	}
+	
+	@Override
+	public String toString() {
+		return "Zinema [zinema_izena=" + zinema_izena + ", zinema_helbidea=" + zinema_helbidea + ", zinema_telefonoa="
+				+ zinema_telefonoa + ", zinema_aretoak=" + Arrays.toString(zinema_aretoak) + ", saioak="
+				+ Arrays.toString(saioak) + "]";
+	}
 	
 	public String getZinema_izena() {
 		return zinema_izena;
@@ -56,28 +76,7 @@ public class Zinema {
 		this.saioak = saioak;
 	}
 	
-	@Override
-	public String toString() {
-		return "Zinema [zinema_izena=" + zinema_izena + ", zinema_helbidea=" + zinema_helbidea + ", zinema_telefonoa="
-				+ zinema_telefonoa + ", zinema_aretoak=" + Arrays.toString(zinema_aretoak) + ", saioak="
-				+ Arrays.toString(saioak) + "]";
-	}
 	
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Zinema other = (Zinema) obj;
-		return Arrays.equals(saioak, other.saioak) && Arrays.equals(zinema_aretoak, other.zinema_aretoak)
-				&& Objects.equals(zinema_helbidea, other.zinema_helbidea)
-				&& Objects.equals(zinema_izena, other.zinema_izena)
-				&& Objects.equals(zinema_telefonoa, other.zinema_telefonoa);
-	}
 	
 
 	

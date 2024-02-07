@@ -8,7 +8,7 @@ public class Ticket {
 	private ArrayList<Integer> pertsonaKantitatea = new ArrayList<Integer>();
 	private double ticket_prezioa;
 	private Bezeroa bezeroa;
-	
+
 	public Ticket(ArrayList<Saioa> saioa, ArrayList<Integer> pertsonaKantitatea, double ticket_prezioa, Bezeroa bezeroa) {
 		this.saioa = saioa;
 		this.pertsonaKantitatea = pertsonaKantitatea;
@@ -16,6 +16,26 @@ public class Ticket {
 		this.bezeroa = bezeroa;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Ticket other = (Ticket) obj;
+		return Objects.equals(bezeroa, other.bezeroa) && Objects.equals(pertsonaKantitatea, other.pertsonaKantitatea)
+				&& Objects.equals(saioa, other.saioa)
+				&& Double.doubleToLongBits(ticket_prezioa) == Double.doubleToLongBits(other.ticket_prezioa);
+	}
+	
+	@Override
+	public String toString() {
+		return "Ticket [saioa=" + saioa + ", pertsonaKantitatea=" + pertsonaKantitatea + ", ticket_prezioa="
+				+ ticket_prezioa + ", bezeroa=" + bezeroa + "]";
+	}
+
 	public ArrayList<Saioa> getSaioa() {
 		return saioa;
 	}
@@ -40,27 +60,4 @@ public class Ticket {
 	public void setBezeroa(Bezeroa bezeroa) {
 		this.bezeroa = bezeroa;
 	}
-
-	@Override
-	public String toString() {
-		return "Ticket [saioa=" + saioa + ", ticket_prezioa=" + ticket_prezioa + ", bezeroa=" + bezeroa
-				+ ", pertsonaKantitatea=" + pertsonaKantitatea + "]";
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Ticket other = (Ticket) obj;
-		return Objects.equals(bezeroa, other.bezeroa) && Objects.equals(pertsonaKantitatea, other.pertsonaKantitatea)
-				&& Objects.equals(saioa, other.saioa)
-				&& Double.doubleToLongBits(ticket_prezioa) == Double.doubleToLongBits(other.ticket_prezioa);
-	}
-	
-	
-
 }

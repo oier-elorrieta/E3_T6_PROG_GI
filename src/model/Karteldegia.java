@@ -5,26 +5,10 @@ import java.util.Arrays;
 public class Karteldegia {
 	public Filma[] filmaList = new Filma[20];
 
-
 	public Karteldegia(Filma[] filmaList) {
-	
 		this.filmaList = filmaList;
 	}
 
-	public Filma[] getFilmaList() {
-		return filmaList;
-	}
-
-	public void setFilmaList(Filma[] filmaList) {
-		this.filmaList = filmaList;
-	}
-
-	@Override
-	public String toString() {
-		return "Karteldegia [filmaList=" + Arrays.toString(filmaList) + "]";
-	}
-
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -37,5 +21,16 @@ public class Karteldegia {
 		return Arrays.equals(filmaList, other.filmaList);
 	}
 	
+	@Override
+	public String toString() {
+		return "Karteldegia [filmaList=" + Arrays.toString(filmaList) + "]";
+	}
 	
+	public Filma[] getFilmaList() {
+		return filmaList;
+	}
+
+	public void setFilmaList(Filma[] filmaList) {
+		this.filmaList = filmaList;
+	}
 }

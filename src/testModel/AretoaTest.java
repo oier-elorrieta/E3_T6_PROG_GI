@@ -13,23 +13,15 @@ import model.Zinema;
 public class AretoaTest {
 
 	private static Aretoa aretoaProba;
+	private static Aretoa aretoaSetGetProba;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		aretoaProba = new Aretoa("IzenaProba");
-	}
-
-	@Test
-	public void aretoaIzenaSetGetTest() {
-		aretoaProba.setAreto_izena("AretoaIzenaProba");
-		assertEquals("AretoaIzenaProba", aretoaProba.getAreto_izena());
+		aretoaSetGetProba = new Aretoa();
 	}
 	
-	@Test
-	public void aretoaToStringTest() {
-		String txt = "Aretoa [areto_izena=IzenaProba]";
-		assertEquals(aretoaProba.toString(), txt);
-	}
+	/*-----EQUALS TEST-----*/
 	
 	@Test
 	public void aretoaEqualsTrueTest() {
@@ -43,15 +35,30 @@ public class AretoaTest {
 	}
 	
 	@Test
-	public void zinemaEqualsNullTest() {			
-		Aretoa aretoaNullProba = null;
-		assertFalse(aretoaProba.equals(aretoaNullProba));
+	public void aretoaEqualsNullTest() {			
+		Aretoa aretoaProbaNull = null;
+		assertFalse(aretoaProba.equals(aretoaProbaNull));
 	}
 	
 	@Test
-	public void zinemaEqualsDifClassTest() {			
-		String aretoaDifClassProba = "";
-		assertFalse(aretoaProba.equals(aretoaDifClassProba));
+	public void aretoaEqualsDifClassTest() {			
+		String aretoaProbaDifClass = "";
+		assertFalse(aretoaProba.equals(aretoaProbaDifClass));
 	}
 	
+	/*-----TOSTRING TEST-----*/
+	
+	@Test
+	public void aretoaToStringTest() {
+		String txt = "Aretoa [areto_izena=IzenaProba]";
+		assertEquals(aretoaProba.toString(), txt);
+	}
+	
+	/*-----GETTERS/SETTERS TEST-----*/
+	
+	@Test
+	public void aretoaIzenaSetGetTest() {
+		aretoaSetGetProba.setAreto_izena("AretoaIzenaProba");
+		assertEquals("AretoaIzenaProba", aretoaSetGetProba.getAreto_izena());
+	}	
 }

@@ -14,46 +14,17 @@ public class ZinemaTest {
 	
 	private static Aretoa[] aretoakProba;
 	private static Saioa[] saioakProba;
+	
 	private static Zinema zinemaProba;
 	private static Zinema zinemaSetGetProba;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		zinemaProba = new Zinema("IzenaProba","HelbideProba","TelProba", aretoakProba, saioakProba);
-		zinemaSetGetProba = new Zinema("IzenaProba","HelbideProba","TelProba", aretoakProba, saioakProba);
+		zinemaSetGetProba = new Zinema();
 	}
 	
-	@Test
-	public void zinemaIzenaGetSetTest() {
-		zinemaSetGetProba.setZinema_izena("ZinemaIzenaProba");
-		assertEquals("ZinemaIzenaProba", zinemaSetGetProba.getZinema_izena());
-	}
-	
-	@Test
-	public void zinemaHelbideaGetSetTest() {
-		zinemaSetGetProba.setZinema_helbidea("ZinemaHelbideaProba");
-		assertEquals("ZinemaHelbideaProba", zinemaSetGetProba.getZinema_helbidea());
-	}
-	
-	@Test
-	public void zinemaTelGetSetTest() {
-		zinemaSetGetProba.setZinema_telefonoa("ZinemaTelProba");
-		assertEquals("ZinemaTelProba", zinemaSetGetProba.getZinema_telefonoa());
-	}
-	
-	@Test
-	public void zinemaAretoaGetSetTest() {
-		Aretoa[] zinemaAretoaProba = new Aretoa[20];
-		zinemaSetGetProba.setZinema_aretoak(zinemaAretoaProba);
-		assertArrayEquals(zinemaAretoaProba, zinemaSetGetProba.getZinema_aretoak());
-	}
-	
-	@Test
-	public void zinemaSaioaGetSetTest() {
-		Saioa[] zinemaSaioaProba = new Saioa[20];
-		zinemaSetGetProba.setSaioak(zinemaSaioaProba);
-		assertArrayEquals(zinemaSaioaProba, zinemaSetGetProba.getSaioak());
-	}
+	/*-----EQUALS TEST-----*/
 	
 	@Test
 	public void zinemaEqualsTrueTest() {				
@@ -68,15 +39,17 @@ public class ZinemaTest {
 	
 	@Test
 	public void zinemaEqualsNullTest() {			
-		Zinema zinemaNullProba = null;
-		assertFalse(zinemaProba.equals(zinemaNullProba));
+		Zinema zinemaProbaNull = null;
+		assertFalse(zinemaProba.equals(zinemaProbaNull));
 	}
 	
 	@Test
 	public void zinemaEqualsDifClassTest() {			
-		String zinemaDifClassProba = "";
-		assertFalse(zinemaProba.equals(zinemaDifClassProba));
+		String zinemaProbaDifClass = "";
+		assertFalse(zinemaProba.equals(zinemaProbaDifClass));
 	}
+	
+	/*-----TOSTRING TEST-----*/
 	
 	@Test
 	public void zinemaToStringTest() {
@@ -85,5 +58,37 @@ public class ZinemaTest {
 		assertEquals(zinemaProba.toString(), txt);
 	}
 	
+	/*-----GETTERS/SETTERS TEST-----*/
 	
+	@Test
+	public void zinemaIzenaGetSetTest() {
+		zinemaSetGetProba.setZinema_izena("ZinemaIzenaProba");
+		assertEquals("ZinemaIzenaProba", zinemaSetGetProba.getZinema_izena());
+	}
+	
+	@Test
+	public void zinemaHelbideaGetSetTest() {
+		zinemaSetGetProba.setZinema_helbidea("ZinemaHelbideaProba");
+		assertEquals("ZinemaHelbideaProba", zinemaSetGetProba.getZinema_helbidea());
+	}
+	
+	@Test
+	public void zinemaTelefonoaGetSetTest() {
+		zinemaSetGetProba.setZinema_telefonoa("ZinemaTelefonoaProba");
+		assertEquals("ZinemaTelefonoaProba", zinemaSetGetProba.getZinema_telefonoa());
+	}
+	
+	@Test
+	public void zinemaAretoaGetSetTest() {
+		Aretoa[] zinemaAretoaProba = new Aretoa[20];
+		zinemaSetGetProba.setZinema_aretoak(zinemaAretoaProba);
+		assertArrayEquals(zinemaAretoaProba, zinemaSetGetProba.getZinema_aretoak());
+	}
+	
+	@Test
+	public void zinemaSaioaGetSetTest() {
+		Saioa[] zinemaSaioaProba = new Saioa[20];
+		zinemaSetGetProba.setSaioak(zinemaSaioaProba);
+		assertArrayEquals(zinemaSaioaProba, zinemaSetGetProba.getSaioak());
+	}	
 }

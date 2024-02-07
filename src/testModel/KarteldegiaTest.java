@@ -14,27 +14,22 @@ import model.Saioa;
 import model.Zinema;
 
 public class KarteldegiaTest {
+	private static Filma[] filmaListProba;
 	
 	private static Karteldegia karteldegiaProba;
 	private static Karteldegia karteldegiaSetGetProba;
-	private static Filma[] filmaProba;
-
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		karteldegiaProba = new Karteldegia(filmaProba);
-		karteldegiaSetGetProba = new Karteldegia(filmaProba);
+		karteldegiaProba = new Karteldegia(filmaListProba);
+		karteldegiaSetGetProba = new Karteldegia(filmaListProba);
 	}
 
-	@Test
-	public void karteldegiaFilmaListGetSetTest() {
-		Filma[] filmatest = new Filma[20];
-		karteldegiaSetGetProba.setFilmaList(filmatest);
-		assertArrayEquals(filmatest, karteldegiaSetGetProba.getFilmaList());
-	}
+	/*-----EQUALS TEST-----*/
 	
 	@Test
 	public void karteldegiaEqualsTrueTest() {				
-		Karteldegia karteldegiaProbaEquals = new Karteldegia(filmaProba);
+		Karteldegia karteldegiaProbaEquals = new Karteldegia(filmaListProba);
 		assertTrue(karteldegiaProba.equals(karteldegiaProbaEquals));
 	}
 	
@@ -45,21 +40,30 @@ public class KarteldegiaTest {
 	
 	@Test
 	public void karteldegiaEqualsNullTest() {			
-		Karteldegia karteldegiaNullProba = null;
-		assertFalse(karteldegiaProba.equals(karteldegiaNullProba));
+		Karteldegia karteldegiaProbaNull = null;
+		assertFalse(karteldegiaProba.equals(karteldegiaProbaNull));
 	}
 	
 	@Test
 	public void karteldegiaEqualsDifClassTest() {			
-		String karteldegiaDifClassProba = "";
-		assertFalse(karteldegiaProba.equals(karteldegiaDifClassProba));
+		String karteldegiaProbaDifClass = "";
+		assertFalse(karteldegiaProba.equals(karteldegiaProbaDifClass));
 	}
+	
+	/*-----TOSTRING TEST-----*/
 	
 	@Test
 	public void karteldegiaToStringTest() {
-		String txt = "Karteldegia [filmaList=" + Arrays.toString(filmaProba) + "]";
+		String txt = "Karteldegia [filmaList=" + Arrays.toString(filmaListProba) + "]";
 		assertEquals(karteldegiaProba.toString(), txt);
 	}
 	
-
+	/*-----GETTERS/SETTERS TEST-----*/
+	
+	@Test
+	public void karteldegiaFilmaListGetSetTest() {
+		Filma[] karteldegiaFilmaListProba = new Filma[20];
+		karteldegiaSetGetProba.setFilmaList(karteldegiaFilmaListProba);
+		assertArrayEquals(karteldegiaFilmaListProba, karteldegiaSetGetProba.getFilmaList());
+	}
 }

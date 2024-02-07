@@ -12,6 +12,7 @@ public class Bezeroa {
 	public Bezeroa() {
 		
 	}
+	
 	public Bezeroa(String bezeroa_NAN, String bezeroa_izena, String bezeroa_abizenak, String bezeroa_pasahitza,
 			char bezeroa_sexua) {
 		this.bezeroa_NAN = bezeroa_NAN;
@@ -19,6 +20,28 @@ public class Bezeroa {
 		this.bezeroa_abizenak = bezeroa_abizenak;
 		this.bezeroa_pasahitza = bezeroa_pasahitza;
 		this.bezeroa_sexua = bezeroa_sexua;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Bezeroa other = (Bezeroa) obj;
+		return Objects.equals(bezeroa_NAN, other.bezeroa_NAN)
+				&& Objects.equals(bezeroa_abizenak, other.bezeroa_abizenak)
+				&& Objects.equals(bezeroa_izena, other.bezeroa_izena)
+				&& Objects.equals(bezeroa_pasahitza, other.bezeroa_pasahitza) && bezeroa_sexua == other.bezeroa_sexua;
+	}
+	
+	@Override
+	public String toString() {
+		return "Bezeroa [bezeroa_NAN=" + bezeroa_NAN + ", bezeroa_izena=" + bezeroa_izena + ", bezeroa_abizenak="
+				+ bezeroa_abizenak + ", bezeroa_pasahitza=" + bezeroa_pasahitza + ", bezeroa_sexua=" + bezeroa_sexua
+				+ "]";
 	}
 	
 	public String getBezeroa_NAN() {
@@ -51,28 +74,4 @@ public class Bezeroa {
 	public void setBezeroa_sexua(char bezeroa_sexua) {
 		this.bezeroa_sexua = bezeroa_sexua;
 	}
-	
-	@Override
-	public String toString() {
-		return "Bezeroa [bezeroa_NAN=" + bezeroa_NAN + ", bezeroa_izena=" + bezeroa_izena + ", bezeroa_abizenak="
-				+ bezeroa_abizenak + ", bezeroa_pasahitza=" + bezeroa_pasahitza + ", bezeroa_sexua=" + bezeroa_sexua
-				+ "]";
-	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Bezeroa other = (Bezeroa) obj;
-		return Objects.equals(bezeroa_NAN, other.bezeroa_NAN)
-				&& Objects.equals(bezeroa_abizenak, other.bezeroa_abizenak)
-				&& Objects.equals(bezeroa_izena, other.bezeroa_izena)
-				&& Objects.equals(bezeroa_pasahitza, other.bezeroa_pasahitza) && bezeroa_sexua == other.bezeroa_sexua;
-	}
-
-	
 }

@@ -12,62 +12,77 @@ import model.Zinema;
 
 public class BezeroaTest {
 	
-	private static Bezeroa bezeroProba;
-	private static Bezeroa bezeroProbaSetGet;
+	private static Bezeroa bezeroaProba;
+	private static Bezeroa bezeroaSetGetProba;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		bezeroProba = new Bezeroa("12345678Z","izena","abizena", "1234", 'G');
-		bezeroProbaSetGet = new Bezeroa("12345678Z","izena","abizena", "1234", 'G');
+		bezeroaProba = new Bezeroa("12345678Z","IzenaProba","AbizenaProba", "PasahitzaProba", 'G');
+		bezeroaSetGetProba = new Bezeroa();
+	}
+	
+	/*-----EQUALS TEST-----*/
+	
+	@Test
+	public void bezeroaEqualsTrueTest() {				
+		Bezeroa bezeroaProbaEquals = new Bezeroa("12345678Z","IzenaProba","AbizenaProba", "PasahitzaProba", 'G');
+		assertTrue(bezeroaProba.equals(bezeroaProbaEquals));
 	}
 	
 	@Test
-	public void bezeroaNanGetSet() {
-		bezeroProbaSetGet.setBezeroa_NAN("87654321Z");
-		assertEquals(bezeroProbaSetGet.getBezeroa_NAN(),"87654321Z");
-	}
-	@Test
-	public void bezeroaIzenaGetSet() {
-		bezeroProbaSetGet.setBezeroa_izena("izena1");
-		assertEquals(bezeroProbaSetGet.getBezeroa_izena(),"izena1");
-	}
-	@Test
-	public void bezeroaAbizenaGetSet() {
-		bezeroProbaSetGet.setBezeroa_abizenak("abizena1");
-		assertEquals(bezeroProbaSetGet.getBezeroa_abizenak(),"abizena1");
-	}
-	@Test
-	public void bezeroaPasahitzaGetSet() {
-		bezeroProbaSetGet.setBezeroa_pasahitza("pwd");
-		assertEquals(bezeroProbaSetGet.getBezeroa_pasahitza(),"pwd");
-	}
-	@Test
-	public void bezeroaSexuaGetSet() {
-		bezeroProbaSetGet.setBezeroa_sexua('E');
-		assertEquals(bezeroProbaSetGet.getBezeroa_sexua(),'E');
-	}
-	@Test
-	public void bezeroaEqualsTrueTest() {				
-		Bezeroa bezeroaProbaEquals = new Bezeroa("12345678Z","izena","abizena", "1234", 'G');
-		assertTrue(bezeroProba.equals(bezeroaProbaEquals));
-	}
-	@Test
 	public void bezeroaEqualsPunteroTest() {	
-		assertTrue(bezeroProba.equals(bezeroProba));
+		assertTrue(bezeroaProba.equals(bezeroaProba));
 	}
+	
 	@Test
 	public void bezeroaEqualsNullTest() {			
-		Bezeroa bezeroaNullProba = null;
-		assertFalse(bezeroProba.equals(bezeroaNullProba));
+		Bezeroa bezeroaProbaNull = null;
+		assertFalse(bezeroaProba.equals(bezeroaProbaNull));
 	}
+	
 	@Test
 	public void bezeroaEqualsDifClassTest() {			
-		String bezeroaDifClassProba = "";
-		assertFalse(bezeroProba.equals(bezeroaDifClassProba));
+		String bezeroaProbaDifClass = "";
+		assertFalse(bezeroaProba.equals(bezeroaProbaDifClass));
 	}
+	
+	/*-----TOSTRING TEST-----*/
+	
 	@Test
-	public void zinemaToStringTest() {
-		String txt = "Bezeroa [bezeroa_NAN=12345678Z, bezeroa_izena=izena, bezeroa_abizenak=abizena, bezeroa_pasahitza=1234, bezeroa_sexua=G]";
-		assertEquals(bezeroProba.toString(), txt);
+	public void bezeroaToStringTest() {
+		String txt = "Bezeroa [bezeroa_NAN=12345678Z, bezeroa_izena=IzenaProba, bezeroa_abizenak=AbizenaProba, bezeroa_pasahitza=PasahitzaProba, bezeroa_sexua=G]";
+		assertEquals(bezeroaProba.toString(), txt);
 	}
+	
+	/*-----GETTERS/SETTERS TEST-----*/
+	
+	@Test
+	public void bezeroaNanGetSet() {
+		bezeroaSetGetProba.setBezeroa_NAN("87654321Z");
+		assertEquals(bezeroaSetGetProba.getBezeroa_NAN(),"87654321Z");
+	}
+	
+	@Test
+	public void bezeroaIzenaGetSet() {
+		bezeroaSetGetProba.setBezeroa_izena("IzenaProba");
+		assertEquals(bezeroaSetGetProba.getBezeroa_izena(),"IzenaProba");
+	}
+	
+	@Test
+	public void bezeroaAbizenaGetSet() {
+		bezeroaSetGetProba.setBezeroa_abizenak("AbizenaProba");
+		assertEquals(bezeroaSetGetProba.getBezeroa_abizenak(),"AbizenaProba");
+	}
+	
+	@Test
+	public void bezeroaPasahitzaGetSet() {
+		bezeroaSetGetProba.setBezeroa_pasahitza("PasahitzaProba");
+		assertEquals(bezeroaSetGetProba.getBezeroa_pasahitza(),"PasahitzaProba");
+	}
+	
+	@Test
+	public void bezeroaSexuaGetSet() {
+		bezeroaSetGetProba.setBezeroa_sexua('E');
+		assertEquals(bezeroaSetGetProba.getBezeroa_sexua(),'E');
+	}	
 }

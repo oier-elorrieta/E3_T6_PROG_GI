@@ -13,17 +13,58 @@ public class FilmaTest {
 	
 	private static Filma filmaProba;
 	private static Filma filmaSetGetProba;
-
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		filmaProba = new Filma("IzenaProba", 10, 7.5, "GeneroProba");
-		filmaSetGetProba = new Filma("IzenaProba", 10, 7.5, "GeneroProba");
+		filmaProba = new Filma("IzenaProba","GeneroProba", 10, 7.5);
+		filmaSetGetProba = new Filma();
 	}
+	
+	/*-----EQUALS TEST-----*/
+	
+	@Test
+	public void filmaEqualsTrueTest() {				
+		Filma filmaProbaEquals = new Filma("IzenaProba","GeneroProba", 10, 7.5);
+		assertTrue(filmaProba.equals(filmaProbaEquals));
+	}
+	
+	@Test
+	public void filmaEqualsPunteroTest() {	
+		assertTrue(filmaProba.equals(filmaProba));
+	}
+	
+	@Test
+	public void filmaEqualsNullTest() {			
+		Zinema filmaProbaNull = null;
+		assertFalse(filmaProba.equals(filmaProbaNull));
+	}
+	
+	@Test
+	public void filmaEqualsDifClassTest() {			
+		String filmaProbaDifClass = "";
+		assertFalse(filmaProba.equals(filmaProbaDifClass));
+	}
+	
+	/*-----TOSTRING TEST-----*/
+	
+	@Test
+	public void filmaToStringTest() {
+		String txt = "Filma [filma_izena=IzenaProba, filma_generoa=GeneroProba, filma_iraupena=10, filma_prezioa=7.5]";
+		assertEquals(filmaProba.toString(), txt);
+	}
+	
+	/*-----GETTERS/SETTERS TEST-----*/
 	
 	@Test
 	public void filmaIzenaTest() {
 		filmaSetGetProba.setFilma_izena("FilmaIzenaProba");
 		assertEquals("FilmaIzenaProba", filmaSetGetProba.getFilma_izena());
+	}
+	
+	@Test
+	public void filmaGeneroTest() {
+		filmaSetGetProba.setFilma_generoa("FilmaGeneroProba");
+		assertEquals("FilmaGeneroProba", filmaSetGetProba.getFilma_generoa());
 	}
 	
 	@Test
@@ -36,40 +77,5 @@ public class FilmaTest {
 	public void filmaPrezoaTest() {
 		filmaSetGetProba.setFilma_prezioa(3.5);
 		assertEquals(3.5, filmaSetGetProba.getFilma_prezioa(),0);
-	}
-	
-	@Test
-	public void filmaGeneroTest() {
-		filmaSetGetProba.setFilma_generoa("FilmaGeneroProba");
-		assertEquals("FilmaGeneroProba", filmaSetGetProba.getFilma_generoa());
-	}
-	
-	@Test
-	public void filmaToStringTest() {
-		String txt = "Filma [filma_izena=IzenaProba, filma_iraupena=10, filma_prezioa=7.5, filma_generoa=GeneroProba]";
-		assertEquals(filmaProba.toString(), txt);
-	}
-	
-	@Test
-	public void filmaEqualsTrueTest() {				
-		Filma filmaProbaEquals = new Filma("IzenaProba", 10, 7.5, "GeneroProba");
-		assertTrue(filmaProba.equals(filmaProbaEquals));
-	}
-	
-	@Test
-	public void filmaEqualsPunteroTest() {	
-		assertTrue(filmaProba.equals(filmaProba));
-	}
-	
-	@Test
-	public void filmaEqualsNullTest() {			
-		Zinema filmaNullProba = null;
-		assertFalse(filmaProba.equals(filmaNullProba));
-	}
-	
-	@Test
-	public void filmaEqualsDifClassTest() {			
-		String filmaDifClassProba = "";
-		assertFalse(filmaProba.equals(filmaDifClassProba));
-	}
+	}	
 }
