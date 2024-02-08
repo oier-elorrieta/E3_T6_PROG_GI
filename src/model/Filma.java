@@ -7,18 +7,16 @@ public class Filma {
 	private String filma_izena;
 	private String filma_generoa;
 	private int filma_iraupena;
-	private double filma_prezioa;
 	
 	// KONSTRUKTOREAK
 	public Filma() {
 		
 	}
 	
-	public Filma(String filma_izena, String filma_generoa, int filma_iraupena, double filma_prezioa) {
+	public Filma(String filma_izena, String filma_generoa, int filma_iraupena) {
 		this.filma_izena = filma_izena;
 		this.filma_generoa = filma_generoa;
 		this.filma_iraupena = filma_iraupena;
-		this.filma_prezioa = filma_prezioa;
 	}
 	
 	// EQUALS
@@ -32,15 +30,14 @@ public class Filma {
 			return false;
 		Filma other = (Filma) obj;
 		return Objects.equals(filma_generoa, other.filma_generoa) && filma_iraupena == other.filma_iraupena
-				&& Objects.equals(filma_izena, other.filma_izena)
-				&& Double.doubleToLongBits(filma_prezioa) == Double.doubleToLongBits(other.filma_prezioa);
+				&& Objects.equals(filma_izena, other.filma_izena);
 	}
 	
 	// TOSTRING
 	@Override
 	public String toString() {
 		return "Filma [filma_izena=" + filma_izena + ", filma_generoa=" + filma_generoa + ", filma_iraupena="
-				+ filma_iraupena + ", filma_prezioa=" + filma_prezioa + "]";
+				+ filma_iraupena + "]";
 	}
 
 	// GETTERS & SETTERS
@@ -62,10 +59,4 @@ public class Filma {
 	public void setFilma_iraupena(int filma_iraupena) {
 		this.filma_iraupena = filma_iraupena;
 	}
-	public double getFilma_prezioa() {
-		return filma_prezioa;
-	}
-	public void setFilma_prezioa(double filma_prezioa) {
-		this.filma_prezioa = filma_prezioa;
-	}	
 }
