@@ -178,13 +178,13 @@ public class Erregistroa extends JFrame {
 					.addComponent(btnErregistratu))
 		);
 		
-		JLabel lblEloFilms_image = new JLabel("ELORRIETAFILMS");
+		JLabel lblEloFilms_image = new JLabel("");
+		//lblEloFilms_image.setIcon(new ImageIcon(Erregistroa.class.getResource("/images/aretoa.png")));
 		lblEloFilms_image.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEloFilms_image.setIcon(new ImageIcon("C:\\Users\\in1dm3-d\\eclipse-workspace\\E3_T6_PROG_GI\\src\\images\\zinema_aretoa.jpg"));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addComponent(lblEloFilms_image, GroupLayout.PREFERRED_SIZE, 438, Short.MAX_VALUE)
+				.addComponent(lblEloFilms_image, GroupLayout.PREFERRED_SIZE, 438, GroupLayout.PREFERRED_SIZE)
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
