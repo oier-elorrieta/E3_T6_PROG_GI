@@ -5,20 +5,20 @@ import java.util.Objects;
 
 public class Ticket {
 	// ALDAGAIAK
-	private ArrayList<Saioa> saioa = new ArrayList<Saioa>();
-	private ArrayList<Integer> pertsonaKantitatea = new ArrayList<Integer>();
+	private ArrayList<Sarrera> SarreraLista = new ArrayList<Sarrera>();
 	private double ticket_prezioa;
 	private Bezeroa bezeroa;
 
 	// KONSTRUKTOREA
-	public Ticket(ArrayList<Saioa> saioa, ArrayList<Integer> pertsonaKantitatea, double ticket_prezioa, Bezeroa bezeroa) {
-		this.saioa = saioa;
-		this.pertsonaKantitatea = pertsonaKantitatea;
+	
+	public Ticket(ArrayList<Sarrera> sarreraLista, double ticket_prezioa, Bezeroa bezeroa) {
+		SarreraLista = sarreraLista;
 		this.ticket_prezioa = ticket_prezioa;
 		this.bezeroa = bezeroa;
 	}
 	
 	// EQUALS
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -28,40 +28,41 @@ public class Ticket {
 		if (getClass() != obj.getClass())
 			return false;
 		Ticket other = (Ticket) obj;
-		return Objects.equals(bezeroa, other.bezeroa) && Objects.equals(pertsonaKantitatea, other.pertsonaKantitatea)
-				&& Objects.equals(saioa, other.saioa)
+		return Objects.equals(SarreraLista, other.SarreraLista) && Objects.equals(bezeroa, other.bezeroa)
 				&& Double.doubleToLongBits(ticket_prezioa) == Double.doubleToLongBits(other.ticket_prezioa);
 	}
 	
 	// TOSTRING
+	
 	@Override
 	public String toString() {
-		return "Ticket [saioa=" + saioa + ", pertsonaKantitatea=" + pertsonaKantitatea + ", ticket_prezioa="
-				+ ticket_prezioa + ", bezeroa=" + bezeroa + "]";
+		return "Ticket [SarreraLista=" + SarreraLista + ", ticket_prezioa=" + ticket_prezioa + ", bezeroa=" + bezeroa
+				+ "]";
 	}
 
 	// GETTERS & SETTERS
-	public ArrayList<Saioa> getSaioa() {
-		return saioa;
+	
+
+	public ArrayList<Sarrera> getSarreraLista() {
+		return SarreraLista;
 	}
-	public void setSaioa(ArrayList<Saioa> saioa) {
-		this.saioa = saioa;
+
+	public void setSarreraLista(ArrayList<Sarrera> sarreraLista) {
+		SarreraLista = sarreraLista;
 	}
-	public ArrayList<Integer> getPertsonaKantitatea() {
-		return pertsonaKantitatea;
-	}
-	public void setPertsonaKantitatea(ArrayList<Integer> pertsonaKantitatea) {
-		this.pertsonaKantitatea = pertsonaKantitatea;
-	}
+
 	public double getTicket_prezioa() {
 		return ticket_prezioa;
 	}
+
 	public void setTicket_prezioa(double ticket_prezioa) {
 		this.ticket_prezioa = ticket_prezioa;
 	}
+
 	public Bezeroa getBezeroa() {
 		return bezeroa;
 	}
+
 	public void setBezeroa(Bezeroa bezeroa) {
 		this.bezeroa = bezeroa;
 	}
