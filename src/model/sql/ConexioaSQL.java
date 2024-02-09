@@ -2,6 +2,9 @@ package model.sql;
 
 import java.sql.*;
 
+import model.Filma;
+import model.Karteldegia;
+
 public class ConexioaSQL {
 
 	public static void conexioaIrekiEtaItxi() {
@@ -12,9 +15,18 @@ public class ConexioaSQL {
 			String user = "root";
 			String pass = "";
 			
-			Connection conexion = DriverManager.getConnection(url, user, pass);
+			Connection conexioa = DriverManager.getConnection(url, user, pass);
 			
-			conexion.close();
+			Statement sentencia = conexioa.createStatement();
+			
+			KontsultakSQL.sql_zenbatu(conexioa, sentencia);
+			KontsultakSQL.sql_karteldegia_filmak(conexioa, sentencia);
+			KontsultakSQL.sql_bezeroak(conexioa, sentencia);
+			KontsultakSQL.sql_saioak(conexioa, sentencia);
+			
+			sentencia.close();
+			conexioa.close();
+			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {	

@@ -2,10 +2,16 @@ package model;
 
 import java.util.Arrays;
 
+import model.sql.KontsultakSQL;
+
 public class Karteldegia {
 	// ALDAGAIAK
-	public Filma[] filmaList = new Filma[20];
+	private Filma[] filmaList = new Filma[KontsultakSQL.kont_filmak];
 
+	public Karteldegia() {
+		
+	}
+	
 	public Karteldegia(Filma[] filmaList) {
 		this.filmaList = filmaList;
 	}
@@ -30,6 +36,8 @@ public class Karteldegia {
 	}
 	
 	// GETTERS & SETTERS
+	
+	
 	public Filma[] getFilmaList() {
 		return filmaList;
 	}

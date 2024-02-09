@@ -3,13 +3,15 @@ package model;
 import java.util.Arrays;
 import java.util.Objects;
 
+import model.sql.KontsultakSQL;
+
 public class Zinema {
 	// ALDAGAIAK
 	private String zinema_izena;
 	private String zinema_helbidea;
 	private int zinema_telefonoa;
-	private Aretoa[] zinema_aretoak = new Aretoa[20];
-	private Saioa[] saioak = new Saioa[100];
+	private Aretoa[] zinema_aretoak = new Aretoa[KontsultakSQL.kont_aretoak];
+	private Saioa[] saioak = new Saioa[KontsultakSQL.kont_saioak];
 	
 	// KONSTRUKTOREAK
 	public Zinema() {
