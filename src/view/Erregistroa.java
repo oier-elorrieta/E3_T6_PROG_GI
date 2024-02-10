@@ -59,7 +59,7 @@ public class Erregistroa extends JFrame {
 	public Erregistroa() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(400, 250, 680, 655);
+		setBounds(400, 250, 1182, 683);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -87,24 +87,32 @@ public class Erregistroa extends JFrame {
 		lblSexua.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
 		
 		txtIzena = new JTextField();
+		txtIzena.setToolTipText("Sartu izen bat...");
 		txtIzena.setColumns(10);
 		txtIzena.setBorder(new LineBorder(Color.GRAY, 1, true));
 		
 		txtAbizenak = new JTextField();
+		txtAbizenak.setToolTipText("Sartu abizenak...");
 		txtAbizenak.setColumns(10);
 		txtAbizenak.setBorder(new LineBorder(Color.GRAY, 1, true));
 		
 		txtNAN = new JTextField();
+		txtNAN.setToolTipText("Sartu NAN bat...");
 		txtNAN.setColumns(10);
+		txtNAN.setBorder(new LineBorder(Color.GRAY, 1, true));
 		
 		passwordField = new JPasswordField();
+		passwordField.setToolTipText("Sartu pasahitza...");
+		passwordField.setBorder(new LineBorder(Color.GRAY, 1, true));
 		
 		JRadioButton rdbtnGizona = new JRadioButton("Gizona");
+		rdbtnGizona.setToolTipText("Gizona");
 		rdbtnGizona.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		rdbtnGizona.setForeground(Color.BLACK);
 		rdbtnGizona.setBackground(Color.WHITE);
 		
 		JRadioButton rdbtnEmakumea = new JRadioButton("Emakumea");
+		rdbtnEmakumea.setToolTipText("Emakumea");
 		rdbtnEmakumea.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		rdbtnEmakumea.setForeground(Color.BLACK);
 		rdbtnEmakumea.setBackground(Color.WHITE);
@@ -117,6 +125,9 @@ public class Erregistroa extends JFrame {
 		lblPasahitza_1.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
 		
 		passwordField_errepikatu = new JPasswordField();
+		passwordField_errepikatu.setToolTipText("Sartu pasahitza berriz...");
+		passwordField_errepikatu.setBorder(new LineBorder(Color.GRAY, 1, true));
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

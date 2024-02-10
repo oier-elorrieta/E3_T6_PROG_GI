@@ -12,15 +12,16 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JProgressBar;
 import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import javax.swing.BoxLayout;
 
 public class Hasiera extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -39,34 +40,35 @@ public class Hasiera extends JFrame {
 	 */
 	public Hasiera() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(400, 250, 954, 634);
+		setBounds(400, 250, 1182, 683);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		
 		JLabel lblOngiEtorri = new JLabel("ONGI ETORRI ELORRIETA FILMS-ERA!");
-		lblOngiEtorri.setBounds(0, 99, 938, 41);
+		lblOngiEtorri.setForeground(Color.BLACK);
 		lblOngiEtorri.setHorizontalAlignment(SwingConstants.CENTER);
-		lblOngiEtorri.setFont(new Font("Unispace", Font.PLAIN, 40));
-		
-		JLabel lblPelikulapp = new JLabel("PELIKULAPP · TALDE 6");
-		lblPelikulapp.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPelikulapp.setBounds(0, 173, 938, 35);
-		lblPelikulapp.setFont(new Font("Trebuchet MS", Font.PLAIN, 29));
+		lblOngiEtorri.setBounds(0, 90, 1165, 61);
+		lblOngiEtorri.setFont(new Font("Segoe UI Historic", Font.PLAIN, 45));
 		contentPane.setLayout(null);
+		
+		JLabel lblPrograma = new JLabel("PELIKULAPP · TALDE 6");
+		lblPrograma.setForeground(Color.BLACK);
+		lblPrograma.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPrograma.setBounds(0, 290, 1165, 36);
+		lblPrograma.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
+		contentPane.add(lblPrograma);
 		contentPane.add(lblOngiEtorri);
-		contentPane.add(lblPelikulapp);
 		
 		JLabel lblKlik = new JLabel("Klik egin pantailan programa hasteko...");
-		lblKlik.setHorizontalAlignment(SwingConstants.CENTER);
-		lblKlik.setFont(new Font("Trebuchet MS", Font.PLAIN, 29));
-		lblKlik.setBounds(0, 336, 938, 35);
+		lblKlik.setForeground(Color.BLACK);
+		lblKlik.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 28));
+		lblKlik.setBounds(336, 380, 498, 38);
 		contentPane.add(lblKlik);
 		
 		JProgressBar progressBar = new JProgressBar();
-		progressBar.setForeground(Color.GREEN);
-		progressBar.setBounds(10, 408, 918, 20);
+		progressBar.setBounds(8, 450, 1150, 14);
 		contentPane.add(progressBar);
 	}
 }

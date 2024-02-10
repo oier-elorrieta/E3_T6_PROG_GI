@@ -29,9 +29,9 @@ public class KontsultakSQL {
 	private static Saioa[] saioaList;
 	private static Zinema[] zinemaList;
 
-	private static FilmaKudeatzailea karteldegiaSortuta;
-	private static BezeroKudeatzailea bezeroaKudeatzailea;
-	private static ZinemaKudeatzailea zinemaKudeatzailea;
+	public static FilmaKudeatzailea karteldegiaSortuta;
+	public static BezeroKudeatzailea bezeroaKudeatzailea;
+	public static ZinemaKudeatzailea zinemaKudeatzailea;
 
 	public static void sql_zenbatu(Connection konexioa, Statement statement) throws SQLException {
 		kontsulta = "SELECT count(*) c FROM filma";
