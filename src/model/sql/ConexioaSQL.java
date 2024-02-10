@@ -3,7 +3,7 @@ package model.sql;
 import java.sql.*;
 
 import model.Filma;
-import model.Karteldegia;
+import model.FilmaKudeatzailea;
 
 public class ConexioaSQL {
 
@@ -22,7 +22,7 @@ public class ConexioaSQL {
 			KontsultakSQL.sql_zenbatu(conexioa, sentencia);
 			KontsultakSQL.sql_karteldegia_filmak(conexioa, sentencia);
 			KontsultakSQL.sql_bezeroak(conexioa, sentencia);
-			KontsultakSQL.sql_saioak(conexioa, sentencia);
+			KontsultakSQL.sql_zinemak(conexioa, sentencia);
 			
 			sentencia.close();
 			conexioa.close();

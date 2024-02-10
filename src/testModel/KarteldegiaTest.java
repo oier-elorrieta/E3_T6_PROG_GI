@@ -9,27 +9,27 @@ import org.junit.Test;
 
 import model.Aretoa;
 import model.Filma;
-import model.Karteldegia;
+import model.FilmaKudeatzailea;
 import model.Saioa;
 import model.Zinema;
 
 public class KarteldegiaTest {
 	private static Filma[] filmaListProba;
 	
-	private static Karteldegia karteldegiaProba;
-	private static Karteldegia karteldegiaSetGetProba;
+	private static FilmaKudeatzailea karteldegiaProba;
+	private static FilmaKudeatzailea karteldegiaSetGetProba;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		karteldegiaProba = new Karteldegia(filmaListProba);
-		karteldegiaSetGetProba = new Karteldegia(filmaListProba);
+		karteldegiaProba = new FilmaKudeatzailea(filmaListProba);
+		karteldegiaSetGetProba = new FilmaKudeatzailea(filmaListProba);
 	}
 
 	/*-----EQUALS TEST-----*/
 	
 	@Test
 	public void karteldegiaEqualsTrueTest() {				
-		Karteldegia karteldegiaProbaEquals = new Karteldegia(filmaListProba);
+		FilmaKudeatzailea karteldegiaProbaEquals = new FilmaKudeatzailea(filmaListProba);
 		assertTrue(karteldegiaProba.equals(karteldegiaProbaEquals));
 	}
 	
@@ -40,7 +40,7 @@ public class KarteldegiaTest {
 	
 	@Test
 	public void karteldegiaEqualsNullTest() {			
-		Karteldegia karteldegiaProbaNull = null;
+		FilmaKudeatzailea karteldegiaProbaNull = null;
 		assertFalse(karteldegiaProba.equals(karteldegiaProbaNull));
 	}
 	

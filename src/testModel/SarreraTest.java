@@ -39,7 +39,7 @@ public class SarreraTest {
 	
 	@Test
 	public void sarreraEqualsNullTest() {			
-		Ticket sarreraProbaNull = null;
+		SarreraKudeatzailea sarreraProbaNull = null;
 		assertFalse(sarreraProba.equals(sarreraProbaNull));
 	}
 	

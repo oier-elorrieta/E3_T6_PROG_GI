@@ -4,15 +4,15 @@ import java.util.Arrays;
 
 import model.sql.KontsultakSQL;
 
-public class Karteldegia {
+public class FilmaKudeatzailea {
 	// ALDAGAIAK
 	private Filma[] filmaList = new Filma[KontsultakSQL.kont_filmak];
 
-	public Karteldegia() {
+	public FilmaKudeatzailea() {
 		
 	}
 	
-	public Karteldegia(Filma[] filmaList) {
+	public FilmaKudeatzailea(Filma[] filmaList) {
 		this.filmaList = filmaList;
 	}
 
@@ -25,7 +25,7 @@ public class Karteldegia {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Karteldegia other = (Karteldegia) obj;
+		FilmaKudeatzailea other = (FilmaKudeatzailea) obj;
 		return Arrays.equals(filmaList, other.filmaList);
 	}
 	

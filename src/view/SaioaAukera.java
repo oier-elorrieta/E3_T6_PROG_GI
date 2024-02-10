@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import model.Karteldegia;
+import model.FilmaKudeatzailea;
 
 public class SaioaAukera extends JFrame {
 

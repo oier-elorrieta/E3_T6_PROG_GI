@@ -16,23 +16,23 @@ public class TicketTest {
 	private static ArrayList<Sarrera> sarreraListaProba;
 	private static Bezeroa bezeroaProba;
 	
-	private static Ticket ticketProba;
-	private static Ticket ticketSetGetProba;
+	private static SarreraKudeatzailea ticketProba;
+	private static SarreraKudeatzailea ticketSetGetProba;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		sarreraListaProba = new ArrayList<Sarrera>();
 		bezeroaProba = new Bezeroa();
 		
-		ticketProba = new Ticket(sarreraListaProba, 7.75, bezeroaProba);
-		ticketSetGetProba = new Ticket(sarreraListaProba, 7.75, bezeroaProba);
+		ticketProba = new SarreraKudeatzailea(sarreraListaProba, 7.75, bezeroaProba);
+		ticketSetGetProba = new SarreraKudeatzailea(sarreraListaProba, 7.75, bezeroaProba);
 	}
 
 	/*-----EQUALS TEST-----*/
 	
 	@Test
 	public void ticketEqualsTrueTest() {				
-		Ticket ticketProbaEquals = new Ticket(sarreraListaProba, 7.75, bezeroaProba);
+		SarreraKudeatzailea ticketProbaEquals = new SarreraKudeatzailea(sarreraListaProba, 7.75, bezeroaProba);
 		assertTrue(ticketProba.equals(ticketProbaEquals));
 	}
 	
@@ -43,7 +43,7 @@ public class TicketTest {
 	
 	@Test
 	public void ticketEqualsNullTest() {			
-		Ticket ticketProbaNull = null;
+		SarreraKudeatzailea ticketProbaNull = null;
 		assertFalse(ticketProba.equals(ticketProbaNull));
 	}
 	

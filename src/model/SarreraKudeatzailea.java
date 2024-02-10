@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Ticket {
+public class SarreraKudeatzailea {
 	// ALDAGAIAK
 	private ArrayList<Sarrera> SarreraLista = new ArrayList<Sarrera>();
 	private double ticket_prezioa;
@@ -11,7 +11,7 @@ public class Ticket {
 
 	// KONSTRUKTOREA
 	
-	public Ticket(ArrayList<Sarrera> sarreraLista, double ticket_prezioa, Bezeroa bezeroa) {
+	public SarreraKudeatzailea(ArrayList<Sarrera> sarreraLista, double ticket_prezioa, Bezeroa bezeroa) {
 		SarreraLista = sarreraLista;
 		this.ticket_prezioa = ticket_prezioa;
 		this.bezeroa = bezeroa;
@@ -27,7 +27,7 @@ public class Ticket {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Ticket other = (Ticket) obj;
+		SarreraKudeatzailea other = (SarreraKudeatzailea) obj;
 		return Objects.equals(SarreraLista, other.SarreraLista) && Objects.equals(bezeroa, other.bezeroa)
 				&& Double.doubleToLongBits(ticket_prezioa) == Double.doubleToLongBits(other.ticket_prezioa);
 	}
