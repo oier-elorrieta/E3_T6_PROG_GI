@@ -96,62 +96,13 @@ public class KontsultakSQL {
 	public static void sql_zinemak(Connection konexioa, Statement statement) throws SQLException {
 		zinemaList = new Zinema[kont_zinemak];
 		Aretoa[] aretoaAuxList;
-		Saioa[] saioaAuxList;
-		String aux;
-		int kont_sql = 0;
-		int posAreto = 0;
-		int posFilma = 0;
-		int kont = 0;
+		Saioa[] saioaAuxList;		
 
 		for (int i = 1; i <= kont_zinemak; i++) {
-			// ARETOS
-			kontsulta = "SELECT count(*) c from aretoa where id_zinema = " + i;
-			emaitza = statement.executeQuery(kontsulta);
-			while (emaitza.next()) {
-				kont_sql = emaitza.getInt("c");
-			}
-
-			aretoaAuxList = new Aretoa[kont_sql];
-
-			kontsulta = "SELECT izena from aretoa where id_zinema = " + i;
-			emaitza = statement.executeQuery(kontsulta);
-			while (emaitza.next()) {
-				Aretoa aretoaSortuta = new Aretoa(emaitza.getString("izena"));
-				aretoaAuxList[kont] = aretoaSortuta;
-				kont++;
-			}
-
-			kont = 0;
-			// SAIOS
-			kontsulta = "SELECT count(*) c FROM zinema z join aretoa a on z.ID_zinema = a.ID_zinema join saioa s on s.id_aretoa = a.ID_aretoa	join filma f on s.id_filma = f.id_filma where a.ID_zinema = "
-					+ i;
-			emaitza = statement.executeQuery(kontsulta);
-			while (emaitza.next()) {
-				kont_sql = emaitza.getInt("c");
-			}
-
-			saioaAuxList = new Saioa[kont_sql];
-
-			kontsulta = "SELECT s.saioa_data, a.izena, f.izena, prezioa, z.ID_zinema FROM zinema z join aretoa a on z.ID_zinema = a.ID_zinema join saioa s on s.id_aretoa = a.ID_aretoa	join filma f on s.id_filma = f.id_filma where a.ID_zinema = "
-					+ i;
-			while (emaitza.next()) {
-				aux = emaitza.getString("a.izena");
-				for (int j = 0; j < kont_aretoak; j++) {
-					if (aretoaAuxList[j].getAreto_izena().equals(aux)) {
-						posAreto = j;
-					}
-				}
-				aux = emaitza.getString("f.izena");
-				for (int j = 0; j < kont_filmak; j++) {
-					if (filmaList[j].getFilma_izena().equals(aux)) {
-						posFilma = j;
-					}
-				}
-				Saioa saioaSortuta = new Saioa(emaitza.getDate("s.saioa_data"), aretoaAuxList[posAreto],
-						filmaList[posFilma], emaitza.getDouble("prezioa"));
-				saioaAuxList[kont] = saioaSortuta;
-				kont++;
-			}
+			
+			aretoaAuxList = sql_aretoak(konexioa, statement, i);
+			saioaAuxList = sql_saioak(konexioa, statement, aretoaAuxList, i);
+			
 			kontsulta = "SELECT izena, helbidea, telefonoa from zinema where id_zinema = " + i;
 			emaitza = statement.executeQuery(kontsulta);
 			while (emaitza.next()) {
@@ -162,4 +113,62 @@ public class KontsultakSQL {
 		}
 		zinemaKudeatzailea = new ZinemaKudeatzailea(zinemaList);
 	}
+	
+	public static Aretoa[] sql_aretoak(Connection konexioa, Statement statement, int i) throws SQLException {	
+		Aretoa[] aretoaAuxList;
+		int kont_sql = 0;
+		
+		
+		kontsulta = "SELECT count(*) c from aretoa where id_zinema = " + i;
+		emaitza = statement.executeQuery(kontsulta);
+		while (emaitza.next()) {
+			kont_sql = emaitza.getInt("c");
+		}
+
+		aretoaAuxList = new Aretoa[kont_sql];
+		
+		return aretoaAuxList;
+	}
+	
+	public static Saioa[] sql_saioak(Connection konexioa, Statement statement,Aretoa[] aretoaAuxList,int i) throws SQLException {
+	Saioa[] saioaAuxList;
+	int kont_sql = 0;
+	int posAreto = 0;
+	int posFilma = 0;
+	int kont = 0;
+	String aux;
+	
+	kontsulta = "SELECT count(*) c FROM zinema z join aretoa a on z.ID_zinema = a.ID_zinema join saioa s on s.id_aretoa = a.ID_aretoa	join filma f on s.id_filma = f.id_filma where a.ID_zinema = "
+			+ i;
+	emaitza = statement.executeQuery(kontsulta);
+	while (emaitza.next()) {
+		kont_sql = emaitza.getInt("c");
+	}
+
+	saioaAuxList = new Saioa[kont_sql];
+	
+	kontsulta = "SELECT s.saioa_data, a.izena, f.izena, prezioa, z.ID_zinema FROM zinema z join aretoa a on z.ID_zinema = a.ID_zinema join saioa s on s.id_aretoa = a.ID_aretoa	join filma f on s.id_filma = f.id_filma where a.ID_zinema = "
+			+ i;
+	while (emaitza.next()) {
+		aux = emaitza.getString("a.izena");
+		for (int j = 0; j < kont_aretoak; j++) {
+			if (aretoaAuxList[j].getAreto_izena().equals(aux)) {
+				posAreto = j;
+			}
+		}
+		aux = emaitza.getString("f.izena");
+		for (int j = 0; j < kont_filmak; j++) {
+			if (filmaList[j].getFilma_izena().equals(aux)) {
+				posFilma = j;
+			}
+		}
+		Saioa saioaSortuta = new Saioa(emaitza.getDate("s.saioa_data"), aretoaAuxList[posAreto],
+				filmaList[posFilma], emaitza.getDouble("prezioa"));
+		saioaAuxList[kont] = saioaSortuta;
+		kont++;
+	}
+	
+	return saioaAuxList;
+	}
 }
+
