@@ -5,6 +5,8 @@ import java.awt.Font;
 import javax.swing.*;
 import javax.swing.border.*;
 
+import controller.APP;
+
 import java.awt.Color;
 
 public class View_metodoak {
