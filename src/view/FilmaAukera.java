@@ -2,6 +2,7 @@ package view;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.GraphicsConfiguration;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;

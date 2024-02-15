@@ -14,10 +14,11 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Arrays;
 
 public class ZinemaAukera extends JFrame {
-	
 	private static final long serialVersionUID = 1L;
+	public static final Zinema[] zinemaAux = KontsultakSQL.zinemaKudeatzailea.getZinemaList(); 
 	private JPanel contentPane;
 
 	/**
@@ -68,8 +69,6 @@ public class ZinemaAukera extends JFrame {
 		
 		ButtonGroup bg = new ButtonGroup();
 		
-		Zinema[] zinemaAux = new Zinema[KontsultakSQL.kont_zinemak];
-		zinemaAux = KontsultakSQL.zinemaKudeatzailea.getZinemaList();
 		int bound = 100;
 		
 		
@@ -94,8 +93,10 @@ public class ZinemaAukera extends JFrame {
 		btnJarraitu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int aukera= 0;
+				int aukera = 0;
 				aukera = Integer.parseInt(bg.getSelection().getActionCommand());
+				Zinema zinemaAukera = zinemaAux[aukera];
+				
 				
 				dispose();
 				FilmaAukera filmaAukera = new FilmaAukera();
