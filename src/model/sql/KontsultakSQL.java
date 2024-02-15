@@ -22,6 +22,8 @@ public class KontsultakSQL {
 	public static int kont_saioak;
 	public static int kont_aretoak;
 	public static int kont_zinemak;
+	
+	public static Zinema zinemaAukera;
 
 	private static Filma[] filmaList;
 	private static ArrayList<Bezeroa> bezeroaList;

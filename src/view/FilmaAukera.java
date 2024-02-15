@@ -41,6 +41,7 @@ public class FilmaAukera extends JFrame {
 	 * Create the frame.
 	 */
 	public FilmaAukera() {
+		System.out.println();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(400, 250, 1182, 683);
 		contentPane = new JPanel();

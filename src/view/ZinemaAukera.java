@@ -69,12 +69,13 @@ public class ZinemaAukera extends JFrame {
 		ButtonGroup bg = new ButtonGroup();
 		
 		Zinema[] zinemaAux = new Zinema[KontsultakSQL.kont_zinemak];
-		
 		zinemaAux = KontsultakSQL.zinemaKudeatzailea.getZinemaList();
 		int bound = 100;
 		
+		
 		for (int i = 0; i < KontsultakSQL.kont_zinemak; i++) {
 			JRadioButton rdbtnZinema = new JRadioButton(zinemaAux[i].getZinema_izena());
+			rdbtnZinema.setActionCommand(String.valueOf(i));
 			rdbtnZinema.setBounds(bound, 300 , 200, 54);
 			rdbtnZinema.setHorizontalAlignment(SwingConstants.CENTER);
 			rdbtnZinema.setFont(new Font("Segoe UI", Font.PLAIN, 14));
@@ -93,6 +94,9 @@ public class ZinemaAukera extends JFrame {
 		btnJarraitu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				int aukera= 0;
+				aukera = Integer.parseInt(bg.getSelection().getActionCommand());
+				KontsultakSQL.zinemaAukera = zinemaAux[];
 				dispose();
 				FilmaAukera filmaAukera = new FilmaAukera();
 				filmaAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
