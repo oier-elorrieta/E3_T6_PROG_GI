@@ -96,7 +96,7 @@ public class ZinemaAukera extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				int aukera= 0;
 				aukera = Integer.parseInt(bg.getSelection().getActionCommand());
-				KontsultakSQL.zinemaAukera = zinemaAux[];
+				
 				dispose();
 				FilmaAukera filmaAukera = new FilmaAukera();
 				filmaAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);

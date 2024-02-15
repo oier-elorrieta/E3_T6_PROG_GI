@@ -11,7 +11,7 @@ public class ConexioaSQL {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
-			String url = "jdbc:mysql://localhost:3307/e3_t6_prog_gi";
+			String url = "jdbc:mysql://localhost:3306/e3_t6_prog_gi";
 			String user = "root";
 			String pass = "";
 			
