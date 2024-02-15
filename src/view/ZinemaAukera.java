@@ -2,8 +2,6 @@ package view;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controller.APP;
@@ -11,8 +9,6 @@ import model.*;
 import model.metodoak.*;
 import model.sql.*;
 
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.*;
 import javax.swing.*;
@@ -79,7 +75,7 @@ public class ZinemaAukera extends JFrame {
 		
 		for (int i = 0; i < KontsultakSQL.kont_zinemak; i++) {
 			JRadioButton rdbtnZinema = new JRadioButton(zinemaAux[i].getZinema_izena());
-			rdbtnZinema.setBounds(bound, 333 , 200, 54);
+			rdbtnZinema.setBounds(bound, 300 , 200, 54);
 			rdbtnZinema.setHorizontalAlignment(SwingConstants.CENTER);
 			rdbtnZinema.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 			rdbtnZinema.setFocusPainted(false);
@@ -99,7 +95,7 @@ public class ZinemaAukera extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				dispose();
 				FilmaAukera filmaAukera = new FilmaAukera();
-				filmaAukera.setDefaultCloseOperation(filmaAukera.DISPOSE_ON_CLOSE);
+				filmaAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 				filmaAukera.setVisible(true);
 			}
 		});

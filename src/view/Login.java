@@ -8,12 +8,21 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.SystemColor;
+import java.util.ArrayList;
+
+import model.*;
+import model.metodoak.*;
+import model.sql.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Login extends JFrame {
 
@@ -43,68 +52,57 @@ public class Login extends JFrame {
 	 */
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(400, 250, 1182, 683);
+		setBounds(400, 250, 906, 594);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		
 		JLabel lblLogin_Header = new JLabel("LOGIN");
+		lblLogin_Header.setBounds(198, 11, 452, 58);
 		lblLogin_Header.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLogin_Header.setFont(new Font("Segoe UI Symbol", Font.BOLD, 20));
+		lblLogin_Header.setFont(new Font("Source Sans Pro Black", Font.BOLD, 45));
 		
 		JLabel lblNAN = new JLabel("NAN");
+		lblNAN.setBounds(210, 165, 204, 23);
 		lblNAN.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
 		
 		txtNAN = new JTextField();
+		txtNAN.setBounds(210, 191, 433, 32);
 		txtNAN.setColumns(10);
 		
 		JLabel lblPasahitza = new JLabel("PASAHITZA");
+		lblPasahitza.setBounds(210, 254, 204, 23);
 		lblPasahitza.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
 		
 		passwordField = new JPasswordField();
+		passwordField.setBounds(210, 281, 433, 33);
 		
 		JButton btnLogin = new JButton("Login");
+		btnLogin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ArrayList<Bezeroa> bezeroak = new ArrayList<Bezeroa>();
+				
+				bezeroak = KontsultakSQL.bezeroaKudeatzailea.getBezeroaList();
+				for (int i = 0; i < bezeroak.size(); i++) {
+					if (!bezeroak.get(i).getBezeroa_NAN().equals(txtNAN.getText())) {
+						JOptionPane.showMessageDialog(null, "Erabiltzailea edo pasahitza txarto dago.", "Errorea", JOptionPane.ERROR_MESSAGE);
+					}
+				}
+			}
+		});
+		btnLogin.setBounds(342, 422, 148, 29);
 		btnLogin.setForeground(SystemColor.text);
 		btnLogin.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
 		btnLogin.setBackground(SystemColor.desktop);
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(336)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(lblNAN, GroupLayout.PREFERRED_SIZE, 204, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtNAN, GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-								.addComponent(lblPasahitza, GroupLayout.PREFERRED_SIZE, 204, GroupLayout.PREFERRED_SIZE)
-								.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 433, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(469)
-							.addComponent(lblLogin_Header, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(488)
-							.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(430, Short.MAX_VALUE))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(71)
-					.addComponent(lblLogin_Header, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
-					.addGap(95)
-					.addComponent(lblNAN, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-					.addGap(3)
-					.addComponent(txtNAN, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-					.addGap(31)
-					.addComponent(lblPasahitza, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-					.addGap(4)
-					.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-					.addGap(93)
-					.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(170, Short.MAX_VALUE))
-		);
-		contentPane.setLayout(gl_contentPane);
+		
+		contentPane.setLayout(null);
+		contentPane.add(lblNAN);
+		contentPane.add(txtNAN);
+		contentPane.add(lblPasahitza);
+		contentPane.add(passwordField);
+		contentPane.add(lblLogin_Header);
+		contentPane.add(btnLogin);
 	}
 }
