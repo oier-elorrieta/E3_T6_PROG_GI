@@ -73,6 +73,12 @@ public class FilmaAukera extends JFrame {
         
         JButton btnAmaiera = View_metodoak.btn_amaiera();
         
+        JButton btnDataAukeratu = new JButton("Data aukeratu");
+        btnDataAukeratu.setBounds(980, 125, 120, 40);
+        btnDataAukeratu.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        btnDataAukeratu.setFocusPainted(false);
+        contentPane.add(btnDataAukeratu);
+        
         JLabel lblFilmLista = new JLabel("FILMEN LISTA");
         lblFilmLista.setHorizontalAlignment(SwingConstants.CENTER);
         lblFilmLista.setBounds(310, 11, 452, 58);
@@ -104,20 +110,25 @@ public class FilmaAukera extends JFrame {
              }
         }
         
-       
-        
         setContentPane(contentPane);
         contentPane.setLayout(null);
         contentPane.add(btnLogin);
         contentPane.add(btnAmaiera);
         contentPane.add(btnJarraitu);
-        
-      
+  
         btnAmaiera.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 dispose();
+                View_metodoak.zinemaAukeraSortu();
             }
+        });
+        
+        btnDataAukeratu.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		View_metodoak.dataAukeraSortu();
+        	}
         });
     }
 }

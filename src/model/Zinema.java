@@ -82,9 +82,4 @@ public class Zinema {
 	public void setSaioak(Saioa[] saioak) {
 		this.saioak = saioak;
 	}
-	
-	
-	
-
-	
 }

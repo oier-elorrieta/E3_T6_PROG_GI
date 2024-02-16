@@ -167,8 +167,6 @@ public class KontsultakSQL {
 	while (emaitza.next()) {
 		aux = emaitza.getString("a.izena");
 		
-		
-		
 		for (int j = 0; j < aretoaAuxList.length; j++) {
 			if (aretoaAuxList[j].getAreto_izena().equals(aux)) {
 				posAreto = j;

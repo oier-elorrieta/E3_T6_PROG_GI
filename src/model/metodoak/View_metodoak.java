@@ -51,10 +51,22 @@ public class View_metodoak {
 		return btnJarraitu;
 	}
 	
+	public static void zinemaAukeraSortu() {
+		ZinemaAukera zinemaAukera = new ZinemaAukera();
+		zinemaAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		zinemaAukera.setVisible(true);
+    }
+	
 	public static void filmaAukeraSortu() {
         FilmaAukera filmaAukera = new FilmaAukera();
         filmaAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         filmaAukera.setVisible(true);
+    }
+	
+	public static void dataAukeraSortu() {
+        DataAukera dataAukera = new DataAukera();
+        dataAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        dataAukera.setVisible(true);
     }
     
     public static boolean filmaDatagatikAtera(Saioa saioAukera) {
