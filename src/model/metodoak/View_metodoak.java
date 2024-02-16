@@ -6,11 +6,13 @@ import javax.swing.*;
 import javax.swing.border.*;
 
 import controller.APP;
+import model.Saioa;
 import view.*;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Date;
 
 public class View_metodoak {
 	/**
@@ -48,4 +50,25 @@ public class View_metodoak {
 		btnJarraitu.setFocusPainted(false);
 		return btnJarraitu;
 	}
+	
+	public static void filmaAukeraSortu() {
+        FilmaAukera filmaAukera = new FilmaAukera();
+        filmaAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        filmaAukera.setVisible(true);
+    }
+    
+    public static boolean filmaDatagatikAtera(Saioa saioAukera) {
+        boolean atera = false;
+        Date dataEgungoa = new Date(System.currentTimeMillis() + 1000);
+        int komparaketa = saioAukera.getData().compareTo(dataEgungoa);
+        if (komparaketa < 0) {
+            atera = false;
+        } else if (komparaketa > 0) {
+            atera = true;
+        } else {
+            atera = true;
+        }
+        
+        return atera;
+    }
 }

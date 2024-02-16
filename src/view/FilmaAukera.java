@@ -64,6 +64,7 @@ public class FilmaAukera extends JFrame {
         panelFilmak.setBounds(79, 125, 900, 410);
         contentPane.add(panelFilmak);
         panelFilmak.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        panelFilmak.setLayout(new GridLayout(0, 2));
     
         
         JButton btnLogin = View_metodoak.btn_login();
@@ -88,19 +89,19 @@ public class FilmaAukera extends JFrame {
         ButtonGroup bg = new ButtonGroup();
         int bound = 100;
         
-        panelFilmak.setLayout(new GridLayout(0, 2));
-        
-        Saioa[] saioaAukera = ZinemaAukera.zinemaAukera.getSaioak();
-        for (int i = 0; i < saioaAukera.length;i++) {
-            JRadioButton rdbtnZinema = new JRadioButton(saioaAukera[i].getFilma().getFilma_izena() + " // " + saioaAukera[i].getFilma().getFilma_iraupena()+ " min.");
-            rdbtnZinema.setActionCommand(String.valueOf(i));
-            rdbtnZinema.setBounds(bound, 300 , 200, 54);
-            rdbtnZinema.setHorizontalAlignment(SwingConstants.CENTER);
-            rdbtnZinema.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-            rdbtnZinema.setFocusPainted(false);
-            panelFilmak.add(rdbtnZinema);
-            bound = bound + 210;
-            bg.add(rdbtnZinema);
+        Saioa[] saioaAukerak = ZinemaAukera.zinemaAukera.getSaioak();
+        for (int i = 0; i < saioaAukerak.length;i++) {
+        	 if (View_metodoak.filmaDatagatikAtera(saioaAukerak[i])) {
+                 JRadioButton rdbtnZinema = new JRadioButton(saioaAukerak[i].getFilma().getFilma_izena());
+                 rdbtnZinema.setActionCommand(String.valueOf(i));
+                 rdbtnZinema.setBounds(100, bound, 200, 54);
+                 rdbtnZinema.setHorizontalAlignment(SwingConstants.CENTER);
+                 rdbtnZinema.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+                 rdbtnZinema.setFocusPainted(false);
+                 panelFilmak.add(rdbtnZinema);
+                 bound = bound + 50;
+                 bg.add(rdbtnZinema);
+             }
         }
         
        

@@ -95,12 +95,15 @@ public class ZinemaAukera extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 int aukera = 0;
-                aukera = Integer.parseInt(bg.getSelection().getActionCommand());
-                zinemaAukera = zinemaAux[aukera];
-                dispose();
-                FilmaAukera filmaAukera = new FilmaAukera();
-                filmaAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-                filmaAukera.setVisible(true);
+                try {
+                    aukera = Integer.parseInt(bg.getSelection().getActionCommand());
+                    zinemaAukera = zinemaAux[aukera];
+                    dispose();
+                    View_metodoak.filmaAukeraSortu();
+                } catch (Exception e2) {
+                    System.err.println("error");
+                }
+                
             }
         });
     }
