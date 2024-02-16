@@ -29,6 +29,8 @@ import java.awt.FlowLayout;
 public class FilmaAukera extends JFrame {
 
     private static final long serialVersionUID = 1L;
+    public static Filma filmaAukera;
+    public static  Saioa[] saioaAukerak;
     private JPanel contentPane;
 
     /**
@@ -95,27 +97,47 @@ public class FilmaAukera extends JFrame {
         ButtonGroup bg = new ButtonGroup();
         int bound = 100;
         
-        Saioa[] saioaAukerak = ZinemaAukera.zinemaAukera.getSaioak();
+        saioaAukerak = ZinemaAukera.zinemaAukera.getSaioak();
         for (int i = 0; i < saioaAukerak.length;i++) {
-        	 if (View_metodoak.filmaDatagatikAtera(saioaAukerak[i])) {
-                 JRadioButton rdbtnZinema = new JRadioButton(saioaAukerak[i].getFilma().getFilma_izena());
-                 rdbtnZinema.setActionCommand(String.valueOf(i));
-                 rdbtnZinema.setBounds(100, bound, 200, 54);
-                 rdbtnZinema.setHorizontalAlignment(SwingConstants.CENTER);
-                 rdbtnZinema.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-                 rdbtnZinema.setFocusPainted(false);
-                 panelFilmak.add(rdbtnZinema);
-                 bound = bound + 50;
-                 bg.add(rdbtnZinema);
-             }
-        }
+            if (View_metodoak.filmaDatagatikAtera(saioaAukerak[i])) {
+                JRadioButton rdbtnFilma = new JRadioButton(saioaAukerak[i].getFilma().getFilma_izena());
+                rdbtnFilma.setActionCommand(saioaAukerak[i].getFilma().getFilma_izena());
+                rdbtnFilma.setBounds(100, bound, 200, 54);
+                rdbtnFilma.setHorizontalAlignment(SwingConstants.CENTER);
+                rdbtnFilma.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+                rdbtnFilma.setFocusPainted(false);
+                panelFilmak.add(rdbtnFilma);
+                bound = bound + 50;
+                bg.add(rdbtnFilma);
+            }
+       }
         
         setContentPane(contentPane);
         contentPane.setLayout(null);
         contentPane.add(btnLogin);
         contentPane.add(btnAmaiera);
         contentPane.add(btnJarraitu);
-  
+        
+        btnJarraitu.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                String aukera = "";
+                try {
+                    aukera = bg.getSelection().getActionCommand();
+                    for(int i = 0; i< KontsultakSQL.karteldegiaSortuta.getFilmaList().length; i++) {
+                    	if (KontsultakSQL.karteldegiaSortuta.getFilmaList()[i].getFilma_izena().equals(aukera)) {
+                    		filmaAukera = KontsultakSQL.karteldegiaSortuta.getFilmaList()[i];
+                    	}
+                    }
+                    dispose();
+                  View_metodoak.saioaAukeraSortu();
+                } catch (Exception e2) {
+                   System.err.println("error");
+                }
+                
+            }
+        });
+        
         btnAmaiera.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -130,5 +152,6 @@ public class FilmaAukera extends JFrame {
         		View_metodoak.dataAukeraSortu();
         	}
         });
+       
     }
 }

@@ -63,6 +63,12 @@ public class View_metodoak {
         filmaAukera.setVisible(true);
     }
 	
+	public static void saioaAukeraSortu() {
+        SaioaAukera saioaAukera = new SaioaAukera();
+        saioaAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        saioaAukera.setVisible(true);
+    }
+	
 	public static void dataAukeraSortu() {
         DataAukera dataAukera = new DataAukera();
         dataAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
