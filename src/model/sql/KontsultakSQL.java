@@ -161,8 +161,7 @@ public class KontsultakSQL {
 	}
 
 	saioaAuxList = new Saioa[kont_sql];
-	kontsulta = "SELECT s.saioa_data, a.izena, f.izena, prezioa, z.ID_zinema FROM zinema z join aretoa a on z.ID_zinema = a.ID_zinema join saioa s on s.id_aretoa = a.ID_aretoa	join filma f on s.id_filma = f.id_filma where a.ID_zinema = "
-			+ i;
+	kontsulta = "SELECT s.saioa_data, a.izena, f.izena, prezioa, z.ID_zinema FROM zinema z join aretoa a on z.ID_zinema = a.ID_zinema join saioa s on s.id_aretoa = a.ID_aretoa	join filma f on s.id_filma = f.id_filma where a.ID_zinema = " + i + " order by s.saioa_data";
 	emaitza = statement.executeQuery(kontsulta);
 	while (emaitza.next()) {
 		aux = emaitza.getString("a.izena");

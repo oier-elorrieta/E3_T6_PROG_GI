@@ -6,12 +6,15 @@ import javax.swing.*;
 import javax.swing.border.*;
 
 import controller.APP;
+import model.Filma;
 import model.Saioa;
+import model.sql.KontsultakSQL;
 import view.*;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class View_metodoak {
@@ -24,7 +27,7 @@ public class View_metodoak {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Login login = new Login();
-				
+
 				login.setVisible(true);
 			}
 		});
@@ -35,14 +38,16 @@ public class View_metodoak {
 		btnLogin.setFocusPainted(false);
 		return btnLogin;
 	}
+
 	public static JButton btn_amaiera() {
 		JButton btnAmaiera = new JButton("Amaiera");
 		btnAmaiera.setBounds(739, 565, 159, 54);
 		btnAmaiera.setFont(new Font("Segoe UI", Font.BOLD, 21));
-		
+
 		btnAmaiera.setFocusPainted(false);
 		return btnAmaiera;
 	}
+
 	public static JButton btn_jarraitu() {
 		JButton btnJarraitu = new JButton("Jarraitu");
 		btnJarraitu.setBounds(930, 565, 169, 54);
@@ -50,43 +55,57 @@ public class View_metodoak {
 		btnJarraitu.setFocusPainted(false);
 		return btnJarraitu;
 	}
-	
+
 	public static void zinemaAukeraSortu() {
 		ZinemaAukera zinemaAukera = new ZinemaAukera();
 		zinemaAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		zinemaAukera.setVisible(true);
-    }
+	}
+
+	public static boolean dataKonprobatu(Saioa saioAukera) {
+		boolean atera = false;
+		Date dataEgungoa = new Date(System.currentTimeMillis() + 1000);
+		int komparaketa = saioAukera.getData().compareTo(dataEgungoa);
+		if (komparaketa < 0) {
+			atera = false;
+		} else if (komparaketa > 0) {
+			atera = true;
+		} else {
+			atera = true;
+		}
+		return atera;
+	}
+
+	public static ArrayList<Saioa> saioakAtera(Saioa[] saioak, Filma filmaAukeratuta) {
+		ArrayList<Saioa> saioaAukerak = new ArrayList<Saioa>();
+		boolean atera;
+		for (int i = 0; i < saioak.length; i++) {
+			atera = dataKonprobatu(saioak[i]);
+			if (atera) {
+				if (saioak[i].getFilma().equals(filmaAukeratuta)) {
+					saioaAukerak.add(saioak[i]);
+				}
+			}
+		}
+		return saioaAukerak;
+		
+	}
 	
-	public static void filmaAukeraSortu() {
-        FilmaAukera filmaAukera = new FilmaAukera();
-        filmaAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        filmaAukera.setVisible(true);
-    }
-	
-	public static void saioaAukeraSortu() {
-        SaioaAukera saioaAukera = new SaioaAukera();
-        saioaAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        saioaAukera.setVisible(true);
-    }
-	
-	public static void dataAukeraSortu() {
-        DataAukera dataAukera = new DataAukera();
-        dataAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        dataAukera.setVisible(true);
-    }
-    
-    public static boolean filmaDatagatikAtera(Saioa saioAukera) {
-        boolean atera = false;
-        Date dataEgungoa = new Date(System.currentTimeMillis() + 1000);
-        int komparaketa = saioAukera.getData().compareTo(dataEgungoa);
-        if (komparaketa < 0) {
-            atera = false;
-        } else if (komparaketa > 0) {
-            atera = true;
-        } else {
-            atera = true;
-        }
-        
-        return atera;
-    }
+	public static ArrayList<Integer> filmakAtera(Saioa[] saioak){
+		ArrayList<Integer> karteldegiPos = new ArrayList<Integer>();
+		boolean atera;
+		for (int i = 0; i < saioak.length; i++) {
+			atera = dataKonprobatu(saioak[i]);
+			if (atera) {
+				for (int z = 0; z < KontsultakSQL.karteldegiaSortuta.getFilmaList().length; z++) {
+					if (KontsultakSQL.karteldegiaSortuta.getFilmaList()[z].getFilma_izena().equals(saioak[i].getFilma().getFilma_izena())){
+						karteldegiPos.add(z);
+					}
+				}
+			}
+		}
+		
+		
+		return karteldegiPos;
+	}
 }

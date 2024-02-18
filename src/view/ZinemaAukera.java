@@ -18,7 +18,6 @@ import java.util.Arrays;
 
 public class ZinemaAukera extends JFrame {
     private static final long serialVersionUID = 1L;
-    private static final Zinema[] zinemaAux = KontsultakSQL.zinemaKudeatzailea.getZinemaList();
     public static Zinema zinemaAukera;
     private JPanel contentPane;
 
@@ -74,7 +73,7 @@ public class ZinemaAukera extends JFrame {
         
         
         for (int i = 0; i < KontsultakSQL.kont_zinemak; i++) {
-            JRadioButton rdbtnZinema = new JRadioButton(zinemaAux[i].getZinema_izena());
+            JRadioButton rdbtnZinema = new JRadioButton(KontsultakSQL.zinemaKudeatzailea.getZinemaList()[i].getZinema_izena());
             rdbtnZinema.setActionCommand(String.valueOf(i));
             rdbtnZinema.setBounds(bound, 285 , 200, 54);
             rdbtnZinema.setHorizontalAlignment(SwingConstants.CENTER);
@@ -97,9 +96,9 @@ public class ZinemaAukera extends JFrame {
                 int aukera = 0;
                 try {
                     aukera = Integer.parseInt(bg.getSelection().getActionCommand());
-                    zinemaAukera = zinemaAux[aukera];
+                    zinemaAukera =  KontsultakSQL.zinemaKudeatzailea.getZinemaList()[aukera];
                     dispose();
-                    View_metodoak.filmaAukeraSortu();
+                    Metodoak.filmaAukeraSortu();
                 } catch (Exception e2) {
                     System.err.println("error");
                 }
