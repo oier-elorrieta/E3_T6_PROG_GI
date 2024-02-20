@@ -16,7 +16,7 @@ public class APP {
 	
 	public static void main(String[] args) {
 		ConexioaSQL.conexioaIrekiEtaItxi();
-		Metodoak.zinemaAukeraSortu();
+		Metodoak.hasieraAukeraSortu();
 	
 		
 	}
