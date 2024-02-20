@@ -118,6 +118,7 @@ public class DataAukera extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				
 				try {
+					
 					dispose();
 					Metodoak.filmaAukeraSortu();
 				} catch (Exception e2) {
@@ -131,6 +132,7 @@ public class DataAukera extends JFrame {
 		btnAmaiera.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
 				dispose();
 				View_metodoak.zinemaAukeraSortu();
 			}
