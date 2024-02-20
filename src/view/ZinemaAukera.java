@@ -95,11 +95,8 @@ public class ZinemaAukera extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 int aukera = 0;
                 try {
-                	
                 	aukera = Integer.parseInt(bg.getSelection().getActionCommand());
-                    
-                    zinemaAukera =  KontsultakSQL.zinemaKudeatzailea.getZinemaList()[aukera];
-                    
+                    zinemaAukera =  KontsultakSQL.zinemaKudeatzailea.getZinemaList()[aukera];                   
                     dispose();
                   
                     Metodoak.dataAukeraSortu();

@@ -64,16 +64,7 @@ public class View_metodoak {
 
 	public static boolean dataKonprobatu(Saioa saioAukera) {
 		boolean atera = false;
-		Date dataEgungoa = new Date(System.currentTimeMillis() + 1000);
-		
-		
-		int komparaketa = saioAukera.getData().compareTo(dataEgungoa);
-		
-		if (komparaketa < 0) {
-			atera = false;
-		} else if (komparaketa > 0) {
-			atera = true;
-		} else {
+		if (saioAukera.getData().getTime() >= DataAukera.dataAukeratuta.getTime()) {
 			atera = true;
 		}
 		return atera;
@@ -101,19 +92,14 @@ public class View_metodoak {
 			atera = dataKonprobatu(saioak[i]);
 			if (atera) {
 				for (int z = 0; z < KontsultakSQL.karteldegiaSortuta.getFilmaList().length; z++) {
-					if (KontsultakSQL.karteldegiaSortuta.getFilmaList()[z].getFilma_izena().equals(saioak[i].getFilma().getFilma_izena())){
-						
-						if(!karteldegiPos.contains(z)) {
+					if (KontsultakSQL.karteldegiaSortuta.getFilmaList()[z].getFilma_izena().equals(saioak[i].getFilma().getFilma_izena())){	
+					if(!karteldegiPos.contains(z)) {
                             karteldegiPos.add(z);
                         }
-						
-						
 					}
 				}
 			}
 		}
-		
-		
 		return karteldegiPos;
 	}
 }

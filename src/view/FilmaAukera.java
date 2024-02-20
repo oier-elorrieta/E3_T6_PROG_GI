@@ -129,7 +129,7 @@ public class FilmaAukera extends JFrame {
 						}
 					}
 					dispose();
-					Metodoak.dataAukeraSortu();
+					Metodoak.saioaAukeraSortu();
 				} catch (Exception e2) {
 					System.err.println("Error");
 				}

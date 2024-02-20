@@ -115,7 +115,7 @@ public class SaioaAukera extends JFrame {
 		lblAukData.setFont(new Font("SansSerif", Font.BOLD, 18));
 		contentPane.add(lblAukData);
 
-		JLabel lblDataAukera = new JLabel(FilmaAukera.filmaAukera.getFilma_izena());
+		JLabel lblDataAukera = new JLabel(DataAukera.dataAukeratuta.getDate() + "/" + DataAukera.dataAukeratuta.getMonth() + "/" + DataAukera.dataAukeratuta.getYear());
 		lblDataAukera.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDataAukera.setBounds(310, 130, 452, 58);
 		lblDataAukera.setFont(new Font("Constantia", Font.PLAIN, 22));

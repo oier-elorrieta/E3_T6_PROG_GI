@@ -28,11 +28,13 @@ import javax.swing.JComboBox;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Date;
 import java.util.Properties;
 
 public class DataAukera extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	public static Date dataAukeratuta = new Date();
 	private JPanel contentPane;
 
 	/**
@@ -116,23 +118,21 @@ public class DataAukera extends JFrame {
 		btnJarraitu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				try {
-					
+				try {	
+					dataAukeratuta.setDate(datePanel.getModel().getDay());
+					dataAukeratuta.setMonth(datePanel.getModel().getMonth());
+					dataAukeratuta.setYear(datePanel.getModel().getYear());
 					dispose();
 					Metodoak.filmaAukeraSortu();
 				} catch (Exception e2) {
 					System.err.println("error");
-				}
-				dispose();
-				
+				}				
 			}
 		});
 
 		btnAmaiera.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
 				dispose();
 				View_metodoak.zinemaAukeraSortu();
 			}

@@ -68,29 +68,16 @@ public class Hasiera extends JFrame {
 		lblPrograma.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
 		contentPane.add(lblPrograma);
 		
-		
 		JLabel lblKlik = new JLabel("Klik egin pantailan programa hasteko...");
 		lblKlik.setForeground(Color.BLACK);
 		lblKlik.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 28));
 		lblKlik.setBounds(336, 380, 498, 38);
 		contentPane.add(lblKlik);
 		
-		/*// PROGRESS BAR
-		progressBar.setBounds(135, 450, 874, 52);
-		progressBar.setVisible(false);
-		progressBar.setValue(0);
-		progressBar.setStringPainted(true);
-		contentPane.add(progressBar);*/
-		
-	
-		
 		contentPane.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				 	try {
-				 		//progressBar.setVisible(true);
-						//View_metodoak.beteProgresoBarraHasiera();
-				 		//lblKlik.setVisible(false);
 				 		Thread.sleep(1000);
 		                dispose();
 		                Metodoak.zinemaAukeraSortu();
