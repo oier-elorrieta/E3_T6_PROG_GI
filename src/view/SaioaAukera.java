@@ -23,10 +23,19 @@ import model.sql.KontsultakSQL;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
+
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Properties;
+import java.util.Calendar;
+import java.util.Date;
+
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
@@ -64,7 +73,7 @@ public class SaioaAukera extends JFrame {
 
 		JPanel panelFilmaIzena = new JPanel();
 		panelFilmaIzena.setBorder(new LineBorder(new Color(255, 0, 0), 2, true));
-		panelFilmaIzena.setBounds(302, 78, 599, 33);
+		panelFilmaIzena.setBounds(302, 73, 599, 39);
 		contentPane.add(panelFilmaIzena);
 
 		setContentPane(contentPane);
@@ -88,14 +97,14 @@ public class SaioaAukera extends JFrame {
 		lblAukFilma.setFont(new Font("SansSerif", Font.BOLD, 18));
 		contentPane.add(lblAukFilma);
 
-		JLabel lblFilmAukera = new JLabel("PRUEBA");
+		JLabel lblFilmAukera = new JLabel(FilmaAukera.filmaAukera.getFilma_izena());
 		lblFilmAukera.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFilmAukera.setBounds(310, 9, 452, 58);
 		lblFilmAukera.setFont(new Font("Constantia", Font.PLAIN, 22));
 		panelFilmaIzena.add(lblFilmAukera);
 
 		ButtonGroup bg = new ButtonGroup();
-		int bound = 100;
+		int bound = 175;
 		saioaAukerak = View_metodoak.saioakAtera(ZinemaAukera.zinemaAukera.getSaioak(), FilmaAukera.filmaAukera);
 		for (int i = 0; i < saioaAukerak.size(); i++) {
 			JRadioButton rdbtnSaioa = new JRadioButton(
@@ -103,7 +112,7 @@ public class SaioaAukera extends JFrame {
 			rdbtnSaioa.setActionCommand(String.valueOf(i));
 			rdbtnSaioa.setBounds(100, bound, 200, 54);
 			rdbtnSaioa.setHorizontalAlignment(SwingConstants.CENTER);
-			rdbtnSaioa.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+			rdbtnSaioa.setFont(new Font("Segoe UI", Font.PLAIN, 20));
 			rdbtnSaioa.setFocusPainted(false);
 			contentPane.add(rdbtnSaioa);
 			bound = bound + 50;
@@ -117,8 +126,16 @@ public class SaioaAukera extends JFrame {
 
 		JComboBox comboBox = new JComboBox(
 				new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-		comboBox.setBounds(178, 546, 50, 22);
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		comboBox.setBounds(302, 135, 50, 22);
 		contentPane.add(comboBox);
+		
+		JLabel lblPertsonaKopurua = new JLabel("Pertsona kopurua:");
+		lblPertsonaKopurua.setVerticalAlignment(SwingConstants.TOP);
+		lblPertsonaKopurua.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPertsonaKopurua.setFont(new Font("SansSerif", Font.BOLD, 18));
+		lblPertsonaKopurua.setBounds(90, 132, 221, 25);
+		contentPane.add(lblPertsonaKopurua);
 		btnJarraitu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

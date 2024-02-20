@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
+import model.metodoak.Metodoak;
+
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -39,7 +41,7 @@ public class DataAukera extends JFrame {
 	 */
 	public DataAukera() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 212, 249);
+		setBounds(823, 146, 212, 249);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -52,8 +54,8 @@ public class DataAukera extends JFrame {
 		p.put("text.year", "Year");
 		contentPane.setLayout(null);
 		
-		JButton btnJarraitu = new JButton("JARRAITU");
-		btnJarraitu.setBounds(54, 183, 89, 23);
+		JButton btnJarraitu = new JButton("AMAITU");
+		btnJarraitu.setBounds(38, 183, 123, 23);
 		contentPane.add(btnJarraitu);
 		JDatePanelImpl datePanel = new JDatePanelImpl(model, p);		
 		datePanel.setBounds(0, 0, 200, 180);
@@ -62,7 +64,12 @@ public class DataAukera extends JFrame {
 		btnJarraitu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println(datePanel.getModel().getDay());
+				try {
+	                dispose();
+	            } catch (Exception e2) {
+	                System.err.println("error");
+	            }
+				
 			}
 		});
 
