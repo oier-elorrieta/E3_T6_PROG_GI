@@ -5,10 +5,17 @@ import javax.swing.WindowConstants;
 import model.Saioa;
 import view.DataAukera;
 import view.FilmaAukera;
+import view.Hasiera;
 import view.SaioaAukera;
 import view.ZinemaAukera;
 
 public class Metodoak {
+	
+	public static void hasieraAukeraSortu() {
+		Hasiera hasieraAukera = new Hasiera();
+		hasieraAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		hasieraAukera.setVisible(true);
+    }
 	
 	public static void zinemaAukeraSortu() {
 		ZinemaAukera zinemaAukera = new ZinemaAukera();
