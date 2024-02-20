@@ -94,6 +94,7 @@ public class FilmaAukera extends JFrame {
 
 		karteldegiPos = View_metodoak.filmakAtera(ZinemaAukera.zinemaAukera.getSaioak());
 
+
 		for (int i = 0; i < karteldegiPos.size(); i++) {
 			JRadioButton rdbtnFilma = new JRadioButton(
 					KontsultakSQL.karteldegiaSortuta.getFilmaList()[karteldegiPos.get(i)].getFilma_izena());
