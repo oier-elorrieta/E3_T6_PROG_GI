@@ -108,7 +108,7 @@ public class SaioaAukera extends JFrame {
 		lblFilmAukera.setFont(new Font("Constantia", Font.PLAIN, 22));
 		panelFilmaIzena.add(lblFilmAukera);
 
-		JLabel lblAukData = new JLabel("Aukeratutako filma:");
+		JLabel lblAukData = new JLabel("Aukeratutako data:");
 		lblAukData.setBounds(90, 130, 221, 25);
 		lblAukData.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAukData.setVerticalAlignment(SwingConstants.TOP);
@@ -145,22 +145,14 @@ public class SaioaAukera extends JFrame {
 		JComboBox comboBox = new JComboBox(
 				new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
-<<<<<<< HEAD
-		comboBox.setBounds(1084, 140, 50, 22);
-=======
 		comboBox.setBounds(302, 175, 50, 22);
->>>>>>> 2103f6d33bd4c94eb91e8f1df47016f34d434289
 		contentPane.add(comboBox);
 		
 		JLabel lblPertsonaKopurua = new JLabel("Pertsona kopurua:");
 		lblPertsonaKopurua.setVerticalAlignment(SwingConstants.TOP);
 		lblPertsonaKopurua.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPertsonaKopurua.setFont(new Font("SansSerif", Font.BOLD, 18));
-<<<<<<< HEAD
-		lblPertsonaKopurua.setBounds(872, 137, 221, 25);
-=======
 		lblPertsonaKopurua.setBounds(90, 175, 221, 25);
->>>>>>> 2103f6d33bd4c94eb91e8f1df47016f34d434289
 		contentPane.add(lblPertsonaKopurua);
 		btnJarraitu.addMouseListener(new MouseAdapter() {
 			@Override
@@ -193,3 +185,4 @@ public class SaioaAukera extends JFrame {
 
 	}
 }
+
