@@ -68,8 +68,7 @@ public class View_metodoak {
 		
 		
 		int komparaketa = saioAukera.getData().compareTo(dataEgungoa);
-		System.out.println(dataEgungoa);
-		System.out.println(saioAukera.getData());
+		
 		if (komparaketa < 0) {
 			atera = false;
 		} else if (komparaketa > 0) {
@@ -98,12 +97,18 @@ public class View_metodoak {
 	public static ArrayList<Integer> filmakAtera(Saioa[] saioak){
 		ArrayList<Integer> karteldegiPos = new ArrayList<Integer>();
 		boolean atera;
+		int x = -1;
 		for (int i = 0; i < saioak.length; i++) {
 			atera = dataKonprobatu(saioak[i]);
 			if (atera) {
 				for (int z = 0; z < KontsultakSQL.karteldegiaSortuta.getFilmaList().length; z++) {
 					if (KontsultakSQL.karteldegiaSortuta.getFilmaList()[z].getFilma_izena().equals(saioak[i].getFilma().getFilma_izena())){
-						karteldegiPos.add(z);
+						
+						if(!karteldegiPos.contains(z)) {
+                            karteldegiPos.add(z);
+                        }
+						
+						
 					}
 				}
 			}
