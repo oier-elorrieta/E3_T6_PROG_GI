@@ -5,14 +5,16 @@ import java.util.Objects;
 
 public class SarreraKudeatzailea {
 	// ALDAGAIAK
-	private ArrayList<Sarrera> SarreraLista = new ArrayList<Sarrera>();
+	private ArrayList<Sarrera> sarreraLista = new ArrayList<Sarrera>();
 	private double ticket_prezioa;
 	private Bezeroa bezeroa;
 
 	// KONSTRUKTOREA
+	public SarreraKudeatzailea() {
+	}
 	
 	public SarreraKudeatzailea(ArrayList<Sarrera> sarreraLista, double ticket_prezioa, Bezeroa bezeroa) {
-		SarreraLista = sarreraLista;
+		this.sarreraLista = sarreraLista;
 		this.ticket_prezioa = ticket_prezioa;
 		this.bezeroa = bezeroa;
 	}
@@ -28,7 +30,7 @@ public class SarreraKudeatzailea {
 		if (getClass() != obj.getClass())
 			return false;
 		SarreraKudeatzailea other = (SarreraKudeatzailea) obj;
-		return Objects.equals(SarreraLista, other.SarreraLista) && Objects.equals(bezeroa, other.bezeroa)
+		return Objects.equals(sarreraLista, other.sarreraLista) && Objects.equals(bezeroa, other.bezeroa)
 				&& Double.doubleToLongBits(ticket_prezioa) == Double.doubleToLongBits(other.ticket_prezioa);
 	}
 	
@@ -36,7 +38,7 @@ public class SarreraKudeatzailea {
 	
 	@Override
 	public String toString() {
-		return "Ticket [SarreraLista=" + SarreraLista + ", ticket_prezioa=" + ticket_prezioa + ", bezeroa=" + bezeroa
+		return "Ticket [SarreraLista=" + sarreraLista + ", ticket_prezioa=" + ticket_prezioa + ", bezeroa=" + bezeroa
 				+ "]";
 	}
 
@@ -44,11 +46,11 @@ public class SarreraKudeatzailea {
 	
 
 	public ArrayList<Sarrera> getSarreraLista() {
-		return SarreraLista;
+		return sarreraLista;
 	}
 
 	public void setSarreraLista(ArrayList<Sarrera> sarreraLista) {
-		SarreraLista = sarreraLista;
+		sarreraLista = sarreraLista;
 	}
 
 	public double getTicket_prezioa() {

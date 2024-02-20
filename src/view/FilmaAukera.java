@@ -120,7 +120,6 @@ public class FilmaAukera extends JFrame {
 				String aukera = "";
 				try {
 					aukera = bg.getSelection().getActionCommand();
-
 					for (int i = 0; i < KontsultakSQL.karteldegiaSortuta.getFilmaList().length; i++) {
 						if (KontsultakSQL.karteldegiaSortuta.getFilmaList()[i].getFilma_izena().equals(aukera)) {
 							filmaAukera = KontsultakSQL.karteldegiaSortuta.getFilmaList()[i];

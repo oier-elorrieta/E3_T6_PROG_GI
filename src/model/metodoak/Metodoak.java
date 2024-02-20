@@ -2,6 +2,7 @@ package model.metodoak;
 
 import javax.swing.WindowConstants;
 
+import model.Saioa;
 import view.DataAukera;
 import view.FilmaAukera;
 import view.SaioaAukera;
@@ -32,5 +33,10 @@ public class Metodoak {
         dataAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         dataAukera.setVisible(true);
     }
+	
+	public static double kalkulatuPrezioa(Saioa saioaAukera, int pertsonaKop) {
+		double prezioGuztira = saioaAukera.getPrezioa() * pertsonaKop;
+		return prezioGuztira;
+	}
 }
 	

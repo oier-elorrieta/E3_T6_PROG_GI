@@ -14,6 +14,7 @@ import javax.swing.border.EmptyBorder;
 import model.FilmaKudeatzailea;
 import model.Saioa;
 import model.Sarrera;
+import model.SarreraKudeatzailea;
 import model.Zinema;
 import model.metodoak.Metodoak;
 import model.metodoak.View_metodoak;
@@ -26,6 +27,8 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class SaioaAukera extends JFrame {
 
@@ -95,7 +98,8 @@ public class SaioaAukera extends JFrame {
 		int bound = 100;
 		saioaAukerak = View_metodoak.saioakAtera(ZinemaAukera.zinemaAukera.getSaioak(), FilmaAukera.filmaAukera);
 		for (int i = 0; i < saioaAukerak.size(); i++) {
-			JRadioButton rdbtnSaioa = new JRadioButton(saioaAukerak.get(i).getAretoa().getAreto_izena() + " - " + saioaAukerak.get(i).getPrezioa() + " €");
+			JRadioButton rdbtnSaioa = new JRadioButton(
+					saioaAukerak.get(i).getAretoa().getAreto_izena() + " - " + saioaAukerak.get(i).getPrezioa() + " €");
 			rdbtnSaioa.setActionCommand(String.valueOf(i));
 			rdbtnSaioa.setBounds(100, bound, 200, 54);
 			rdbtnSaioa.setHorizontalAlignment(SwingConstants.CENTER);
@@ -105,28 +109,32 @@ public class SaioaAukera extends JFrame {
 			bound = bound + 50;
 			bg.add(rdbtnSaioa);
 		}
-		
+
 		contentPane.setLayout(null);
 		contentPane.add(btnLogin);
 		contentPane.add(btnAmaiera);
 		contentPane.add(btnJarraitu);
 
+		JComboBox comboBox = new JComboBox(
+				new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+		comboBox.setBounds(178, 546, 50, 22);
+		contentPane.add(comboBox);
 		btnJarraitu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int aukera = 0;
+				int pertsonaKop = 0;
 				try {
 					aukera = Integer.parseInt(bg.getSelection().getActionCommand());
 					saioaAukera = saioaAukerak.get(aukera);
-					Sarrera sarreraSortuta = new Sarrera(saioaAukera, 2);
-					
-					JOptionPane.showMessageDialog(null, "Saioa ondo gehitu da ", "Ondo",
-							JOptionPane.INFORMATION_MESSAGE);
+					pertsonaKop = Integer.parseInt((String) comboBox.getSelectedItem());
+					Sarrera sarreraSortuta = new Sarrera(saioaAukera, pertsonaKop);
+					KontsultakSQL.sarreraKudeatzailea.getSarreraLista().add(sarreraSortuta);
+					KontsultakSQL.sarreraKudeatzailea.setTicket_prezioa(KontsultakSQL.sarreraKudeatzailea.getTicket_prezioa() + Metodoak.kalkulatuPrezioa(saioaAukera, pertsonaKop));
+					JOptionPane.showMessageDialog(null, "Saioa ondo gehitu da ", "Ondo", JOptionPane.INFORMATION_MESSAGE);
 				} catch (Exception e2) {
 					System.err.println("error");
 				}
-
-				
 				dispose();
 				View_metodoak.zinemaAukeraSortu();
 			}
@@ -141,5 +149,4 @@ public class SaioaAukera extends JFrame {
 		});
 
 	}
-
 }

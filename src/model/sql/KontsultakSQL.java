@@ -11,6 +11,7 @@ import model.Bezeroa;
 import model.Filma;
 import model.FilmaKudeatzailea;
 import model.Saioa;
+import model.SarreraKudeatzailea;
 import model.Zinema;
 import model.ZinemaKudeatzailea;
 
@@ -34,6 +35,7 @@ public class KontsultakSQL {
 	public static FilmaKudeatzailea karteldegiaSortuta;
 	public static BezeroKudeatzailea bezeroaKudeatzailea;
 	public static ZinemaKudeatzailea zinemaKudeatzailea;
+	public static SarreraKudeatzailea sarreraKudeatzailea = new SarreraKudeatzailea();
 
 	public static void sql_zenbatu(Connection konexioa, Statement statement) throws SQLException {
 		kontsulta = "SELECT count(*) c FROM filma";
@@ -114,8 +116,6 @@ public class KontsultakSQL {
 			}
 		}
 		zinemaKudeatzailea = new ZinemaKudeatzailea(zinemaList);
-		
-		System.out.println(zinemaKudeatzailea.toString());
 	}
 	
 	public static Aretoa[] sql_aretoak(Connection konexioa, Statement statement, int i) throws SQLException {	
