@@ -27,6 +27,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.CompoundBorder;
 import java.awt.FlowLayout;
 
+import java.util.Date;
+
 public class FilmaAukera extends JFrame {
 
 	private static final long serialVersionUID = 1L;

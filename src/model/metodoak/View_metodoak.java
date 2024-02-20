@@ -97,7 +97,6 @@ public class View_metodoak {
 	public static ArrayList<Integer> filmakAtera(Saioa[] saioak){
 		ArrayList<Integer> karteldegiPos = new ArrayList<Integer>();
 		boolean atera;
-		int x = -1;
 		for (int i = 0; i < saioak.length; i++) {
 			atera = dataKonprobatu(saioak[i]);
 			if (atera) {

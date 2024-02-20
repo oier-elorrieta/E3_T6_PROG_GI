@@ -127,14 +127,14 @@ public class SaioaAukera extends JFrame {
 		JComboBox comboBox = new JComboBox(
 				new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		comboBox.setBounds(302, 135, 50, 22);
+		comboBox.setBounds(1084, 140, 50, 22);
 		contentPane.add(comboBox);
 		
 		JLabel lblPertsonaKopurua = new JLabel("Pertsona kopurua:");
 		lblPertsonaKopurua.setVerticalAlignment(SwingConstants.TOP);
 		lblPertsonaKopurua.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPertsonaKopurua.setFont(new Font("SansSerif", Font.BOLD, 18));
-		lblPertsonaKopurua.setBounds(90, 132, 221, 25);
+		lblPertsonaKopurua.setBounds(872, 137, 221, 25);
 		contentPane.add(lblPertsonaKopurua);
 		btnJarraitu.addMouseListener(new MouseAdapter() {
 			@Override

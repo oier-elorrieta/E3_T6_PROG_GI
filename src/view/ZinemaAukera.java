@@ -102,7 +102,7 @@ public class ZinemaAukera extends JFrame {
                     
                     dispose();
                   
-                    Metodoak.filmaAukeraSortu();
+                    Metodoak.dataAukeraSortu();
                    
                 } catch (Exception e2) {
                     System.err.println("ZinemaAukera");
