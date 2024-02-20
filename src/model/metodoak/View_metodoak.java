@@ -38,7 +38,7 @@ public class View_metodoak {
 		btnLogin.setFocusPainted(false);
 		return btnLogin;
 	}
-
+	
 	public static JButton btn_amaiera() {
 		JButton btnAmaiera = new JButton("Amaiera");
 		btnAmaiera.setBounds(739, 565, 159, 54);

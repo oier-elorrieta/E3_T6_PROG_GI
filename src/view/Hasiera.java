@@ -5,6 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import model.metodoak.Metodoak;
+import model.metodoak.View_metodoak;
+import model.sql.KontsultakSQL;
+
 import javax.swing.JLabel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -16,11 +21,14 @@ import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import javax.swing.BoxLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Hasiera extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	public static JProgressBar progressBar = new JProgressBar();
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -43,7 +51,6 @@ public class Hasiera extends JFrame {
 		setBounds(400, 250, 1182, 683);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
 		
 		JLabel lblOngiEtorri = new JLabel("ONGI ETORRI ELORRIETA FILMS-ERA!");
@@ -52,6 +59,7 @@ public class Hasiera extends JFrame {
 		lblOngiEtorri.setBounds(0, 90, 1165, 61);
 		lblOngiEtorri.setFont(new Font("Segoe UI Historic", Font.PLAIN, 45));
 		contentPane.setLayout(null);
+		contentPane.add(lblOngiEtorri);
 		
 		JLabel lblPrograma = new JLabel("PELIKULAPP · TALDE 6");
 		lblPrograma.setForeground(Color.BLACK);
@@ -59,7 +67,7 @@ public class Hasiera extends JFrame {
 		lblPrograma.setBounds(0, 290, 1165, 36);
 		lblPrograma.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
 		contentPane.add(lblPrograma);
-		contentPane.add(lblOngiEtorri);
+		
 		
 		JLabel lblKlik = new JLabel("Klik egin pantailan programa hasteko...");
 		lblKlik.setForeground(Color.BLACK);
@@ -67,8 +75,34 @@ public class Hasiera extends JFrame {
 		lblKlik.setBounds(336, 380, 498, 38);
 		contentPane.add(lblKlik);
 		
-		JProgressBar progressBar = new JProgressBar();
-		progressBar.setBounds(8, 450, 1150, 14);
-		contentPane.add(progressBar);
+		/*// PROGRESS BAR
+		progressBar.setBounds(135, 450, 874, 52);
+		progressBar.setVisible(false);
+		progressBar.setValue(0);
+		progressBar.setStringPainted(true);
+		contentPane.add(progressBar);*/
+		
+	
+		
+		contentPane.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				 	try {
+				 		//progressBar.setVisible(true);
+						//View_metodoak.beteProgresoBarraHasiera();
+				 		//lblKlik.setVisible(false);
+				 		Thread.sleep(1000);
+		                dispose();
+		                Metodoak.zinemaAukeraSortu();
+		            } catch (Exception e2) {
+		                System.err.println("error");
+		            }
+			}
+		});
+		
+		
+		
+		
+		
 	}
 }
