@@ -4,6 +4,7 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
 import model.Aretoa;
 import model.BezeroKudeatzailea;
@@ -179,7 +180,21 @@ public class KontsultakSQL {
 			}
 		}
 		
-		Saioa saioaSortuta = new Saioa(emaitza.getDate("s.saioa_data"), aretoaAuxList[posAreto], filmaList[posFilma], emaitza.getDouble("prezioa"));
+		
+		Date data = new Date();
+		String[] sub = emaitza.getString("s.saioa_data").split("-");
+		System.out.println(Arrays.toString(sub));
+		data.setYear(Integer.parseInt(sub[0]));
+		data.setMonth(Integer.parseInt(sub[1]));
+		data.setDate(Integer.parseInt(sub[2]));
+		data.setHours(Integer.parseInt(sub[3]));
+		data.setMinutes(Integer.parseInt(sub[4]));
+		
+		// data = Saioa.stringToDate(emaitza.getString("s.saioa_data"));
+		
+		
+		
+		Saioa saioaSortuta = new Saioa(data, aretoaAuxList[posAreto], filmaList[posFilma], emaitza.getDouble("prezioa"));
 		saioaAuxList[kont] = saioaSortuta;
 		kont++;
 	}	

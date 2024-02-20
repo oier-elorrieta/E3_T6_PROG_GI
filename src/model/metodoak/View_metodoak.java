@@ -65,7 +65,11 @@ public class View_metodoak {
 	public static boolean dataKonprobatu(Saioa saioAukera) {
 		boolean atera = false;
 		Date dataEgungoa = new Date(System.currentTimeMillis() + 1000);
+		
+		
 		int komparaketa = saioAukera.getData().compareTo(dataEgungoa);
+		System.out.println(dataEgungoa);
+		System.out.println(saioAukera.getData());
 		if (komparaketa < 0) {
 			atera = false;
 		} else if (komparaketa > 0) {
