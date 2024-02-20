@@ -15,8 +15,6 @@ public class Metodoak {
 		Hasiera hasieraAukera = new Hasiera();
 		hasieraAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		hasieraAukera.setVisible(true);
-		
-		View_metodoak.beteProgresoBarraHasiera();
     }
 	
 	public static void zinemaAukeraSortu() {
