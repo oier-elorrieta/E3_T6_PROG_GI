@@ -168,7 +168,7 @@ public class SaioaAukera extends JFrame {
 					pertsonaKop = Integer.parseInt((String) comboBox.getSelectedItem());
 					Sarrera sarreraSortuta = new Sarrera(SesioAldagaiak.saioaAukera, pertsonaKop);
 					SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().add(sarreraSortuta);
-					SesioAldagaiak.sarreraKudeatzailea.setTicket_prezioa(SesioAldagaiak.sarreraKudeatzailea.getTicket_prezioa() + Metodoak.kalkulatuPrezioa(SesioAldagaiak.saioaAukera, pertsonaKop));
+					SesioAldagaiak.sarreraKudeatzailea.setTicket_prezioa(SesioAldagaiak.sarreraKudeatzailea.getTicket_prezioa() + SarreraKudeatzailea.kalkulatuPrezioa(SesioAldagaiak.saioaAukera, pertsonaKop));
 					JOptionPane.showMessageDialog(null, "Saioa ondo gehitu da ", "Ondo", JOptionPane.INFORMATION_MESSAGE);
 				} catch (Exception e2) {
 					System.err.println("error");

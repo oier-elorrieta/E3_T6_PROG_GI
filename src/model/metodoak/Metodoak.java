@@ -40,10 +40,5 @@ public class Metodoak {
         dataAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         dataAukera.setVisible(true);
     }
-	
-	public static double kalkulatuPrezioa(Saioa saioaAukera, int pertsonaKop) {
-		double prezioGuztira = saioaAukera.getPrezioa() * pertsonaKop;
-		return prezioGuztira;
-	}
 }
 	

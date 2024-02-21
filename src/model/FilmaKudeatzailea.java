@@ -9,7 +9,6 @@ public class FilmaKudeatzailea {
 	private Filma[] filmaList = new Filma[KontsultakSQL.kont_filmak];
 
 	public FilmaKudeatzailea() {
-		
 	}
 	
 	public FilmaKudeatzailea(Filma[] filmaList) {

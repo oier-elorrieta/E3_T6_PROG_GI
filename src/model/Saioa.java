@@ -78,6 +78,7 @@ public class Saioa {
 		dataBihurtuta.setDate(Integer.parseInt(sub[2]));
 		dataBihurtuta.setHours(Integer.parseInt(sub[3]));
 		dataBihurtuta.setMinutes(Integer.parseInt(sub[4]));
+		dataBihurtuta.setSeconds(0);
 		return dataBihurtuta;
 	}
 }

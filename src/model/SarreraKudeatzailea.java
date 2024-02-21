@@ -68,4 +68,9 @@ public class SarreraKudeatzailea {
 	public void setBezeroa(Bezeroa bezeroa) {
 		this.bezeroa = bezeroa;
 	}
+	
+	public static double kalkulatuPrezioa(Saioa saioaAukera, int pertsonaKop) {
+		double prezioGuztira = saioaAukera.getPrezioa() * pertsonaKop;
+		return prezioGuztira;
+	}
 }
