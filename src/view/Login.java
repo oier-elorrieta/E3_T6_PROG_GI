@@ -84,7 +84,7 @@ public class Login extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Bezeroa> bezeroak = new ArrayList<Bezeroa>();
 				
-				bezeroak = KontsultakSQL.bezeroaKudeatzailea.getBezeroaList();
+				bezeroak = SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList();
 				for (int i = 0; i < bezeroak.size(); i++) {
 					if (!bezeroak.get(i).getBezeroa_NAN().equals(txtNAN.getText())) {
 						JOptionPane.showMessageDialog(null, "Erabiltzailea edo pasahitza txarto dago.", "Errorea", JOptionPane.ERROR_MESSAGE);

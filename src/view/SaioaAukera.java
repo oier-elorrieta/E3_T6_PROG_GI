@@ -15,6 +15,7 @@ import model.FilmaKudeatzailea;
 import model.Saioa;
 import model.Sarrera;
 import model.SarreraKudeatzailea;
+import model.SesioAldagaiak;
 import model.Zinema;
 import model.metodoak.Metodoak;
 import model.metodoak.View_metodoak;
@@ -42,8 +43,7 @@ import javax.swing.DefaultComboBoxModel;
 public class SaioaAukera extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	public static ArrayList<Saioa> saioaAukerak;
-	public static Saioa saioaAukera;
+	private static ArrayList<Saioa> saioaAukerak;
 	private JPanel contentPane;
 
 	/**
@@ -102,7 +102,7 @@ public class SaioaAukera extends JFrame {
 		lblAukFilma.setFont(new Font("SansSerif", Font.BOLD, 18));
 		contentPane.add(lblAukFilma);
 
-		JLabel lblFilmAukera = new JLabel(FilmaAukera.filmaAukera.getFilma_izena());
+		JLabel lblFilmAukera = new JLabel(SesioAldagaiak.filmaAukera.getFilma_izena());
 		lblFilmAukera.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFilmAukera.setBounds(310, 9, 452, 58);
 		lblFilmAukera.setFont(new Font("Constantia", Font.PLAIN, 22));
@@ -115,7 +115,7 @@ public class SaioaAukera extends JFrame {
 		lblAukData.setFont(new Font("SansSerif", Font.BOLD, 18));
 		contentPane.add(lblAukData);
 
-		JLabel lblDataAukera = new JLabel(DataAukera.dataAukeratuta.getDate() + "/" + DataAukera.dataAukeratuta.getMonth() + "/" + DataAukera.dataAukeratuta.getYear());
+		JLabel lblDataAukera = new JLabel(SesioAldagaiak.dataAukeratuta.getDate() + "/" + (SesioAldagaiak.dataAukeratuta.getMonth()+1) + "/" + SesioAldagaiak.dataAukeratuta.getYear());
 		lblDataAukera.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDataAukera.setBounds(310, 130, 452, 58);
 		lblDataAukera.setFont(new Font("Constantia", Font.PLAIN, 22));
@@ -123,7 +123,8 @@ public class SaioaAukera extends JFrame {
 		
 		ButtonGroup bg = new ButtonGroup();
 		int bound = 225;
-		saioaAukerak = View_metodoak.saioakAtera(ZinemaAukera.zinemaAukera.getSaioak(), FilmaAukera.filmaAukera);
+		saioaAukerak = View_metodoak.saioakAtera(SesioAldagaiak.zinemaAukera.getSaioak(), SesioAldagaiak.filmaAukera);
+		
 		for (int i = 0; i < saioaAukerak.size(); i++) {
 			JRadioButton rdbtnSaioa = new JRadioButton(
 					saioaAukerak.get(i).getAretoa().getAreto_izena() + " - " + saioaAukerak.get(i).getPrezioa() + " €");
@@ -142,8 +143,7 @@ public class SaioaAukera extends JFrame {
 		contentPane.add(btnAmaiera);
 		contentPane.add(btnJarraitu);
 
-		JComboBox comboBox = new JComboBox(
-				new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+		JComboBox comboBox = new JComboBox(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		comboBox.setBounds(302, 175, 50, 22);
 		contentPane.add(comboBox);
@@ -161,11 +161,11 @@ public class SaioaAukera extends JFrame {
 				int pertsonaKop = 0;
 				try {
 					aukera = Integer.parseInt(bg.getSelection().getActionCommand());
-					saioaAukera = saioaAukerak.get(aukera);
+					SesioAldagaiak.saioaAukera = saioaAukerak.get(aukera);
 					pertsonaKop = Integer.parseInt((String) comboBox.getSelectedItem());
-					Sarrera sarreraSortuta = new Sarrera(saioaAukera, pertsonaKop);
-					KontsultakSQL.sarreraKudeatzailea.getSarreraLista().add(sarreraSortuta);
-					KontsultakSQL.sarreraKudeatzailea.setTicket_prezioa(KontsultakSQL.sarreraKudeatzailea.getTicket_prezioa() + Metodoak.kalkulatuPrezioa(saioaAukera, pertsonaKop));
+					Sarrera sarreraSortuta = new Sarrera(SesioAldagaiak.saioaAukera, pertsonaKop);
+					SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().add(sarreraSortuta);
+					SesioAldagaiak.sarreraKudeatzailea.setTicket_prezioa(SesioAldagaiak.sarreraKudeatzailea.getTicket_prezioa() + Metodoak.kalkulatuPrezioa(SesioAldagaiak.saioaAukera, pertsonaKop));
 					JOptionPane.showMessageDialog(null, "Saioa ondo gehitu da ", "Ondo", JOptionPane.INFORMATION_MESSAGE);
 				} catch (Exception e2) {
 					System.err.println("error");

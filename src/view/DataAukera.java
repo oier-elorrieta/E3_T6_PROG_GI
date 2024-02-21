@@ -17,6 +17,7 @@ import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
 import model.Sarrera;
+import model.SesioAldagaiak;
 import model.metodoak.Metodoak;
 import model.metodoak.View_metodoak;
 import model.sql.KontsultakSQL;
@@ -34,7 +35,6 @@ import java.util.Properties;
 public class DataAukera extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	public static Date dataAukeratuta = new Date();
 	private JPanel contentPane;
 
 	/**
@@ -88,7 +88,7 @@ public class DataAukera extends JFrame {
 		lblAukFilma.setFont(new Font("SansSerif", Font.BOLD, 18));
 		contentPane.add(lblAukFilma);
 
-		JLabel lblFilmAukera = new JLabel(ZinemaAukera.zinemaAukera.getZinema_izena());
+		JLabel lblFilmAukera = new JLabel(SesioAldagaiak.zinemaAukera.getZinema_izena());
 		lblFilmAukera.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFilmAukera.setBounds(310, 9, 452, 58);
 		lblFilmAukera.setFont(new Font("Constantia", Font.PLAIN, 22));
@@ -119,9 +119,9 @@ public class DataAukera extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {	
-					dataAukeratuta.setDate(datePanel.getModel().getDay());
-					dataAukeratuta.setMonth(datePanel.getModel().getMonth());
-					dataAukeratuta.setYear(datePanel.getModel().getYear());
+					SesioAldagaiak.dataAukeratuta.setDate(datePanel.getModel().getDay());
+					SesioAldagaiak.dataAukeratuta.setMonth(datePanel.getModel().getMonth());
+					SesioAldagaiak.dataAukeratuta.setYear(datePanel.getModel().getYear());
 					dispose();
 					Metodoak.filmaAukeraSortu();
 				} catch (Exception e2) {

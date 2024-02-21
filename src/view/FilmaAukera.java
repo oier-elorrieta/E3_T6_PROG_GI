@@ -33,7 +33,6 @@ public class FilmaAukera extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private static ArrayList<Integer> karteldegiPos;
-	public static Filma filmaAukera;
 	private JPanel contentPane;
 
 	/**
@@ -94,14 +93,14 @@ public class FilmaAukera extends JFrame {
 		ButtonGroup bg = new ButtonGroup();
 		int bound = 100;
 
-		karteldegiPos = View_metodoak.filmakAtera(ZinemaAukera.zinemaAukera.getSaioak());
+		karteldegiPos = View_metodoak.filmakAtera(SesioAldagaiak.zinemaAukera.getSaioak());
 
 
 		for (int i = 0; i < karteldegiPos.size(); i++) {
 			JRadioButton rdbtnFilma = new JRadioButton(
-					KontsultakSQL.karteldegiaSortuta.getFilmaList()[karteldegiPos.get(i)].getFilma_izena());
+					SesioAldagaiak.karteldegiaSortuta.getFilmaList()[karteldegiPos.get(i)].getFilma_izena());
 			rdbtnFilma.setActionCommand(
-					KontsultakSQL.karteldegiaSortuta.getFilmaList()[karteldegiPos.get(i)].getFilma_izena());
+					SesioAldagaiak.karteldegiaSortuta.getFilmaList()[karteldegiPos.get(i)].getFilma_izena());
 			rdbtnFilma.setBounds(100, bound, 200, 54);
 			rdbtnFilma.setHorizontalAlignment(SwingConstants.CENTER);
 			rdbtnFilma.setFont(new Font("Segoe UI", Font.PLAIN, 14));
@@ -123,9 +122,9 @@ public class FilmaAukera extends JFrame {
 				String aukera = "";
 				try {
 					aukera = bg.getSelection().getActionCommand();
-					for (int i = 0; i < KontsultakSQL.karteldegiaSortuta.getFilmaList().length; i++) {
-						if (KontsultakSQL.karteldegiaSortuta.getFilmaList()[i].getFilma_izena().equals(aukera)) {
-							filmaAukera = KontsultakSQL.karteldegiaSortuta.getFilmaList()[i];
+					for (int i = 0; i < SesioAldagaiak.karteldegiaSortuta.getFilmaList().length; i++) {
+						if (SesioAldagaiak.karteldegiaSortuta.getFilmaList()[i].getFilma_izena().equals(aukera)) {
+							SesioAldagaiak.filmaAukera = SesioAldagaiak.karteldegiaSortuta.getFilmaList()[i];
 						}
 					}
 					dispose();

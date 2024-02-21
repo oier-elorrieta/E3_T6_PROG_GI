@@ -13,6 +13,7 @@ import model.Filma;
 import model.FilmaKudeatzailea;
 import model.Saioa;
 import model.SarreraKudeatzailea;
+import model.SesioAldagaiak;
 import model.Zinema;
 import model.ZinemaKudeatzailea;
 
@@ -25,18 +26,11 @@ public class KontsultakSQL {
 	public static int kont_aretoak;
 	public static int kont_zinemak;
 	
-	public static Zinema zinemaAukera;
-
 	private static Filma[] filmaList;
 	private static ArrayList<Bezeroa> bezeroaList;
 	private static Aretoa[] aretoaList;
 	private static Saioa[] saioaList;
 	private static Zinema[] zinemaList;
-
-	public static FilmaKudeatzailea karteldegiaSortuta;
-	public static BezeroKudeatzailea bezeroaKudeatzailea;
-	public static ZinemaKudeatzailea zinemaKudeatzailea;
-	public static SarreraKudeatzailea sarreraKudeatzailea = new SarreraKudeatzailea();
 
 	public static void sql_zenbatu(Connection konexioa, Statement statement) throws SQLException {
 		kontsulta = "SELECT count(*) c FROM filma";
@@ -78,7 +72,7 @@ public class KontsultakSQL {
 			kont++;
 		}
 
-		karteldegiaSortuta = new FilmaKudeatzailea(filmaList);
+		SesioAldagaiak.karteldegiaSortuta = new FilmaKudeatzailea(filmaList);
 	}
 
 	public static void sql_bezeroak(Connection konexioa, Statement statement) throws SQLException {
@@ -93,7 +87,7 @@ public class KontsultakSQL {
 			bezeroaList.add(bezeroaSortuta);
 		}
 
-		bezeroaKudeatzailea = new BezeroKudeatzailea(bezeroaList);
+		SesioAldagaiak.bezeroaKudeatzailea = new BezeroKudeatzailea(bezeroaList);
 	}
 
 	
@@ -116,7 +110,7 @@ public class KontsultakSQL {
 				zinemaList[i-1] = zinemaSortuta;
 			}
 		}
-		zinemaKudeatzailea = new ZinemaKudeatzailea(zinemaList);
+		SesioAldagaiak.zinemaKudeatzailea = new ZinemaKudeatzailea(zinemaList);
 	}
 	
 	public static Aretoa[] sql_aretoak(Connection konexioa, Statement statement, int i) throws SQLException {	

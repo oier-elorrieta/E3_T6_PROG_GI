@@ -8,6 +8,7 @@ import javax.swing.border.*;
 import controller.APP;
 import model.Filma;
 import model.Saioa;
+import model.SesioAldagaiak;
 import model.sql.KontsultakSQL;
 import view.*;
 
@@ -64,7 +65,7 @@ public class View_metodoak {
 
 	public static boolean dataKonprobatu(Saioa saioAukera) {
 		boolean atera = false;
-		if (saioAukera.getData().getTime() >= DataAukera.dataAukeratuta.getTime()) {
+		if (saioAukera.getData().getTime() >= SesioAldagaiak.dataAukeratuta.getTime() && saioAukera.getData().getDay() == SesioAldagaiak.dataAukeratuta.getDay()) {
 			atera = true;
 		}
 		return atera;
@@ -91,8 +92,8 @@ public class View_metodoak {
 		for (int i = 0; i < saioak.length; i++) {
 			atera = dataKonprobatu(saioak[i]);
 			if (atera) {
-				for (int z = 0; z < KontsultakSQL.karteldegiaSortuta.getFilmaList().length; z++) {
-					if (KontsultakSQL.karteldegiaSortuta.getFilmaList()[z].getFilma_izena().equals(saioak[i].getFilma().getFilma_izena())){	
+				for (int z = 0; z < SesioAldagaiak.karteldegiaSortuta.getFilmaList().length; z++) {
+					if (SesioAldagaiak.karteldegiaSortuta.getFilmaList()[z].getFilma_izena().equals(saioak[i].getFilma().getFilma_izena())){	
 					if(!karteldegiPos.contains(z)) {
                             karteldegiPos.add(z);
                         }
