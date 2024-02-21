@@ -1,7 +1,5 @@
 package view;
 
-import java.awt.EventQueue;
-
 import javax.swing.border.EmptyBorder;
 
 import controller.APP;
@@ -9,7 +7,6 @@ import model.*;
 import model.metodoak.*;
 import model.sql.*;
 
-import java.awt.Font;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -42,6 +39,8 @@ public class ZinemaAukera extends JFrame {
     public ZinemaAukera() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(400, 250, 1182, 683);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(Hasiera.class.getResource("/images/cine.png")));
+		setTitle("Zinema aukeratu - Talde 6");
         contentPane = new JPanel();
 
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

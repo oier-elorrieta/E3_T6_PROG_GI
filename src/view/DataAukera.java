@@ -3,6 +3,7 @@ package view;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -59,6 +60,8 @@ public class DataAukera extends JFrame {
 	public DataAukera() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(400, 250, 1182, 683);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Hasiera.class.getResource("/images/cine.png")));
+		setTitle("Data aukeratu - Talde 6");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -81,18 +84,18 @@ public class DataAukera extends JFrame {
 		lblSaioLista.setFont(new Font("Source Sans Pro Black", Font.BOLD, 45));
 		contentPane.add(lblSaioLista);
 
-		JLabel lblAukFilma = new JLabel("Aukeratutako zinema:");
-		lblAukFilma.setBounds(83, 78, 221, 25);
-		lblAukFilma.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAukFilma.setVerticalAlignment(SwingConstants.TOP);
-		lblAukFilma.setFont(new Font("SansSerif", Font.BOLD, 18));
-		contentPane.add(lblAukFilma);
+		JLabel lblAukZinema = new JLabel("Aukeratutako zinema:");
+		lblAukZinema.setBounds(83, 78, 221, 25);
+		lblAukZinema.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAukZinema.setVerticalAlignment(SwingConstants.TOP);
+		lblAukZinema.setFont(new Font("SansSerif", Font.BOLD, 18));
+		contentPane.add(lblAukZinema);
 
-		JLabel lblFilmAukera = new JLabel(SesioAldagaiak.zinemaAukera.getZinema_izena());
-		lblFilmAukera.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFilmAukera.setBounds(310, 9, 452, 58);
-		lblFilmAukera.setFont(new Font("Constantia", Font.PLAIN, 22));
-		panelFilmaIzena.add(lblFilmAukera);
+		JLabel lblZinemaAukera = new JLabel(SesioAldagaiak.zinemaAukera.getZinema_izena());
+		lblZinemaAukera.setHorizontalAlignment(SwingConstants.CENTER);
+		lblZinemaAukera.setBounds(310, 9, 452, 58);
+		lblZinemaAukera.setFont(new Font("Constantia", Font.PLAIN, 22));
+		panelFilmaIzena.add(lblZinemaAukera);
 
 		Properties p = new Properties();
 		UtilDateModel model = new UtilDateModel();
@@ -125,7 +128,7 @@ public class DataAukera extends JFrame {
 					dispose();
 					Metodoak.filmaAukeraSortu();
 				} catch (Exception e2) {
-					System.err.println("error");
+					System.err.println("DataAukera - Errorea");
 				}				
 			}
 		});

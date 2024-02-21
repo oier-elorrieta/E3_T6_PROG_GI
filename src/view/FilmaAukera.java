@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GraphicsConfiguration;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 import model.*;
 import model.metodoak.*;
@@ -22,6 +24,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import java.awt.CardLayout;
+import java.awt.Color;
+
 import javax.swing.JScrollPane;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.CompoundBorder;
@@ -58,19 +62,32 @@ public class FilmaAukera extends JFrame {
 	 */
 
 	public FilmaAukera() {
-		System.out.println();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(400, 250, 1182, 683);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Hasiera.class.getResource("/images/cine.png")));
+		setTitle("Filma aukeratu - Talde 6");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		JPanel panelFilmak = new JPanel();
 		panelFilmak.setBorder(new CompoundBorder());
-		panelFilmak.setBounds(79, 125, 900, 410);
+		panelFilmak.setBounds(66, 173, 1040, 387);
 		contentPane.add(panelFilmak);
 		panelFilmak.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		panelFilmak.setLayout(new GridLayout(0, 2));
+		
 
+		JPanel panelFilmaIzena = new JPanel();
+		panelFilmaIzena.setBorder(new LineBorder(new Color(255, 0, 0), 2, true));
+		panelFilmaIzena.setBounds(302, 73, 599, 39);
+		contentPane.add(panelFilmaIzena);
+		
+		JPanel panelDataIzena = new JPanel();
+		panelDataIzena.setBorder(new LineBorder(new Color(255, 0, 0), 2, true));
+		panelDataIzena.setBounds(302, 123, 599, 39);
+		contentPane.add(panelDataIzena);
+		
 		JButton btnLogin = View_metodoak.btn_login();
 
 		JButton btnJarraitu = View_metodoak.btn_jarraitu();
@@ -82,13 +99,32 @@ public class FilmaAukera extends JFrame {
 		lblFilmLista.setBounds(310, 11, 452, 58);
 		lblFilmLista.setFont(new Font("Source Sans Pro Black", Font.BOLD, 45));
 		contentPane.add(lblFilmLista);
+	
+		JLabel lblAukFilma = new JLabel("Aukeratutako zinema:");
+		lblAukFilma.setBounds(90, 80, 221, 25);
+		lblAukFilma.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAukFilma.setVerticalAlignment(SwingConstants.TOP);
+		lblAukFilma.setFont(new Font("SansSerif", Font.BOLD, 18));
+		contentPane.add(lblAukFilma);
 
-		JLabel lblAukeratuFilma = new JLabel("Aukeratu filma bat:");
-		lblAukeratuFilma.setBounds(79, 70, 239, 25);
-		lblAukeratuFilma.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAukeratuFilma.setVerticalAlignment(SwingConstants.TOP);
-		lblAukeratuFilma.setFont(new Font("SansSerif", Font.BOLD, 18));
-		contentPane.add(lblAukeratuFilma);
+		JLabel lblFilmAukera = new JLabel(SesioAldagaiak.zinemaAukera.getZinema_izena());
+		lblFilmAukera.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFilmAukera.setBounds(310, 9, 452, 58);
+		lblFilmAukera.setFont(new Font("Constantia", Font.PLAIN, 22));
+		panelFilmaIzena.add(lblFilmAukera);
+		
+		JLabel lblAukData = new JLabel("Aukeratutako data:");
+		lblAukData.setBounds(90, 130, 221, 25);
+		lblAukData.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAukData.setVerticalAlignment(SwingConstants.TOP);
+		lblAukData.setFont(new Font("SansSerif", Font.BOLD, 18));
+		contentPane.add(lblAukData);
+		
+		JLabel lblDataAukera = new JLabel(SesioAldagaiak.dataAukeratuta.getDate() + "/" + (SesioAldagaiak.dataAukeratuta.getMonth()+1) + "/" + SesioAldagaiak.dataAukeratuta.getYear());
+		lblDataAukera.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDataAukera.setBounds(310, 130, 452, 58);
+		lblDataAukera.setFont(new Font("Constantia", Font.PLAIN, 22));
+		panelDataIzena.add(lblDataAukera);
 
 		ButtonGroup bg = new ButtonGroup();
 		int bound = 100;
@@ -130,7 +166,7 @@ public class FilmaAukera extends JFrame {
 					dispose();
 					Metodoak.saioaAukeraSortu();
 				} catch (Exception e2) {
-					System.err.println("Error");
+					System.err.println("FilmaAukera - ERROREA");
 				}
 
 			}
