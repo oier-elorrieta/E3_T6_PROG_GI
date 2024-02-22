@@ -57,12 +57,6 @@ public class View_metodoak {
 		return btnJarraitu;
 	}
 
-	public static void zinemaAukeraSortu() {
-		ZinemaAukera zinemaAukera = new ZinemaAukera();
-		zinemaAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		zinemaAukera.setVisible(true);
-	}
-
 	public static boolean dataKonprobatu(Saioa saioAukera) {
 		boolean atera = false;
 		if (saioAukera.getData().getTime() >= SesioAldagaiak.dataAukeratuta.getTime() && saioAukera.getData().getDay() == SesioAldagaiak.dataAukeratuta.getDay()) {
