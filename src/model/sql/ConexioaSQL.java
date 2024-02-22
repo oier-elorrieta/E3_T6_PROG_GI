@@ -7,7 +7,7 @@ import model.FilmaKudeatzailea;
 
 public class ConexioaSQL {
 
-	public static void datuakJaitsi() {
+	public static void datuakKargatu() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			

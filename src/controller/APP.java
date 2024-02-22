@@ -15,7 +15,7 @@ public class APP {
 	public static ZinemaAukera zinemaAukera;
 	
 	public static void main(String[] args) {
-		ConexioaSQL.datuakJaitsi();
+		ConexioaSQL.datuakKargatu();
 		JFrameSortu.hasieraAukeraSortu();
 	}
 }
