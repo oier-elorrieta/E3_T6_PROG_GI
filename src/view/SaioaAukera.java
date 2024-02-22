@@ -94,7 +94,7 @@ public class SaioaAukera extends JFrame {
 
 		JLabel lblSaioLista = new JLabel("SAIOEN LISTA");
 		lblSaioLista.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSaioLista.setBounds(310, 9, 452, 58);
+		lblSaioLista.setBounds(0, 9, 1166, 58);
 		lblSaioLista.setFont(new Font("Source Sans Pro Black", Font.BOLD, 45));
 		contentPane.add(lblSaioLista);
 
@@ -108,7 +108,7 @@ public class SaioaAukera extends JFrame {
 		JLabel lblFilmAukera = new JLabel(SesioAldagaiak.filmaAukera.getFilma_izena());
 		lblFilmAukera.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFilmAukera.setBounds(310, 9, 452, 58);
-		lblFilmAukera.setFont(new Font("Constantia", Font.PLAIN, 22));
+		lblFilmAukera.setFont(new Font("Dialog", Font.BOLD, 21));
 		panelFilmaIzena.add(lblFilmAukera);
 
 		JLabel lblAukData = new JLabel("Aukeratutako data:");
@@ -121,7 +121,7 @@ public class SaioaAukera extends JFrame {
 		JLabel lblDataAukera = new JLabel(SesioAldagaiak.dataAukeratuta.getDate() + "/" + (SesioAldagaiak.dataAukeratuta.getMonth()+1) + "/" + SesioAldagaiak.dataAukeratuta.getYear());
 		lblDataAukera.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDataAukera.setBounds(310, 130, 452, 58);
-		lblDataAukera.setFont(new Font("Constantia", Font.PLAIN, 22));
+		lblDataAukera.setFont(new Font("Dialog", Font.BOLD, 21));
 		panelDataIzena.add(lblDataAukera);
 		
 		ButtonGroup bg = new ButtonGroup();
@@ -148,7 +148,7 @@ public class SaioaAukera extends JFrame {
 
 		JComboBox comboBox = new JComboBox(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		comboBox.setBounds(302, 175, 50, 22);
+		comboBox.setBounds(302, 178, 50, 22);
 		contentPane.add(comboBox);
 		
 		JLabel lblPertsonaKopurua = new JLabel("Pertsona kopurua:");

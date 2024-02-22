@@ -96,7 +96,7 @@ public class FilmaAukera extends JFrame {
 
 		JLabel lblFilmLista = new JLabel("FILMEN LISTA");
 		lblFilmLista.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFilmLista.setBounds(310, 11, 452, 58);
+		lblFilmLista.setBounds(0, 11, 1166, 58);
 		lblFilmLista.setFont(new Font("Source Sans Pro Black", Font.BOLD, 45));
 		contentPane.add(lblFilmLista);
 	
@@ -110,7 +110,7 @@ public class FilmaAukera extends JFrame {
 		JLabel lblFilmAukera = new JLabel(SesioAldagaiak.zinemaAukera.getZinema_izena());
 		lblFilmAukera.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFilmAukera.setBounds(310, 9, 452, 58);
-		lblFilmAukera.setFont(new Font("Constantia", Font.PLAIN, 22));
+		lblFilmAukera.setFont(new Font("Dialog", Font.BOLD, 21));
 		panelFilmaIzena.add(lblFilmAukera);
 		
 		JLabel lblAukData = new JLabel("Aukeratutako data:");
@@ -123,7 +123,7 @@ public class FilmaAukera extends JFrame {
 		JLabel lblDataAukera = new JLabel(SesioAldagaiak.dataAukeratuta.getDate() + "/" + (SesioAldagaiak.dataAukeratuta.getMonth()+1) + "/" + SesioAldagaiak.dataAukeratuta.getYear());
 		lblDataAukera.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDataAukera.setBounds(310, 130, 452, 58);
-		lblDataAukera.setFont(new Font("Constantia", Font.PLAIN, 22));
+		lblDataAukera.setFont(new Font("Dialog", Font.BOLD, 21));
 		panelDataIzena.add(lblDataAukera);
 
 		ButtonGroup bg = new ButtonGroup();
