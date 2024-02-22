@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import model.metodoak.Metodoak;
+import model.metodoak.JFrameSortu;
 import model.metodoak.View_metodoak;
 import model.sql.KontsultakSQL;
 
@@ -91,7 +91,7 @@ public class Hasiera extends JFrame {
 				 	try {
 				 		Thread.sleep(1000);
 		                dispose();
-		                Metodoak.zinemaAukeraSortu();
+		                JFrameSortu.zinemaAukeraSortu();
 		            } catch (Exception e2) {
 		                System.err.println("Hasiera - ERROREA");
 		            }

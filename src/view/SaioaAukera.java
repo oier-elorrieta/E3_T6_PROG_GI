@@ -18,7 +18,7 @@ import model.Sarrera;
 import model.SarreraKudeatzailea;
 import model.SesioAldagaiak;
 import model.Zinema;
-import model.metodoak.Metodoak;
+import model.metodoak.JFrameSortu;
 import model.metodoak.View_metodoak;
 import model.sql.KontsultakSQL;
 
@@ -130,9 +130,9 @@ public class SaioaAukera extends JFrame {
 		
 		for (int i = 0; i < saioaAukerak.size(); i++) {
 			JRadioButton rdbtnSaioa = new JRadioButton(
-					saioaAukerak.get(i).getAretoa().getAreto_izena() + " - " + saioaAukerak.get(i).getPrezioa() + " €");
+					saioaAukerak.get(i).getAretoa().getAreto_izena() + " - " + View_metodoak.dateToString(saioaAukerak.get(i).getData()) + " - " + saioaAukerak.get(i).getPrezioa() + " €");
 			rdbtnSaioa.setActionCommand(String.valueOf(i));
-			rdbtnSaioa.setBounds(100, bound, 200, 54);
+			rdbtnSaioa.setBounds(100, bound, 400, 54);
 			rdbtnSaioa.setHorizontalAlignment(SwingConstants.CENTER);
 			rdbtnSaioa.setFont(new Font("Segoe UI", Font.PLAIN, 20));
 			rdbtnSaioa.setFocusPainted(false);
@@ -174,7 +174,7 @@ public class SaioaAukera extends JFrame {
 					System.err.println("error");
 				}
 				dispose();
-				Metodoak.zinemaAukeraSortu();
+				JFrameSortu.zinemaAukeraSortu();
 			}
 		});
 
@@ -182,7 +182,7 @@ public class SaioaAukera extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				Metodoak.zinemaAukeraSortu();
+				JFrameSortu.zinemaAukeraSortu();
 			}
 		});
 

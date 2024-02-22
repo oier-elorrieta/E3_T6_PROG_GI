@@ -19,7 +19,7 @@ import org.jdatepicker.impl.UtilDateModel;
 
 import model.Sarrera;
 import model.SesioAldagaiak;
-import model.metodoak.Metodoak;
+import model.metodoak.JFrameSortu;
 import model.metodoak.View_metodoak;
 import model.sql.KontsultakSQL;
 
@@ -125,8 +125,18 @@ public class DataAukera extends JFrame {
 					SesioAldagaiak.dataAukeratuta.setDate(datePanel.getModel().getDay());
 					SesioAldagaiak.dataAukeratuta.setMonth(datePanel.getModel().getMonth());
 					SesioAldagaiak.dataAukeratuta.setYear(datePanel.getModel().getYear());
+				
+					Date dataGaur = new Date();
+					if(dataGaur.getDate() != datePanel.getModel().getDay() 
+						|| dataGaur.getMonth() != datePanel.getModel().getMonth() 
+						|| dataGaur.getYear()+1900 != datePanel.getModel().getYear()) {
+						SesioAldagaiak.dataAukeratuta.setHours(0);
+						SesioAldagaiak.dataAukeratuta.setMinutes(0);
+						SesioAldagaiak.dataAukeratuta.setSeconds(0);
+					}								
+					
 					dispose();
-					Metodoak.filmaAukeraSortu();
+					JFrameSortu.filmaAukeraSortu();
 				} catch (Exception e2) {
 					System.err.println("DataAukera - Errorea");
 				}				
@@ -137,7 +147,7 @@ public class DataAukera extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				Metodoak.zinemaAukeraSortu();
+				JFrameSortu.zinemaAukeraSortu();
 			}
 		});
 	

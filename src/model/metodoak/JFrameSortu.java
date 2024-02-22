@@ -9,7 +9,7 @@ import view.Hasiera;
 import view.SaioaAukera;
 import view.ZinemaAukera;
 
-public class Metodoak {
+public class JFrameSortu {
 	
 	public static void hasieraAukeraSortu() {
 		Hasiera hasieraAukera = new Hasiera();

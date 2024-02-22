@@ -97,4 +97,17 @@ public class View_metodoak {
 		}
 		return karteldegiPos;
 	}
+	
+	@SuppressWarnings("deprecation")
+	public static String dateToString (Date dataAldatzeko) {
+		String dataAldatuta;
+
+		if (dataAldatzeko.getMinutes() < 9) {
+			dataAldatuta = dataAldatzeko.getHours() + ":0" + dataAldatzeko.getMinutes() + " h.";
+		} else {
+			dataAldatuta = dataAldatzeko.getHours() + ":" + dataAldatzeko.getMinutes() + " h.";
+		}
+
+		return dataAldatuta;
+	}
 }
