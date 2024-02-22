@@ -176,7 +176,7 @@ public class FilmaAukera extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				View_metodoak.zinemaAukeraSortu();
+				Metodoak.zinemaAukeraSortu();
 			}
 		});
 
