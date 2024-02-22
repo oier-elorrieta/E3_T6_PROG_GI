@@ -14,4 +14,5 @@ public class SesioAldagaiak {
 	public static Filma filmaAukera;
 	public static Saioa saioaAukera;
 
+	
 }
