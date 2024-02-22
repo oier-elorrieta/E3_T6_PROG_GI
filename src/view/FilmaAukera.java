@@ -96,7 +96,7 @@ public class FilmaAukera extends JFrame {
 
 		JLabel lblFilmLista = new JLabel("FILMEN LISTA");
 		lblFilmLista.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFilmLista.setBounds(310, 11, 452, 58);
+		lblFilmLista.setBounds(0, 11, 1166, 58);
 		lblFilmLista.setFont(new Font("Source Sans Pro Black", Font.BOLD, 45));
 		contentPane.add(lblFilmLista);
 	
