@@ -48,13 +48,13 @@ public class ZinemaAukera extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
-        JLabel lblZinemaLista = new JLabel("ZINEMA LISTA");
+        JLabel lblZinemaLista = new JLabel("ZINEMA ZERRENDA");
         lblZinemaLista.setFont(new Font("Source Sans Pro Black", Font.BOLD, 45));
-        lblZinemaLista.setBounds(304, 11, 452, 58);
+        lblZinemaLista.setBounds(0, 11, 1166, 58);
         lblZinemaLista.setHorizontalAlignment(SwingConstants.CENTER);
         
         JLabel lblAukeratu = new JLabel("Aukeratu zinema bat:");
-        lblAukeratu.setBounds(79, 70, 239, 25);
+        lblAukeratu.setBounds(79, 80, 239, 25);
         lblAukeratu.setHorizontalAlignment(SwingConstants.CENTER);
         lblAukeratu.setVerticalAlignment(SwingConstants.TOP);
         lblAukeratu.setFont(new Font("SansSerif", Font.BOLD, 18));
@@ -100,7 +100,7 @@ public class ZinemaAukera extends JFrame {
                     Metodoak.dataAukeraSortu();
                    
                 } catch (Exception e2) {
-                    System.err.println("ZinemaAukera");
+                	JOptionPane.showMessageDialog(null, "Ez duzu zinemarik aukeratu! Aukeratu zerrendako zinema bat.", "Errorea", JOptionPane.ERROR_MESSAGE);
                 }
                 
             }

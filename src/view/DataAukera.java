@@ -80,7 +80,7 @@ public class DataAukera extends JFrame {
 
 		JLabel lblSaioLista = new JLabel("DATA AUKERATU");
 		lblSaioLista.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSaioLista.setBounds(310, 9, 452, 58);
+		lblSaioLista.setBounds(0, 9, 1166, 58);
 		lblSaioLista.setFont(new Font("Source Sans Pro Black", Font.BOLD, 45));
 		contentPane.add(lblSaioLista);
 
@@ -94,7 +94,7 @@ public class DataAukera extends JFrame {
 		JLabel lblZinemaAukera = new JLabel(SesioAldagaiak.zinemaAukera.getZinema_izena());
 		lblZinemaAukera.setHorizontalAlignment(SwingConstants.CENTER);
 		lblZinemaAukera.setBounds(310, 9, 452, 58);
-		lblZinemaAukera.setFont(new Font("Constantia", Font.PLAIN, 22));
+		lblZinemaAukera.setFont(new Font("Dialog", Font.BOLD, 21));
 		panelFilmaIzena.add(lblZinemaAukera);
 
 		Properties p = new Properties();
@@ -115,8 +115,8 @@ public class DataAukera extends JFrame {
 		JLabel lblAukeratuDataBat = new JLabel("AUKERATU DATA BAT");
 		lblAukeratuDataBat.setVerticalAlignment(SwingConstants.TOP);
 		lblAukeratuDataBat.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAukeratuDataBat.setFont(new Font("SansSerif", Font.BOLD, 18));
-		lblAukeratuDataBat.setBounds(399, 173, 324, 25);
+		lblAukeratuDataBat.setFont(new Font("SansSerif", Font.BOLD, 24));
+		lblAukeratuDataBat.setBounds(399, 156, 324, 32);
 		contentPane.add(lblAukeratuDataBat);
 		btnJarraitu.addMouseListener(new MouseAdapter() {
 			@Override
@@ -140,7 +140,7 @@ public class DataAukera extends JFrame {
 				View_metodoak.zinemaAukeraSortu();
 			}
 		});
-
+	
 	}
-
 }
+

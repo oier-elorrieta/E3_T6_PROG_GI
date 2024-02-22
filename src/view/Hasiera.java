@@ -25,6 +25,7 @@ import java.awt.CardLayout;
 import javax.swing.BoxLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class Hasiera extends JFrame {
 
@@ -68,15 +69,21 @@ public class Hasiera extends JFrame {
 		JLabel lblPrograma = new JLabel("PELIKULAPP · TALDE 6");
 		lblPrograma.setForeground(Color.BLACK);
 		lblPrograma.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrograma.setBounds(0, 290, 1165, 36);
+		lblPrograma.setBounds(0, 394, 1165, 36);
 		lblPrograma.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
 		contentPane.add(lblPrograma);
 		
 		JLabel lblKlik = new JLabel("Klik egin pantailan programa hasteko...");
+		lblKlik.setHorizontalAlignment(SwingConstants.CENTER);
 		lblKlik.setForeground(Color.BLACK);
 		lblKlik.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 28));
-		lblKlik.setBounds(336, 380, 498, 38);
+		lblKlik.setBounds(0, 465, 1165, 38);
 		contentPane.add(lblKlik);
+		
+		JLabel lblFilm_argazkia = new JLabel("");
+		lblFilm_argazkia.setIcon(new ImageIcon(Hasiera.class.getResource("/images/logomedio.png")));
+		lblFilm_argazkia.setBounds(529, 214, 99, 113);
+		contentPane.add(lblFilm_argazkia);
 		
 		contentPane.addMouseListener(new MouseAdapter() {
 			@Override
@@ -86,7 +93,7 @@ public class Hasiera extends JFrame {
 		                dispose();
 		                Metodoak.zinemaAukeraSortu();
 		            } catch (Exception e2) {
-		                System.err.println("error");
+		                System.err.println("Hasiera - ERROREA");
 		            }
 			}
 		});
