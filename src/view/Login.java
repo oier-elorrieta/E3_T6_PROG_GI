@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import org.mindrot.jbcrypt.BCrypt;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
@@ -82,19 +85,6 @@ public class Login extends JFrame {
 		passwordField.setBounds(210, 281, 433, 33);
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ArrayList<Bezeroa> bezeroak = new ArrayList<Bezeroa>();
-				
-				bezeroak = SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList();
-				for (int i = 0; i < bezeroak.size(); i++) {
-					if (!bezeroak.get(i).getBezeroa_NAN().equals(txtNAN.getText())) {
-						JOptionPane.showMessageDialog(null, "Erabiltzailea edo pasahitza txarto dago.", "Errorea", JOptionPane.ERROR_MESSAGE);
-					}
-				}
-			}
-		});
 		btnLogin.setBounds(342, 422, 148, 29);
 		btnLogin.setForeground(SystemColor.text);
 		btnLogin.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
@@ -107,5 +97,14 @@ public class Login extends JFrame {
 		contentPane.add(passwordField);
 		contentPane.add(lblLogin_Header);
 		contentPane.add(btnLogin);
+		
+		btnLogin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+					String bezeroNAN = txtNAN.getText();
+					String bezeroPwd = passwordField.getText();
+					SesioAldagaiak.logeatuta = BezeroKudeatzailea.komprobatuPasahitza(bezeroNAN, bezeroPwd);
+			}
+		});
 	}
 }

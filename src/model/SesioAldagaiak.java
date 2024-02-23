@@ -13,6 +13,8 @@ public class SesioAldagaiak {
 	public static Date dataAukeratuta = new Date();
 	public static Filma filmaAukera;
 	public static Saioa saioaAukera;
+	
+	public static boolean logeatuta;
 
 	
 }
