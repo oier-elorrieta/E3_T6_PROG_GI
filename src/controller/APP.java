@@ -15,7 +15,6 @@ public class APP {
 	public static ZinemaAukera zinemaAukera;
 	
 	public static void main(String[] args) {
-		System.out.println("Sprint3");
 		ConexioaSQL.datuakKargatu();
 		JFrameSortu.hasieraAukera();
 	}

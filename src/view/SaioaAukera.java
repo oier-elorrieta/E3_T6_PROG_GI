@@ -169,9 +169,9 @@ public class SaioaAukera extends JFrame {
 					Sarrera sarreraSortuta = new Sarrera(SesioAldagaiak.saioaAukera, pertsonaKop);
 					SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().add(sarreraSortuta);
 					SesioAldagaiak.sarreraKudeatzailea.setTicket_prezioa(SesioAldagaiak.sarreraKudeatzailea.getTicket_prezioa() + SarreraKudeatzailea.kalkulatuPrezioa(SesioAldagaiak.saioaAukera, pertsonaKop));
-					JOptionPane.showMessageDialog(null, "Saioa ondo gehitu da ", "Ondo", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Saioa ondo gehitu da!", "Ondo", JOptionPane.INFORMATION_MESSAGE);
 				} catch (Exception e2) {
-					System.err.println("error");
+                	JOptionPane.showMessageDialog(null, "Ez duzu saiorik aukeratu! Aukeratu zerrendako saio bat.", "Errorea", JOptionPane.ERROR_MESSAGE);
 				}
 				dispose();
 				JFrameSortu.zinemaAukera();
