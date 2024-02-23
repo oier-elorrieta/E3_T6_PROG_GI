@@ -72,7 +72,31 @@ public class DataAukera extends JFrame {
 
 		setContentPane(contentPane);
 
-		JButton btnLogin = View_metodoak.btn_login();
+		  if(!SesioAldagaiak.logeatuta) {
+	        	JButton btnLogin = View_metodoak.btn_login();
+	        	btnLogin.addMouseListener(new MouseAdapter() {
+	    			@Override
+	    			public void mouseClicked(MouseEvent e) {
+	    				Login login = new Login("dataAukera");
+	    				login.setVisible(true);
+	    				dispose();
+	    			}
+	    		});
+	        	contentPane.add(btnLogin);
+	        }else {
+	        	JButton btnLogOut = View_metodoak.btn_logout();
+	        	btnLogOut.addMouseListener(new MouseAdapter() {
+	    			@Override
+	    			public void mouseClicked(MouseEvent e) {	
+	    				SesioAldagaiak.logeatuta = false;
+	    				dispose();
+	    				JFrameSortu.dataAukera();
+	    			}
+	    		});
+	    		contentPane.add(btnLogOut);
+	    		JLabel lblOngiEtorri = View_metodoak.lbl_textLog();
+	    		contentPane.add(lblOngiEtorri);
+	        }
 
 		JButton btnJarraitu = View_metodoak.btn_jarraitu();
 
@@ -108,7 +132,6 @@ public class DataAukera extends JFrame {
 		contentPane.add(datePanel);
 
 		contentPane.setLayout(null);
-		contentPane.add(btnLogin);
 		contentPane.add(btnAmaiera);
 		contentPane.add(btnJarraitu);
 		

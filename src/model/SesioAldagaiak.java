@@ -14,7 +14,7 @@ public class SesioAldagaiak {
 	public static Filma filmaAukera;
 	public static Saioa saioaAukera;
 	
-	public static boolean logeatuta;
-
+	public static boolean logeatuta = false;
+	public static String bezeroIzena;
 	
 }

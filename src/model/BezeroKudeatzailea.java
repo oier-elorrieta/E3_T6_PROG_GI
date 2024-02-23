@@ -43,6 +43,7 @@ public class BezeroKudeatzailea {
 		for(int i = 0; i < SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().size(); i++) {
 			if(SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().get(i).getBezeroa_NAN().equals(bezeroNAN)) {
 				if (BCrypt.checkpw(bezeroPwd, SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().get(i).getBezeroa_pasahitza())) {
+					SesioAldagaiak.bezeroIzena = SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().get(i).getBezeroa_izena();
 					return true;
 				}
 				return false;

@@ -31,6 +31,7 @@ import java.awt.event.MouseEvent;
 public class Login extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	protected static final String String = null;
 	private JPanel contentPane;
 	private JTextField txtNAN;
 	private JPasswordField passwordField;
@@ -42,7 +43,7 @@ public class Login extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Login frame = new Login();
+					Login frame = new Login(String);
 					frame.setVisible(false);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,7 +55,7 @@ public class Login extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Login() {
+	public Login(String x) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(400, 250, 906, 594);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Hasiera.class.getResource("/images/cine.png")));
@@ -104,6 +105,26 @@ public class Login extends JFrame {
 					String bezeroNAN = txtNAN.getText();
 					String bezeroPwd = passwordField.getText();
 					SesioAldagaiak.logeatuta = BezeroKudeatzailea.komprobatuPasahitza(bezeroNAN, bezeroPwd);
+					if (SesioAldagaiak.logeatuta) {
+						dispose();
+						switch (x) {
+						case "zinemaAukera": 
+							JFrameSortu.zinemaAukera();
+						break;
+						case "saioaAukera":
+							JFrameSortu.saioaAukera();
+						break;
+						case "filmaAukera": 
+							JFrameSortu.filmaAukera();
+						break;
+						case "dataAukera":
+							JFrameSortu.dataAukera();
+						break;
+						}
+						
+					} else {
+						JOptionPane.showMessageDialog(null, "NAN-a eta pasahitza ez dira egokiak.", "Errorea", JOptionPane.ERROR_MESSAGE);
+					}
 			}
 		});
 	}

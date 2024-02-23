@@ -24,20 +24,29 @@ public class View_metodoak {
 	 */
 	public static JButton btn_login() {
 		JButton btnLogin = new JButton("Login");
-		btnLogin.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				Login login = new Login();
-
-				login.setVisible(true);
-			}
-		});
 		btnLogin.setBackground(Color.BLACK);
 		btnLogin.setForeground(Color.RED);
 		btnLogin.setBounds(943, 53, 190, 54);
 		btnLogin.setFont(new Font("SansSerif", Font.BOLD, 22));
 		btnLogin.setFocusPainted(false);
+		
 		return btnLogin;
+	}
+	
+	public static JButton btn_logout() {
+		 JButton btnLogOut = new JButton("LogOut");
+			btnLogOut.setBackground(Color.BLACK);
+			btnLogOut.setForeground(Color.RED);
+			btnLogOut.setBounds(943, 53, 190, 54);
+			btnLogOut.setFont(new Font("SansSerif", Font.BOLD, 22));
+			btnLogOut.setFocusPainted(false);
+			return btnLogOut;
+	}
+	
+	public static JLabel lbl_textLog ()	{
+		 JLabel lblOngiEtorri = new JLabel("Ongi Etorri, " + SesioAldagaiak.bezeroIzena);
+	     lblOngiEtorri.setBounds(970, 118, 150, 14);
+        return lblOngiEtorri;
 	}
 	
 	public static JButton btn_amaiera() {
@@ -56,6 +65,8 @@ public class View_metodoak {
 		btnJarraitu.setFocusPainted(false);
 		return btnJarraitu;
 	}
+	
+	
 
 	public static boolean dataKonprobatu(Saioa saioAukera) {
 		boolean atera = false;

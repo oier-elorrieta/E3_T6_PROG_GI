@@ -86,7 +86,31 @@ public class SaioaAukera extends JFrame {
 
 		setContentPane(contentPane);
 
-		JButton btnLogin = View_metodoak.btn_login();
+		if(!SesioAldagaiak.logeatuta) {
+        	JButton btnLogin = View_metodoak.btn_login();
+        	btnLogin.addMouseListener(new MouseAdapter() {
+    			@Override
+    			public void mouseClicked(MouseEvent e) {
+    				Login login = new Login("saioaAukera");
+    				login.setVisible(true);
+    				dispose();
+    			}
+    		});
+        	contentPane.add(btnLogin);
+        }else {
+        	JButton btnLogOut = View_metodoak.btn_logout();
+        	btnLogOut.addMouseListener(new MouseAdapter() {
+    			@Override
+    			public void mouseClicked(MouseEvent e) {	
+    				SesioAldagaiak.logeatuta = false;
+    				dispose();
+    				JFrameSortu.saioaAukera();
+    			}
+    		});
+    		contentPane.add(btnLogOut);
+    		JLabel lblOngiEtorri = View_metodoak.lbl_textLog();
+    		contentPane.add(lblOngiEtorri);
+        }
 
 		JButton btnJarraitu = View_metodoak.btn_jarraitu();
 
@@ -142,7 +166,6 @@ public class SaioaAukera extends JFrame {
 		}
 
 		contentPane.setLayout(null);
-		contentPane.add(btnLogin);
 		contentPane.add(btnAmaiera);
 		contentPane.add(btnJarraitu);
 

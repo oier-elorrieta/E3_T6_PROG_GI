@@ -63,17 +63,43 @@ public class ZinemaAukera extends JFrame {
         
         JButton btnAmaiera = View_metodoak.btn_amaiera();
         
-        JButton btnLogin = View_metodoak.btn_login();
+        if(!SesioAldagaiak.logeatuta) {
+        	JButton btnLogin = View_metodoak.btn_login();
+        	btnLogin.addMouseListener(new MouseAdapter() {
+    			@Override
+    			public void mouseClicked(MouseEvent e) {
+    				Login login = new Login("zinemaAukera");
+    				login.setVisible(true);
+    				dispose();
+    			}
+    		});
+        	contentPane.add(btnLogin);
+        }else {
+        	JButton btnLogOut = View_metodoak.btn_logout();
+        	btnLogOut.addMouseListener(new MouseAdapter() {
+    			@Override
+    			public void mouseClicked(MouseEvent e) {	
+    				SesioAldagaiak.logeatuta = false;
+    				dispose();
+    				JFrameSortu.zinemaAukera();
+    			}
+    		});
+    		contentPane.add(btnLogOut);
+    		JLabel lblOngiEtorri = View_metodoak.lbl_textLog();
+    		contentPane.add(lblOngiEtorri);
+        }
         
+        
+        
+		
         ButtonGroup bg = new ButtonGroup();
-        
         int bound = 120;
         
         
         for (int i = 0; i < KontsultakSQL.kont_zinemak; i++) {
             JRadioButton rdbtnZinema = new JRadioButton(SesioAldagaiak.zinemaKudeatzailea.getZinemaList()[i].getZinema_izena() + " → " + SesioAldagaiak.zinemaKudeatzailea.getZinemaList()[i].getZinema_helbidea());
             rdbtnZinema.setActionCommand(String.valueOf(i));
-            rdbtnZinema.setBounds(110, bound, 980, 54);
+            rdbtnZinema.setBounds(110, bound, 700, 54);
             rdbtnZinema.setHorizontalAlignment(SwingConstants.LEFT);
             rdbtnZinema.setFont(new Font("Segoe UI", Font.PLAIN, 25));
             rdbtnZinema.setFocusPainted(false);
@@ -83,11 +109,10 @@ public class ZinemaAukera extends JFrame {
             bg.add(rdbtnZinema);
         }
         contentPane.add(lblZinemaLista);
-        contentPane.add(btnLogin);
         contentPane.add(lblAukeratu);
         contentPane.add(btnAmaiera);
         contentPane.add(btnJarraitu);
-        
+                
         btnJarraitu.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
