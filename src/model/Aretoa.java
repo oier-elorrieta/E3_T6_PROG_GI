@@ -40,5 +40,5 @@ public class Aretoa {
 	}
 	public void setAreto_izena(String areto_izena) {
 		this.areto_izena = areto_izena;
-	}	
+	}
 }

@@ -2,11 +2,16 @@ package model;
 
 import java.util.Arrays;
 
-public class Karteldegia {
-	// ALDAGAIAK
-	public Filma[] filmaList = new Filma[20];
+import model.sql.KontsultakSQL;
 
-	public Karteldegia(Filma[] filmaList) {
+public class FilmaKudeatzailea {
+	// ALDAGAIAK
+	private Filma[] filmaList = new Filma[KontsultakSQL.kont_filmak];
+
+	public FilmaKudeatzailea() {
+	}
+	
+	public FilmaKudeatzailea(Filma[] filmaList) {
 		this.filmaList = filmaList;
 	}
 
@@ -19,7 +24,7 @@ public class Karteldegia {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Karteldegia other = (Karteldegia) obj;
+		FilmaKudeatzailea other = (FilmaKudeatzailea) obj;
 		return Arrays.equals(filmaList, other.filmaList);
 	}
 	
@@ -30,6 +35,8 @@ public class Karteldegia {
 	}
 	
 	// GETTERS & SETTERS
+	
+	
 	public Filma[] getFilmaList() {
 		return filmaList;
 	}

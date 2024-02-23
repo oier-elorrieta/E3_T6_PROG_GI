@@ -16,7 +16,7 @@ public class FilmaTest {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		filmaProba = new Filma("IzenaProba","GeneroProba", 10, 7.5);
+		filmaProba = new Filma("IzenaProba","GeneroProba", 10);
 		filmaSetGetProba = new Filma();
 	}
 	
@@ -24,7 +24,7 @@ public class FilmaTest {
 	
 	@Test
 	public void filmaEqualsTrueTest() {				
-		Filma filmaProbaEquals = new Filma("IzenaProba","GeneroProba", 10, 7.5);
+		Filma filmaProbaEquals = new Filma("IzenaProba","GeneroProba", 10);
 		assertTrue(filmaProba.equals(filmaProbaEquals));
 	}
 	
@@ -49,7 +49,7 @@ public class FilmaTest {
 	
 	@Test
 	public void filmaToStringTest() {
-		String txt = "Filma [filma_izena=IzenaProba, filma_generoa=GeneroProba, filma_iraupena=10, filma_prezioa=7.5]";
+		String txt = "Filma [filma_izena=IzenaProba, filma_generoa=GeneroProba, filma_iraupena=10]";
 		assertEquals(filmaProba.toString(), txt);
 	}
 	
@@ -72,10 +72,4 @@ public class FilmaTest {
 		filmaSetGetProba.setFilma_iraupena(100);
 		assertEquals(100, filmaSetGetProba.getFilma_iraupena());
 	}
-	
-	@Test
-	public void filmaPrezoaTest() {
-		filmaSetGetProba.setFilma_prezioa(3.5);
-		assertEquals(3.5, filmaSetGetProba.getFilma_prezioa(),0);
-	}	
 }

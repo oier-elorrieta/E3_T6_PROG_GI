@@ -13,28 +13,26 @@ import model.*;
 
 public class TicketTest {
 	
-	private static ArrayList<Saioa> saioaProba;
-	private static ArrayList<Integer> pertsonaKantitateaProba;
+	private static ArrayList<Sarrera> sarreraListaProba;
 	private static Bezeroa bezeroaProba;
 	
-	private static Ticket ticketProba;
-	private static Ticket ticketSetGetProba;
+	private static SarreraKudeatzailea ticketProba;
+	private static SarreraKudeatzailea ticketSetGetProba;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		saioaProba = new ArrayList<Saioa>();
-		pertsonaKantitateaProba = new ArrayList<Integer>();
+		sarreraListaProba = new ArrayList<Sarrera>();
 		bezeroaProba = new Bezeroa();
 		
-		ticketProba = new Ticket(saioaProba,pertsonaKantitateaProba, 7.75, bezeroaProba);
-		ticketSetGetProba = new Ticket(saioaProba,pertsonaKantitateaProba, 7.75, bezeroaProba);
+		ticketProba = new SarreraKudeatzailea(sarreraListaProba, 7.75, bezeroaProba);
+		ticketSetGetProba = new SarreraKudeatzailea(sarreraListaProba, 7.75, bezeroaProba);
 	}
 
 	/*-----EQUALS TEST-----*/
 	
 	@Test
 	public void ticketEqualsTrueTest() {				
-		Ticket ticketProbaEquals = new Ticket(saioaProba,pertsonaKantitateaProba, 7.75, bezeroaProba);
+		SarreraKudeatzailea ticketProbaEquals = new SarreraKudeatzailea(sarreraListaProba, 7.75, bezeroaProba);
 		assertTrue(ticketProba.equals(ticketProbaEquals));
 	}
 	
@@ -45,7 +43,7 @@ public class TicketTest {
 	
 	@Test
 	public void ticketEqualsNullTest() {			
-		Ticket ticketProbaNull = null;
+		SarreraKudeatzailea ticketProbaNull = null;
 		assertFalse(ticketProba.equals(ticketProbaNull));
 	}
 	
@@ -58,8 +56,9 @@ public class TicketTest {
 	/*-----TOSTRING TEST-----*/
 	
 	@Test
-	public void zinemaToStringTest() {
-		String txt = "Ticket [saioa=" + saioaProba + ", pertsonaKantitatea=" + pertsonaKantitateaProba + ", ticket_prezioa=7.75, bezeroa=" + bezeroaProba + "]";
+	public void ticketToStringTest() {
+		String txt = "Ticket [SarreraLista=" + sarreraListaProba + ", ticket_prezioa=7.75, bezeroa=" + bezeroaProba
+				+ "]";
 		assertEquals(ticketProba.toString(), txt);
 	}
 	
@@ -67,16 +66,9 @@ public class TicketTest {
 	
 	@Test
 	public void ticketSaioaGetSetTest() {
-		ArrayList<Saioa> ticketSaioProba = new ArrayList<Saioa>();
-		ticketSetGetProba.setSaioa(ticketSaioProba);
-		assertEquals(ticketSaioProba, ticketSetGetProba.getSaioa());
-	}
-	
-	@Test
-	public void ticketPertsonaKantitateaGetSetTest() {
-		ArrayList<Integer> ticketPertsonaKantitateaProba = new ArrayList<Integer>();
-		ticketSetGetProba.setPertsonaKantitatea(ticketPertsonaKantitateaProba);
-		assertEquals(ticketPertsonaKantitateaProba, ticketSetGetProba.getPertsonaKantitatea());
+		ArrayList<Sarrera> ticketSarreraListProba = new ArrayList<Sarrera>();
+		ticketSetGetProba.setSarreraLista(ticketSarreraListProba);
+		assertEquals(ticketSarreraListProba, ticketSetGetProba.getSarreraLista());
 	}
 	
 	@Test

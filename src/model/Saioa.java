@@ -69,4 +69,16 @@ public class Saioa {
 	public void setPrezioa(double prezioa) {
 		this.prezioa = prezioa;
 	}
+	
+	public static Date stringToDate(String data) {
+		Date dataBihurtuta = new Date();
+		String[] sub = data.split("-");
+		dataBihurtuta.setYear(Integer.parseInt(sub[0]));
+		dataBihurtuta.setMonth(Integer.parseInt(sub[1])-1);
+		dataBihurtuta.setDate(Integer.parseInt(sub[2]));
+		dataBihurtuta.setHours(Integer.parseInt(sub[3]));
+		dataBihurtuta.setMinutes(Integer.parseInt(sub[4]));
+		dataBihurtuta.setSeconds(0);
+		return dataBihurtuta;
+	}
 }
