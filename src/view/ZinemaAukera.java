@@ -54,7 +54,7 @@ public class ZinemaAukera extends JFrame {
         lblZinemaLista.setHorizontalAlignment(SwingConstants.CENTER);
         
         JLabel lblAukeratu = new JLabel("Aukeratu zinema bat:");
-        lblAukeratu.setBounds(79, 80, 239, 25);
+        lblAukeratu.setBounds(80, 80, 239, 25);
         lblAukeratu.setHorizontalAlignment(SwingConstants.CENTER);
         lblAukeratu.setVerticalAlignment(SwingConstants.TOP);
         lblAukeratu.setFont(new Font("SansSerif", Font.BOLD, 18));
@@ -67,19 +67,19 @@ public class ZinemaAukera extends JFrame {
         
         ButtonGroup bg = new ButtonGroup();
         
-        int bound = 100;
+        int bound = 120;
         
         
         for (int i = 0; i < KontsultakSQL.kont_zinemak; i++) {
-            JRadioButton rdbtnZinema = new JRadioButton(SesioAldagaiak.zinemaKudeatzailea.getZinemaList()[i].getZinema_izena());
+            JRadioButton rdbtnZinema = new JRadioButton(SesioAldagaiak.zinemaKudeatzailea.getZinemaList()[i].getZinema_izena() + " → " + SesioAldagaiak.zinemaKudeatzailea.getZinemaList()[i].getZinema_helbidea());
             rdbtnZinema.setActionCommand(String.valueOf(i));
-            rdbtnZinema.setBounds(bound, 285 , 200, 54);
-            rdbtnZinema.setHorizontalAlignment(SwingConstants.CENTER);
+            rdbtnZinema.setBounds(110, bound, 980, 54);
+            rdbtnZinema.setHorizontalAlignment(SwingConstants.LEFT);
             rdbtnZinema.setFont(new Font("Segoe UI", Font.PLAIN, 25));
             rdbtnZinema.setFocusPainted(false);
             contentPane.setLayout(null);
             contentPane.add(rdbtnZinema);
-            bound = bound + 210;
+            bound = bound + 70;
             bg.add(rdbtnZinema);
         }
         contentPane.add(lblZinemaLista);

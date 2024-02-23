@@ -138,7 +138,7 @@ public class DataAukera extends JFrame {
 					dispose();
 					JFrameSortu.filmaAukera();
 				} catch (Exception e2) {
-					System.err.println("DataAukera - Errorea");
+                	JOptionPane.showMessageDialog(null, "Ez duzu datarik aukeratu! Aukeratu data bat.", "Errorea", JOptionPane.ERROR_MESSAGE);
 				}				
 			}
 		});

@@ -21,6 +21,7 @@ import model.*;
 import model.metodoak.*;
 import model.sql.*;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import java.awt.CardLayout;
@@ -166,7 +167,7 @@ public class FilmaAukera extends JFrame {
 					dispose();
 					JFrameSortu.saioaAukera();
 				} catch (Exception e2) {
-					System.err.println("FilmaAukera - ERROREA");
+                	JOptionPane.showMessageDialog(null, "Ez duzu filmarik aukeratu! Aukeratu zerrendako filma bat.", "Errorea", JOptionPane.ERROR_MESSAGE);
 				}
 
 			}
