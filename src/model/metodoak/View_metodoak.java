@@ -116,7 +116,7 @@ public class View_metodoak {
 	public static String dateToString (Date dataAldatzeko) {
 		String dataAldatuta;
 
-		if (dataAldatzeko.getMinutes() < 9) {
+		if (dataAldatzeko.getMinutes() < 10) {
 			dataAldatuta = dataAldatzeko.getHours() + ":0" + dataAldatzeko.getMinutes() + " h.";
 		} else {
 			dataAldatuta = dataAldatzeko.getHours() + ":" + dataAldatzeko.getMinutes() + " h.";

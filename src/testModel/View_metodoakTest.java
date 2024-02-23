@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.swing.text.View;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -63,7 +65,20 @@ public class View_metodoakTest {
 		ArrayList<Saioa> saioaListTest = new ArrayList<Saioa>();
 		saioaListTest.add(saioaTest);
 		assertEquals(saioaListTest,View_metodoak.saioakAtera(saioaListaProba, filmaProba));
-		
+	}
+	
+	@Test
+	public void dateToStringMin0Test() {
+		Date dataKonprobatu = new Date(2024, 1, 20, 10, 0, 0);
+		String dataTest = "10:00 h.";
+		assertEquals(dataTest, View_metodoak.dateToString(dataKonprobatu));
+	}
+	
+	@Test
+	public void dateToStringMinNot0Test() {
+		Date dataKonprobatu = new Date(2024, 1, 20, 10, 30, 0);
+		String dataTest = "10:30 h.";
+		assertEquals(dataTest, View_metodoak.dateToString(dataKonprobatu));
 	}
 
 }
