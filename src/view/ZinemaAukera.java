@@ -97,7 +97,7 @@ public class ZinemaAukera extends JFrame {
                     SesioAldagaiak.zinemaAukera =  SesioAldagaiak.zinemaKudeatzailea.getZinemaList()[aukera];                   
                     dispose();
                   
-                    JFrameSortu.dataAukeraSortu();
+                    JFrameSortu.dataAukera();
                    
                 } catch (Exception e2) {
                 	JOptionPane.showMessageDialog(null, "Ez duzu zinemarik aukeratu! Aukeratu zerrendako zinema bat.", "Errorea", JOptionPane.ERROR_MESSAGE);

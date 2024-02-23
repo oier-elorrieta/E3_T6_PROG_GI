@@ -72,7 +72,8 @@ public class View_metodoak {
 			atera = dataKonprobatu(saioak[i]);
 			if (atera) {
 				if (saioak[i].getFilma().equals(filmaAukeratuta)) {
-					saioaAukerak.add(saioak[i]);
+					if(!saioaAukerak.contains(saioak[i])) {
+					saioaAukerak.add(saioak[i]);}
 				}
 			}
 		}

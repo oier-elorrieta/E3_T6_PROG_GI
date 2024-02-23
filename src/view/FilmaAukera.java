@@ -164,7 +164,7 @@ public class FilmaAukera extends JFrame {
 						}
 					}
 					dispose();
-					JFrameSortu.saioaAukeraSortu();
+					JFrameSortu.saioaAukera();
 				} catch (Exception e2) {
 					System.err.println("FilmaAukera - ERROREA");
 				}
@@ -176,7 +176,7 @@ public class FilmaAukera extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				JFrameSortu.zinemaAukeraSortu();
+				JFrameSortu.zinemaAukera();
 			}
 		});
 

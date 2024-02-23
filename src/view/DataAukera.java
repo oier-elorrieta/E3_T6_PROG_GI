@@ -136,7 +136,7 @@ public class DataAukera extends JFrame {
 					}								
 					
 					dispose();
-					JFrameSortu.filmaAukeraSortu();
+					JFrameSortu.filmaAukera();
 				} catch (Exception e2) {
 					System.err.println("DataAukera - Errorea");
 				}				
@@ -147,7 +147,7 @@ public class DataAukera extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				JFrameSortu.zinemaAukeraSortu();
+				JFrameSortu.zinemaAukera();
 			}
 		});
 	

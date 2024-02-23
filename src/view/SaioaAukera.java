@@ -174,7 +174,7 @@ public class SaioaAukera extends JFrame {
 					System.err.println("error");
 				}
 				dispose();
-				JFrameSortu.zinemaAukeraSortu();
+				JFrameSortu.zinemaAukera();
 			}
 		});
 
@@ -182,7 +182,7 @@ public class SaioaAukera extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				JFrameSortu.zinemaAukeraSortu();
+				JFrameSortu.zinemaAukera();
 			}
 		});
 

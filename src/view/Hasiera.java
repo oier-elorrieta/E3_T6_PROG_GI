@@ -91,7 +91,7 @@ public class Hasiera extends JFrame {
 				 	try {
 				 		Thread.sleep(1000);
 		                dispose();
-		                JFrameSortu.zinemaAukeraSortu();
+		                JFrameSortu.zinemaAukera();
 		            } catch (Exception e2) {
 		                System.err.println("Hasiera - ERROREA");
 		            }
