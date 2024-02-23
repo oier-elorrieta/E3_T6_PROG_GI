@@ -12,6 +12,7 @@ import model.BezeroKudeatzailea;
 import model.Bezeroa;
 import model.Zinema;
 import model.ZinemaKudeatzailea;
+import model.sql.ConexioaSQL;
 import model.sql.KontsultakSQL;
 
 public class BezeroKudeatzaileaTest {
@@ -24,6 +25,7 @@ public class BezeroKudeatzaileaTest {
 	public static void setUpBeforeClass() throws Exception {
 		bezeroKudeatzaileaProba = new BezeroKudeatzailea(bezeroaListProba);
 		bezeroKudeatzaileaSetGetProba = new BezeroKudeatzailea(bezeroaListProba);
+		ConexioaSQL.datuakKargatu();
 	}
 	
 /*-----EQUALS TEST-----*/
@@ -66,6 +68,23 @@ public class BezeroKudeatzaileaTest {
 		ArrayList<Bezeroa> bezeroKudeatzaileaListProba = new ArrayList<Bezeroa>();
 		bezeroKudeatzaileaSetGetProba.setBezeroaList(bezeroKudeatzaileaListProba);
 		assertEquals(bezeroKudeatzaileaListProba, bezeroKudeatzaileaSetGetProba.getBezeroaList());
+	}
+	
+	/*-----METODOAK-----*/
+	
+	@Test
+	public void bezeroaOndoTest() {
+		assertTrue(BezeroKudeatzailea.komprobatuPasahitza("12345678Z", "markel"));
+	}
+	
+	@Test
+	public void bezeroaNanTxartoTest() {
+		assertFalse(BezeroKudeatzailea.komprobatuPasahitza("12345678I", "markel"));
+	}
+	
+	@Test
+	public void bezeroaPwdTxartoTest() {
+		assertFalse(BezeroKudeatzailea.komprobatuPasahitza("12345678Z", "magkel"));
 	}
 	
 }
