@@ -34,7 +34,7 @@ public class View_metodoak {
 	}
 	
 	public static JButton btn_logout() {
-		 JButton btnLogOut = new JButton("LogOut");
+		 JButton btnLogOut = new JButton("Logout");
 			btnLogOut.setBackground(Color.BLACK);
 			btnLogOut.setForeground(Color.RED);
 			btnLogOut.setBounds(943, 53, 190, 54);
@@ -44,8 +44,10 @@ public class View_metodoak {
 	}
 	
 	public static JLabel lbl_textLog ()	{
-		 JLabel lblOngiEtorri = new JLabel("Ongi Etorri, " + SesioAldagaiak.bezeroIzena);
-	     lblOngiEtorri.setBounds(970, 118, 150, 14);
+		 JLabel lblOngiEtorri = new JLabel("Ongi etorri, " + SesioAldagaiak.bezeroIzena + "!");
+		 lblOngiEtorri.setHorizontalAlignment(SwingConstants.CENTER);
+		 lblOngiEtorri.setFont(new Font("SansSerif", Font.BOLD, 12));
+	     lblOngiEtorri.setBounds(943, 118, 190, 14);
         return lblOngiEtorri;
 	}
 	
