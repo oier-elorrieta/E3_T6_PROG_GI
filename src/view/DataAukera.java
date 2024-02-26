@@ -141,9 +141,14 @@ public class DataAukera extends JFrame {
 						SesioAldagaiak.dataAukeratuta.setHours(0);
 						SesioAldagaiak.dataAukeratuta.setMinutes(0);
 						SesioAldagaiak.dataAukeratuta.setSeconds(0);
-					}								
+					}		
+					
+					if(View_metodoak.filmakAtera(SesioAldagaiak.zinemaAukera.getSaioak()).size() == 0){
+						JOptionPane.showMessageDialog(null, "Egun honetarako ez dago saiorik.", "Errorea", JOptionPane.ERROR_MESSAGE);
+					} else {
 					dispose();
 					JFrameSortu.filmaAukera();
+					}
 				} catch (Exception e2) {
                 	JOptionPane.showMessageDialog(null, "Ez duzu datarik aukeratu! Aukeratu data bat.", "Errorea", JOptionPane.ERROR_MESSAGE);
 				}				
