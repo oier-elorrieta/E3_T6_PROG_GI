@@ -47,6 +47,7 @@ public class BezeroKudeatzailea {
 			if(SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().get(i).getBezeroa_NAN().equals(bezeroNAN)) {
 				if (BCrypt.checkpw(bezeroPwd, SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().get(i).getBezeroa_pasahitza())) {
 					SesioAldagaiak.bezeroIzena = SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().get(i);
+					SesioAldagaiak.sarreraKudeatzailea.setBezeroa(SesioAldagaiak.bezeroIzena);
 					return true;
 				}
 				return false;

@@ -15,6 +15,11 @@ import view.*;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.channels.AsynchronousServerSocketChannel;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -123,5 +128,41 @@ public class View_metodoak {
 		}
 
 		return dataAldatuta;
+	}
+	
+	public static void ticketSortu() throws IOException {
+		Date dataOrain = new Date();
+		String rutaArchivo = "ticket_" + dataOrain.getTime() + ".txt";
+		File archivo = new File(rutaArchivo);
+		FileWriter escritor = new FileWriter(archivo);
+		BufferedWriter bufferedWriter = new BufferedWriter(escritor);
+		
+		for (int i = 0; i < SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().size();i++) {
+			
+			bufferedWriter.write("Filma: " + SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().get(i).getSaioa().getFilma().getFilma_izena());
+			 bufferedWriter.newLine();
+			 bufferedWriter.write("Iraupena: " + SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().get(i).getSaioa().getFilma().getFilma_iraupena() + " minutu.");
+			 bufferedWriter.newLine();
+			 bufferedWriter.write("Aretoa: " + SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().get(i).getSaioa().getAretoa().getAreto_izena());
+			 bufferedWriter.newLine();	
+			 bufferedWriter.write("Saioaren Data: " + SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().get(i).getSaioa().getData().getDay() + "/" + SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().get(i).getSaioa().getData().getMonth() + "/" + SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().get(i).getSaioa().getData().getYear());
+			 bufferedWriter.newLine();	
+			 bufferedWriter.write("Ordua: " + dateToString(SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().get(i).getSaioa().getData()));
+			 bufferedWriter.newLine();
+			 bufferedWriter.write("Petsona Kopurua: " + SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().get(i).getPertsonaKopurua());
+			 bufferedWriter.newLine();	       		
+			 bufferedWriter.write("------------------------------------------------");
+			 bufferedWriter.newLine();
+		}
+		bufferedWriter.write("Bezeroa: ");
+		bufferedWriter.newLine();
+		bufferedWriter.write("\t Izena: " + SesioAldagaiak.sarreraKudeatzailea.getBezeroa().getBezeroa_izena() + " " + SesioAldagaiak.sarreraKudeatzailea.getBezeroa().getBezeroa_abizenak());
+		bufferedWriter.newLine();
+		bufferedWriter.write("\t NAN: " + SesioAldagaiak.sarreraKudeatzailea.getBezeroa().getBezeroa_NAN());
+		bufferedWriter.newLine();
+		bufferedWriter.write("Precio totala: " + SesioAldagaiak.sarreraKudeatzailea.getTicket_prezioa() + "€");
+		bufferedWriter.newLine();
+		bufferedWriter.write("Erosketa Data: " + dataOrain);
+		bufferedWriter.close();
 	}
 }

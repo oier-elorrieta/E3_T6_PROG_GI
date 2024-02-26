@@ -13,6 +13,7 @@ import model.Bezeroa;
 import model.SesioAldagaiak;
 import model.metodoak.JFrameSortu;
 import model.sql.ConexioaSQL;
+import model.sql.InsertakSQL;
 
 import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
@@ -81,14 +82,13 @@ public class Erregistroa extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JLabel lblErregistroa_Header = new JLabel("ERREGISTROA");
 		lblErregistroa_Header.setBounds(527, 16, 190, 27);
 		lblErregistroa_Header.setHorizontalAlignment(SwingConstants.CENTER);
 		lblErregistroa_Header.setFont(new Font("Segoe UI Symbol", Font.BOLD, 20));
-		
 
 		JLabel lblIzena = new JLabel("IZENA");
 		lblIzena.setBounds(319, 74, 204, 23);
@@ -162,20 +162,19 @@ public class Erregistroa extends JFrame {
 		rdbtnEmakumea.setBackground(Color.WHITE);
 		bg.add(rdbtnEmakumea);
 
-		JButton btnErregistratu = new JButton("Erregistratu");
-		rdbtnEmakumea.setActionCommand("g");
-		btnErregistratu.setBounds(482, 530, 136, 29);
-		btnErregistratu.setForeground(SystemColor.text);
-		btnErregistratu.setBackground(SystemColor.desktop);
-		btnErregistratu.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
-		
 		JButton btnAtzera = new JButton("Atzera");
 		btnAtzera.setBounds(319, 530, 136, 29);
 		btnAtzera.setForeground(SystemColor.text);
 		btnAtzera.setBackground(SystemColor.desktop);
 		btnAtzera.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
 		
-		contentPane.setLayout(null);
+		JButton btnErregistratu = new JButton("Erregistratu");
+		rdbtnEmakumea.setActionCommand("g");
+		btnErregistratu.setBounds(482, 530, 136, 29);
+		btnErregistratu.setForeground(SystemColor.text);
+		btnErregistratu.setBackground(SystemColor.desktop);
+		btnErregistratu.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
+			
 		contentPane.add(lblErregistroa_Header);
 		contentPane.add(lblIzena);
 		contentPane.add(txtIzena);
@@ -190,8 +189,9 @@ public class Erregistroa extends JFrame {
 		contentPane.add(lblSexua);
 		contentPane.add(rdbtnGizona);
 		contentPane.add(rdbtnEmakumea);
-		contentPane.add(btnErregistratu);
 		contentPane.add(btnAtzera);
+		contentPane.add(btnErregistratu);
+	
 		
 		btnAtzera.addMouseListener(new MouseAdapter() {
 			@Override
@@ -291,7 +291,8 @@ public class Erregistroa extends JFrame {
 						String hashedPassword = BCrypt.hashpw(pasahitzaString, BCrypt.gensalt());
 						SesioAldagaiak.bezeroIzena = new Bezeroa(nanAukeratuta, txtIzena.getText(), txtAbizenak.getText(), hashedPassword, bg.getSelection().getActionCommand().charAt(0));
 						SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().add(SesioAldagaiak.bezeroIzena);
-						ConexioaSQL.BezeroaSartuKonexioaIreki();
+						SesioAldagaiak.sarreraKudeatzailea.setBezeroa(SesioAldagaiak.bezeroIzena);
+						InsertakSQL.BezeroaSartzekoKonexioa();
 						SesioAldagaiak.logeatuta = true;
 						JOptionPane.showMessageDialog(null, "Ondo erregistratu zara!", "Errorea", JOptionPane.INFORMATION_MESSAGE);
 						dispose();

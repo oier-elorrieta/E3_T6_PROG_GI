@@ -73,18 +73,69 @@ public class SaioaAukera extends JFrame {
 		setTitle("Saioa aukeratu - Talde 6");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblSaioLista = new JLabel("SAIOEN LISTA");
+		lblSaioLista.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSaioLista.setBounds(0, 9, 1166, 58);
+		lblSaioLista.setFont(new Font("Source Sans Pro Black", Font.BOLD, 45));
 
+		JLabel lblAukFilma = new JLabel("Aukeratutako filma:");
+		lblAukFilma.setBounds(90, 80, 221, 25);
+		lblAukFilma.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAukFilma.setVerticalAlignment(SwingConstants.TOP);
+		lblAukFilma.setFont(new Font("SansSerif", Font.BOLD, 18));
+		
 		JPanel panelFilmaIzena = new JPanel();
 		panelFilmaIzena.setBorder(new LineBorder(new Color(255, 0, 0), 2, true));
 		panelFilmaIzena.setBounds(302, 73, 599, 39);
-		contentPane.add(panelFilmaIzena);
+		
+		JLabel lblFilmAukera = new JLabel(SesioAldagaiak.filmaAukera.getFilma_izena());
+		lblFilmAukera.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFilmAukera.setBounds(310, 9, 452, 58);
+		lblFilmAukera.setFont(new Font("Dialog", Font.BOLD, 21));
+		
+		JLabel lblAukData = new JLabel("Aukeratutako data:");
+		lblAukData.setBounds(90, 130, 221, 25);
+		lblAukData.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAukData.setVerticalAlignment(SwingConstants.TOP);
+		lblAukData.setFont(new Font("SansSerif", Font.BOLD, 18));
 		
 		JPanel panelDataIzena = new JPanel();
 		panelDataIzena.setBorder(new LineBorder(new Color(255, 0, 0), 2, true));
 		panelDataIzena.setBounds(302, 123, 599, 39);
-		contentPane.add(panelDataIzena);
-
-		setContentPane(contentPane);
+		
+		JLabel lblDataAukera = new JLabel(SesioAldagaiak.dataAukeratuta.getDate() + "/" + (SesioAldagaiak.dataAukeratuta.getMonth()+1) + "/" + SesioAldagaiak.dataAukeratuta.getYear());
+		lblDataAukera.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDataAukera.setBounds(310, 130, 452, 58);
+		lblDataAukera.setFont(new Font("Dialog", Font.BOLD, 21));
+		
+		JLabel lblPertsonaKopurua = new JLabel("Pertsona kopurua:");
+		lblPertsonaKopurua.setVerticalAlignment(SwingConstants.TOP);
+		lblPertsonaKopurua.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPertsonaKopurua.setFont(new Font("SansSerif", Font.BOLD, 18));
+		lblPertsonaKopurua.setBounds(90, 175, 221, 25);
+		
+		JComboBox comboBox = new JComboBox(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		comboBox.setBounds(302, 178, 50, 22);
+		
+		saioaAukerak = View_metodoak.saioakAtera(SesioAldagaiak.zinemaAukera.getSaioak(), SesioAldagaiak.filmaAukera);
+		ButtonGroup bg = new ButtonGroup();
+		int bound = 225;
+		for (int i = 0; i < saioaAukerak.size(); i++) {
+			JRadioButton rdbtnSaioa = new JRadioButton(
+					saioaAukerak.get(i).getAretoa().getAreto_izena() + " - " + View_metodoak.dateToString(saioaAukerak.get(i).getData()) + " - " + saioaAukerak.get(i).getPrezioa() + " €");
+			rdbtnSaioa.setActionCommand(String.valueOf(i));
+			rdbtnSaioa.setBounds(100, bound, 400, 54);
+			rdbtnSaioa.setHorizontalAlignment(SwingConstants.CENTER);
+			rdbtnSaioa.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+			rdbtnSaioa.setFocusPainted(false);
+			contentPane.add(rdbtnSaioa);
+			bg.add(rdbtnSaioa);
+			bound = bound + 50;
+		}
 
 		if(!SesioAldagaiak.logeatuta) {
         	JButton btnLogin = View_metodoak.btn_login();
@@ -111,75 +162,22 @@ public class SaioaAukera extends JFrame {
     		JLabel lblOngiEtorri = View_metodoak.lbl_textLog();
     		contentPane.add(lblOngiEtorri);
         }
-
-		JButton btnJarraitu = View_metodoak.btn_jarraitu();
-
+		
 		JButton btnAmaiera = View_metodoak.btn_amaiera();
-
-		JLabel lblSaioLista = new JLabel("SAIOEN LISTA");
-		lblSaioLista.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSaioLista.setBounds(0, 9, 1166, 58);
-		lblSaioLista.setFont(new Font("Source Sans Pro Black", Font.BOLD, 45));
+		JButton btnJarraitu = View_metodoak.btn_jarraitu();
+	
 		contentPane.add(lblSaioLista);
-
-		JLabel lblAukFilma = new JLabel("Aukeratutako filma:");
-		lblAukFilma.setBounds(90, 80, 221, 25);
-		lblAukFilma.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAukFilma.setVerticalAlignment(SwingConstants.TOP);
-		lblAukFilma.setFont(new Font("SansSerif", Font.BOLD, 18));
 		contentPane.add(lblAukFilma);
-
-		JLabel lblFilmAukera = new JLabel(SesioAldagaiak.filmaAukera.getFilma_izena());
-		lblFilmAukera.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFilmAukera.setBounds(310, 9, 452, 58);
-		lblFilmAukera.setFont(new Font("Dialog", Font.BOLD, 21));
+		contentPane.add(panelFilmaIzena);
 		panelFilmaIzena.add(lblFilmAukera);
-
-		JLabel lblAukData = new JLabel("Aukeratutako data:");
-		lblAukData.setBounds(90, 130, 221, 25);
-		lblAukData.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAukData.setVerticalAlignment(SwingConstants.TOP);
-		lblAukData.setFont(new Font("SansSerif", Font.BOLD, 18));
 		contentPane.add(lblAukData);
-
-		JLabel lblDataAukera = new JLabel(SesioAldagaiak.dataAukeratuta.getDate() + "/" + (SesioAldagaiak.dataAukeratuta.getMonth()+1) + "/" + SesioAldagaiak.dataAukeratuta.getYear());
-		lblDataAukera.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDataAukera.setBounds(310, 130, 452, 58);
-		lblDataAukera.setFont(new Font("Dialog", Font.BOLD, 21));
+		contentPane.add(panelDataIzena);
 		panelDataIzena.add(lblDataAukera);
-		
-		ButtonGroup bg = new ButtonGroup();
-		int bound = 225;
-		saioaAukerak = View_metodoak.saioakAtera(SesioAldagaiak.zinemaAukera.getSaioak(), SesioAldagaiak.filmaAukera);
-		
-		for (int i = 0; i < saioaAukerak.size(); i++) {
-			JRadioButton rdbtnSaioa = new JRadioButton(
-					saioaAukerak.get(i).getAretoa().getAreto_izena() + " - " + View_metodoak.dateToString(saioaAukerak.get(i).getData()) + " - " + saioaAukerak.get(i).getPrezioa() + " €");
-			rdbtnSaioa.setActionCommand(String.valueOf(i));
-			rdbtnSaioa.setBounds(100, bound, 400, 54);
-			rdbtnSaioa.setHorizontalAlignment(SwingConstants.CENTER);
-			rdbtnSaioa.setFont(new Font("Segoe UI", Font.PLAIN, 20));
-			rdbtnSaioa.setFocusPainted(false);
-			contentPane.add(rdbtnSaioa);
-			bound = bound + 50;
-			bg.add(rdbtnSaioa);
-		}
-
-		contentPane.setLayout(null);
+		contentPane.add(lblPertsonaKopurua);
+		contentPane.add(comboBox);
 		contentPane.add(btnAmaiera);
 		contentPane.add(btnJarraitu);
-
-		JComboBox comboBox = new JComboBox(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		comboBox.setBounds(302, 178, 50, 22);
-		contentPane.add(comboBox);
 		
-		JLabel lblPertsonaKopurua = new JLabel("Pertsona kopurua:");
-		lblPertsonaKopurua.setVerticalAlignment(SwingConstants.TOP);
-		lblPertsonaKopurua.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPertsonaKopurua.setFont(new Font("SansSerif", Font.BOLD, 18));
-		lblPertsonaKopurua.setBounds(90, 175, 221, 25);
-		contentPane.add(lblPertsonaKopurua);
 		btnJarraitu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

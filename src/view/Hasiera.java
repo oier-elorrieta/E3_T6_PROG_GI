@@ -66,6 +66,11 @@ public class Hasiera extends JFrame {
 		contentPane.setLayout(null);
 		contentPane.add(lblOngiEtorri);
 		
+		JLabel lblFilm_argazkia = new JLabel("");
+		lblFilm_argazkia.setIcon(new ImageIcon(Hasiera.class.getResource("/images/logomedio.png")));
+		lblFilm_argazkia.setBounds(529, 214, 99, 113);
+		contentPane.add(lblFilm_argazkia);
+		
 		JLabel lblPrograma = new JLabel("PELIKULAPP · TALDE 6");
 		lblPrograma.setForeground(Color.BLACK);
 		lblPrograma.setHorizontalAlignment(SwingConstants.CENTER);
@@ -80,11 +85,6 @@ public class Hasiera extends JFrame {
 		lblKlik.setBounds(0, 465, 1165, 38);
 		contentPane.add(lblKlik);
 		
-		JLabel lblFilm_argazkia = new JLabel("");
-		lblFilm_argazkia.setIcon(new ImageIcon(Hasiera.class.getResource("/images/logomedio.png")));
-		lblFilm_argazkia.setBounds(529, 214, 99, 113);
-		contentPane.add(lblFilm_argazkia);
-		
 		contentPane.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -96,11 +96,6 @@ public class Hasiera extends JFrame {
 		                System.err.println("Hasiera - ERROREA");
 		            }
 			}
-		});
-		
-		
-		
-		
-		
+		});	
 	}
 }

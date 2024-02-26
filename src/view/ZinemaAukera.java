@@ -42,9 +42,7 @@ public class ZinemaAukera extends JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(Hasiera.class.getResource("/images/cine.png")));
 		setTitle("Zinema aukeratu - Talde 6");
         contentPane = new JPanel();
-
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
@@ -59,9 +57,21 @@ public class ZinemaAukera extends JFrame {
         lblAukeratu.setVerticalAlignment(SwingConstants.TOP);
         lblAukeratu.setFont(new Font("SansSerif", Font.BOLD, 18));
         
-        JButton btnJarraitu = View_metodoak.btn_jarraitu();
-        
-        JButton btnAmaiera = View_metodoak.btn_amaiera();
+
+        ButtonGroup bg = new ButtonGroup();
+        int bound = 120;
+        for (int i = 0; i < KontsultakSQL.kont_zinemak; i++) {
+            JRadioButton rdbtnZinema = new JRadioButton(SesioAldagaiak.zinemaKudeatzailea.getZinemaList()[i].getZinema_izena() + " → " + SesioAldagaiak.zinemaKudeatzailea.getZinemaList()[i].getZinema_helbidea());
+            rdbtnZinema.setActionCommand(String.valueOf(i));
+            rdbtnZinema.setBounds(110, bound, 700, 54);
+            rdbtnZinema.setHorizontalAlignment(SwingConstants.LEFT);
+            rdbtnZinema.setFont(new Font("Segoe UI", Font.PLAIN, 25));
+            rdbtnZinema.setFocusPainted(false);
+            contentPane.setLayout(null);
+            contentPane.add(rdbtnZinema);
+            bg.add(rdbtnZinema);
+            bound = bound + 70;
+        }
         
         if(!SesioAldagaiak.logeatuta) {
         	JButton btnLogin = View_metodoak.btn_login();
@@ -83,30 +93,14 @@ public class ZinemaAukera extends JFrame {
     				JFrameSortu.zinemaAukera();
     			}
     		});
-    		contentPane.add(btnLogOut);
     		JLabel lblOngiEtorri = View_metodoak.lbl_textLog();
+    		contentPane.add(btnLogOut);
     		contentPane.add(lblOngiEtorri);
         }
         
-        
-        
-		
-        ButtonGroup bg = new ButtonGroup();
-        int bound = 120;
-        
-        
-        for (int i = 0; i < KontsultakSQL.kont_zinemak; i++) {
-            JRadioButton rdbtnZinema = new JRadioButton(SesioAldagaiak.zinemaKudeatzailea.getZinemaList()[i].getZinema_izena() + " → " + SesioAldagaiak.zinemaKudeatzailea.getZinemaList()[i].getZinema_helbidea());
-            rdbtnZinema.setActionCommand(String.valueOf(i));
-            rdbtnZinema.setBounds(110, bound, 700, 54);
-            rdbtnZinema.setHorizontalAlignment(SwingConstants.LEFT);
-            rdbtnZinema.setFont(new Font("Segoe UI", Font.PLAIN, 25));
-            rdbtnZinema.setFocusPainted(false);
-            contentPane.setLayout(null);
-            contentPane.add(rdbtnZinema);
-            bound = bound + 70;
-            bg.add(rdbtnZinema);
-        }
+        JButton btnAmaiera = View_metodoak.btn_amaiera();
+        JButton btnJarraitu = View_metodoak.btn_jarraitu();
+     
         contentPane.add(lblZinemaLista);
         contentPane.add(lblAukeratu);
         contentPane.add(btnAmaiera);
@@ -115,8 +109,13 @@ public class ZinemaAukera extends JFrame {
         btnAmaiera.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent e) {
-        		dispose();
-        		JFrameSortu.laburpenaAukera();
+        		if (SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().size() != 0) {
+        			dispose();
+            		JFrameSortu.laburpenaAukera();
+        		} else {
+        			JOptionPane.showMessageDialog(null, "Ez duzu saiorik hartu", "Errorea", JOptionPane.ERROR_MESSAGE);
+        		}
+        		
         	}
         });
         
@@ -128,13 +127,10 @@ public class ZinemaAukera extends JFrame {
                 	aukera = Integer.parseInt(bg.getSelection().getActionCommand());
                     SesioAldagaiak.zinemaAukera =  SesioAldagaiak.zinemaKudeatzailea.getZinemaList()[aukera];                   
                     dispose();
-                  
                     JFrameSortu.dataAukera();
-                   
                 } catch (Exception e2) {
                 	JOptionPane.showMessageDialog(null, "Ez duzu zinemarik aukeratu! Aukeratu zerrendako zinema bat.", "Errorea", JOptionPane.ERROR_MESSAGE);
-                }
-                
+                }    
             }
         });
     }

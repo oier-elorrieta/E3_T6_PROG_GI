@@ -62,8 +62,8 @@ public class Login extends JFrame {
 		setTitle("Login - Talde 6");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JLabel lblLogin_Header = new JLabel("LOGIN");
 		lblLogin_Header.setBounds(198, 11, 452, 58);
@@ -85,11 +85,11 @@ public class Login extends JFrame {
 		passwordField = new JPasswordField();
 		passwordField.setBounds(210, 281, 433, 33);
 		
-		JButton btnLogin = new JButton("Login");
-		btnLogin.setBounds(342, 422, 148, 29);
-		btnLogin.setForeground(SystemColor.text);
-		btnLogin.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
-		btnLogin.setBackground(SystemColor.desktop);
+		JButton btnAtzera = new JButton("Atzera");
+		btnAtzera.setBounds(342, 338, 148, 29);
+		btnAtzera.setForeground(SystemColor.text);
+		btnAtzera.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
+		btnAtzera.setBackground(SystemColor.desktop);
 		
 		JButton btnErregistratu = new JButton("Erregistratu");
 		btnErregistratu.setBounds(342, 380, 148, 29);
@@ -97,21 +97,20 @@ public class Login extends JFrame {
 		btnErregistratu.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
 		btnErregistratu.setBackground(SystemColor.desktop);
 		
-		JButton btnAtzera = new JButton("Atzera");
-		btnAtzera.setBounds(342, 338, 148, 29);
-		btnAtzera.setForeground(SystemColor.text);
-		btnAtzera.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
-		btnAtzera.setBackground(SystemColor.desktop);
+		JButton btnLogin = new JButton("Login");
+		btnLogin.setBounds(342, 422, 148, 29);
+		btnLogin.setForeground(SystemColor.text);
+		btnLogin.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
+		btnLogin.setBackground(SystemColor.desktop);
 		
-		contentPane.setLayout(null);
+		contentPane.add(lblLogin_Header);
 		contentPane.add(lblNAN);
 		contentPane.add(txtNAN);
 		contentPane.add(lblPasahitza);
 		contentPane.add(passwordField);
-		contentPane.add(lblLogin_Header);
-		contentPane.add(btnLogin);
-		contentPane.add(btnErregistratu);
 		contentPane.add(btnAtzera);
+		contentPane.add(btnErregistratu);
+		contentPane.add(btnLogin);
 
 		btnAtzera.addMouseListener(new MouseAdapter() {
 			@Override

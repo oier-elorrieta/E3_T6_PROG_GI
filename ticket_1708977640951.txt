@@ -1,0 +1,12 @@
+Filma: El Resplandor
+Iraupena: 146 minutu.
+Aretoa: Areto 3
+Saioaren Data: 2/1/2024
+Ordua: 22:00 h.
+Petsona Kopurua: 3
+------------------------------------------------
+Bezeroa: 
+	 Izena: Markel Roman
+	 NAN: 12345678Z
+Precio totala: 45.0€
+Erosketa Data: Mon Feb 26 21:00:40 CET 2024

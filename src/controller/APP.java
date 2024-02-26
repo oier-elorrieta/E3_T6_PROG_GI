@@ -11,9 +11,6 @@ import model.sql.ConexioaSQL;
 import view.*;
 
 public class APP {
-
-	public static ZinemaAukera zinemaAukera;
-	
 	public static void main(String[] args) {
 		ConexioaSQL.datuakKargatu();
 		JFrameSortu.hasieraAukera();
