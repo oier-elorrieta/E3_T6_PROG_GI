@@ -4,8 +4,11 @@ import javax.swing.WindowConstants;
 
 import model.Saioa;
 import view.DataAukera;
+import view.Erregistroa;
 import view.FilmaAukera;
 import view.Hasiera;
+import view.Laburpena;
+import view.Login;
 import view.SaioaAukera;
 import view.ZinemaAukera;
 
@@ -40,5 +43,23 @@ public class JFrameSortu {
         dataAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         dataAukera.setVisible(true);
     }
+	
+	public static void loginAukera(String nondikDator) {
+		Login loginAukera = new Login(nondikDator);
+		loginAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		loginAukera.setVisible(true);
+	}
+	
+	public static void erregistroAukera(String nondikDator) {
+		Erregistroa erregistroAukera = new Erregistroa(nondikDator);
+		erregistroAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		erregistroAukera.setVisible(true);
+	}
+	
+	public static void laburpenaAukera() {
+		Laburpena laburpenaAukera = new Laburpena();
+		laburpenaAukera.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		laburpenaAukera.setVisible(true);
+	}
 }
 	

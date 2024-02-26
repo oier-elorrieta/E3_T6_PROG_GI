@@ -68,8 +68,7 @@ public class ZinemaAukera extends JFrame {
         	btnLogin.addMouseListener(new MouseAdapter() {
     			@Override
     			public void mouseClicked(MouseEvent e) {
-    				Login login = new Login("zinemaAukera");
-    				login.setVisible(true);
+    				JFrameSortu.loginAukera("zinemaAukera");
     				dispose();
     			}
     		});
@@ -113,6 +112,14 @@ public class ZinemaAukera extends JFrame {
         contentPane.add(btnAmaiera);
         contentPane.add(btnJarraitu);
                 
+        btnAmaiera.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		dispose();
+        		JFrameSortu.laburpenaAukera();
+        	}
+        });
+        
         btnJarraitu.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

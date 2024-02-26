@@ -44,7 +44,7 @@ public class View_metodoak {
 	}
 	
 	public static JLabel lbl_textLog ()	{
-		 JLabel lblOngiEtorri = new JLabel("Ongi etorri, " + SesioAldagaiak.bezeroIzena + "!");
+		 JLabel lblOngiEtorri = new JLabel("Ongi etorri, " + SesioAldagaiak.bezeroIzena.getBezeroa_izena() + "!");
 		 lblOngiEtorri.setHorizontalAlignment(SwingConstants.CENTER);
 		 lblOngiEtorri.setFont(new Font("SansSerif", Font.BOLD, 12));
 	     lblOngiEtorri.setBounds(943, 118, 190, 14);
@@ -62,7 +62,7 @@ public class View_metodoak {
 
 	public static JButton btn_jarraitu() {
 		JButton btnJarraitu = new JButton("Jarraitu");
-		btnJarraitu.setBounds(930, 565, 169, 54);
+		btnJarraitu.setBounds(943, 565, 169, 54);
 		btnJarraitu.setFont(new Font("Segoe UI", Font.BOLD, 21));
 		btnJarraitu.setFocusPainted(false);
 		return btnJarraitu;
@@ -72,7 +72,7 @@ public class View_metodoak {
 
 	public static boolean dataKonprobatu(Saioa saioAukera) {
 		boolean atera = false;
-		if (saioAukera.getData().getTime() >= SesioAldagaiak.dataAukeratuta.getTime() && saioAukera.getData().getDay() == SesioAldagaiak.dataAukeratuta.getDay()) {
+		if (saioAukera.getData().getTime() >= SesioAldagaiak.dataAukeratuta.getTime() && saioAukera.getData().getDate() == SesioAldagaiak.dataAukeratuta.getDate() && saioAukera.getData().getMonth() == SesioAldagaiak.dataAukeratuta.getMonth() && saioAukera.getData().getYear() == SesioAldagaiak.dataAukeratuta.getYear()) {
 			atera = true;
 		}
 		return atera;

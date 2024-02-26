@@ -79,4 +79,26 @@ public class Bezeroa {
 	public void setBezeroa_sexua(char bezeroa_sexua) {
 		this.bezeroa_sexua = bezeroa_sexua;
 	}
+	
+	public static boolean nanKomprobatu(String nanSartuta) {
+		 String zenbakiakNAN = nanSartuta.substring(0, 8);
+         char letraNAN = nanSartuta.charAt(8);
+         char letraKalkulatuta;
+         try {
+			letraKalkulatuta = kalkulatuLetraNAN(Integer.parseInt(zenbakiakNAN));
+			if(letraKalkulatuta == letraNAN) {
+				return true;
+			}
+		} catch (Exception e) {
+			return false;
+		}
+		return false;
+	}
+	
+	public static char kalkulatuLetraNAN(int zenbakiaNAN) {
+		char letraNAN;
+		char [] arrayDNI = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
+		letraNAN = arrayDNI[zenbakiaNAN%23];
+		return letraNAN;
+	}
 }

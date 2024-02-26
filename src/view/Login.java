@@ -55,7 +55,7 @@ public class Login extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Login(String x) {
+	public Login(String nondikDator) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(400, 250, 906, 594);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Hasiera.class.getResource("/images/cine.png")));
@@ -91,6 +91,18 @@ public class Login extends JFrame {
 		btnLogin.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
 		btnLogin.setBackground(SystemColor.desktop);
 		
+		JButton btnErregistratu = new JButton("Erregistratu");
+		btnErregistratu.setBounds(342, 380, 148, 29);
+		btnErregistratu.setForeground(SystemColor.text);
+		btnErregistratu.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
+		btnErregistratu.setBackground(SystemColor.desktop);
+		
+		JButton btnAtzera = new JButton("Atzera");
+		btnAtzera.setBounds(342, 338, 148, 29);
+		btnAtzera.setForeground(SystemColor.text);
+		btnAtzera.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
+		btnAtzera.setBackground(SystemColor.desktop);
+		
 		contentPane.setLayout(null);
 		contentPane.add(lblNAN);
 		contentPane.add(txtNAN);
@@ -98,6 +110,40 @@ public class Login extends JFrame {
 		contentPane.add(passwordField);
 		contentPane.add(lblLogin_Header);
 		contentPane.add(btnLogin);
+		contentPane.add(btnErregistratu);
+		contentPane.add(btnAtzera);
+
+		btnAtzera.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+				switch (nondikDator) {
+				case "zinemaAukera": 
+					JFrameSortu.zinemaAukera();
+				break;
+				case "saioaAukera":
+					JFrameSortu.saioaAukera();
+				break;
+				case "filmaAukera": 
+					JFrameSortu.filmaAukera();
+				break;
+				case "dataAukera":
+					JFrameSortu.dataAukera();
+				break;
+				case "laburpenaAukera":
+					JFrameSortu.laburpenaAukera();
+				break;
+				}
+			}
+		});
+		
+		btnErregistratu.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();		
+				JFrameSortu.erregistroAukera(nondikDator);
+			}
+		});
 		
 		btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
@@ -107,7 +153,7 @@ public class Login extends JFrame {
 					SesioAldagaiak.logeatuta = BezeroKudeatzailea.komprobatuPasahitza(bezeroNAN, bezeroPwd);
 					if (SesioAldagaiak.logeatuta) {
 						dispose();
-						switch (x) {
+						switch (nondikDator) {
 						case "zinemaAukera": 
 							JFrameSortu.zinemaAukera();
 						break;
@@ -119,6 +165,9 @@ public class Login extends JFrame {
 						break;
 						case "dataAukera":
 							JFrameSortu.dataAukera();
+						break;
+						case "laburpenaAukera":
+							JFrameSortu.laburpenaAukera();
 						break;
 						}
 						

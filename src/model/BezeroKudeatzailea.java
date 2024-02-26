@@ -1,9 +1,12 @@
 package model;
 
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
 import org.mindrot.jbcrypt.BCrypt;
+
+import com.mysql.cj.xdevapi.Statement;
 
 import model.sql.KontsultakSQL;
 
@@ -43,7 +46,7 @@ public class BezeroKudeatzailea {
 		for(int i = 0; i < SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().size(); i++) {
 			if(SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().get(i).getBezeroa_NAN().equals(bezeroNAN)) {
 				if (BCrypt.checkpw(bezeroPwd, SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().get(i).getBezeroa_pasahitza())) {
-					SesioAldagaiak.bezeroIzena = SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().get(i).getBezeroa_izena();
+					SesioAldagaiak.bezeroIzena = SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().get(i);
 					return true;
 				}
 				return false;

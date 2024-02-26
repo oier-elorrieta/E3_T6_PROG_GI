@@ -15,6 +15,6 @@ public class SesioAldagaiak {
 	public static Saioa saioaAukera;
 	
 	public static boolean logeatuta = false;
-	public static String bezeroIzena;
+	public static Bezeroa bezeroIzena;
 	
 }
