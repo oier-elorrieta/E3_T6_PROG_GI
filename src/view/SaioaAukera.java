@@ -110,9 +110,9 @@ public class SaioaAukera extends JFrame {
 		
 
 		@SuppressWarnings("rawtypes")
-		JComboBox comboBox = new JComboBox(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		comboBox.setBounds(302, 178, 50, 22);
+		JComboBox comboBoxPertsonaKop = new JComboBox(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+		comboBoxPertsonaKop.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		comboBoxPertsonaKop.setBounds(302, 178, 50, 22);
 		
 		saioaAukerak = View_metodoak.saioakAtera(SesioAldagaiak.zinemaAukera.getSaioak(), SesioAldagaiak.filmaAukera);
 		ButtonGroup bg = new ButtonGroup();
@@ -167,7 +167,7 @@ public class SaioaAukera extends JFrame {
 		contentPane.add(panelDataIzena);
 		panelDataIzena.add(lblDataAukera);
 		contentPane.add(lblPertsonaKopurua);
-		contentPane.add(comboBox);
+		contentPane.add(comboBoxPertsonaKop);
 		contentPane.add(btnAmaiera);
 		contentPane.add(btnJarraitu);
 		
@@ -179,7 +179,7 @@ public class SaioaAukera extends JFrame {
 				try {
 					aukera = Integer.parseInt(bg.getSelection().getActionCommand());
 					SesioAldagaiak.saioaAukera = saioaAukerak.get(aukera);
-					pertsonaKop = Integer.parseInt((String) comboBox.getSelectedItem());
+					pertsonaKop = Integer.parseInt((String) comboBoxPertsonaKop.getSelectedItem());
 					Sarrera sarreraSortuta = new Sarrera(SesioAldagaiak.saioaAukera, pertsonaKop);
 					SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().add(sarreraSortuta);
 					SesioAldagaiak.sarreraKudeatzailea.setTicket_prezioa(SesioAldagaiak.sarreraKudeatzailea.getTicket_prezioa() + SarreraKudeatzailea.kalkulatuPrezioa(SesioAldagaiak.saioaAukera, pertsonaKop));
