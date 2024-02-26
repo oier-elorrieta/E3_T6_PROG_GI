@@ -16,4 +16,3 @@ public class APP {
 		JFrameSortu.hasieraAukera();
 	}
 }
-	

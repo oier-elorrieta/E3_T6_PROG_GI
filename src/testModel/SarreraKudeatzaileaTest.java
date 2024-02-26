@@ -15,6 +15,7 @@ import model.Filma;
 import model.Saioa;
 import model.Sarrera;
 import model.SarreraKudeatzailea;
+import model.SesioAldagaiak;
 import model.Zinema;
 import model.ZinemaKudeatzailea;
 import model.sql.KontsultakSQL;
@@ -60,7 +61,7 @@ public class SarreraKudeatzaileaTest {
 		assertFalse(sarreraKudeatzaileaProba.equals(sarreraKudatzaileaProbaDifClass));
 	}
 	
-/*-----TOSTRING TEST-----*/
+	/*-----TOSTRING TEST-----*/
 	
 	@Test
 	public void sarreraKudeatzaileaToStringTest() {
@@ -99,9 +100,30 @@ public class SarreraKudeatzaileaTest {
 		Filma filmaProba = new Filma();
 		
 		Saioa saioaProba = new Saioa(dateProba, aretoaProba, filmaProba, 10.0);		
-		assertEquals(20, SarreraKudeatzailea.kalkulatuPrezioa(saioaProba,2), 0);
-		
-		
-		
+		assertEquals(20, SarreraKudeatzailea.kalkulatuPrezioa(saioaProba,2), 0);		
 	}
+	
+	@Test
+	public void kalkulatuDeskontua20Test() {
+			Saioa saioaProba = new Saioa();
+			Sarrera sarreraProba = new Sarrera(saioaProba, 1);
+			SesioAldagaiak.sarreraKudeatzailea.setTicket_prezioa(10);
+			SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().add(sarreraProba);
+			SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().add(sarreraProba);
+			SarreraKudeatzailea.kalkulatuDeskontua();
+			assertEquals(8, SesioAldagaiak.sarreraKudeatzailea.getTicket_prezioa(),0.0);
+	}
+	
+	@Test
+	public void kalkulatuDeskontua30Test() {
+			Saioa saioaProba = new Saioa();
+			Sarrera sarreraProba = new Sarrera(saioaProba, 1);
+			SesioAldagaiak.sarreraKudeatzailea.setTicket_prezioa(10);
+			SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().add(sarreraProba);
+			SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().add(sarreraProba);
+			SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().add(sarreraProba);
+			SarreraKudeatzailea.kalkulatuDeskontua();
+			assertEquals(7, SesioAldagaiak.sarreraKudeatzailea.getTicket_prezioa(),0.0);
+	}
+	
 }
