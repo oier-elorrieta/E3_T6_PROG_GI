@@ -3,23 +3,17 @@ package model.metodoak;
 import java.awt.Font;
 
 import javax.swing.*;
-import javax.swing.border.*;
 
-import controller.APP;
 import model.Filma;
 import model.Saioa;
 import model.SesioAldagaiak;
-import model.sql.KontsultakSQL;
-import view.*;
 
 import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.channels.AsynchronousServerSocketChannel;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -75,6 +69,7 @@ public class View_metodoak {
 	
 	
 
+	@SuppressWarnings("deprecation")
 	public static boolean dataKonprobatu(Saioa saioAukera) {
 		boolean atera = false;
 		if (saioAukera.getData().getTime() >= SesioAldagaiak.dataAukeratuta.getTime() && saioAukera.getData().getDate() == SesioAldagaiak.dataAukeratuta.getDate() && saioAukera.getData().getMonth() == SesioAldagaiak.dataAukeratuta.getMonth() && saioAukera.getData().getYear() == SesioAldagaiak.dataAukeratuta.getYear()) {
@@ -130,6 +125,7 @@ public class View_metodoak {
 		return dataAldatuta;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public static void ticketSortu() throws IOException {
 		Date dataOrain = new Date();
 		String rutaArchivo = "ticket_" + dataOrain.getTime() + ".txt";

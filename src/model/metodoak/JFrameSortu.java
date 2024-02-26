@@ -2,15 +2,7 @@ package model.metodoak;
 
 import javax.swing.WindowConstants;
 
-import model.Saioa;
-import view.DataAukera;
-import view.Erregistroa;
-import view.FilmaAukera;
-import view.Hasiera;
-import view.Laburpena;
-import view.Login;
-import view.SaioaAukera;
-import view.ZinemaAukera;
+import view.*;
 
 public class JFrameSortu {
 	

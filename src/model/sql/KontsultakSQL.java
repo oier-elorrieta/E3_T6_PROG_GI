@@ -1,21 +1,9 @@
 package model.sql;
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-
-import model.Aretoa;
-import model.BezeroKudeatzailea;
-import model.Bezeroa;
-import model.Filma;
-import model.FilmaKudeatzailea;
-import model.Saioa;
-import model.SarreraKudeatzailea;
-import model.SesioAldagaiak;
-import model.Zinema;
-import model.ZinemaKudeatzailea;
+import model.*;
 
 public class KontsultakSQL {
 	private static ResultSet emaitza;
@@ -28,8 +16,6 @@ public class KontsultakSQL {
 	
 	private static Filma[] filmaList;
 	private static ArrayList<Bezeroa> bezeroaList;
-	private static Aretoa[] aretoaList;
-	private static Saioa[] saioaList;
 	private static Zinema[] zinemaList;
 
 	public static void sql_zenbatu(Connection konexioa, Statement statement) throws SQLException {

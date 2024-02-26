@@ -2,7 +2,6 @@ package view;
 
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.GraphicsConfiguration;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
@@ -19,20 +18,14 @@ import javax.swing.border.LineBorder;
 
 import model.*;
 import model.metodoak.*;
-import model.sql.*;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
-import java.awt.CardLayout;
 import java.awt.Color;
 
-import javax.swing.JScrollPane;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.CompoundBorder;
 import java.awt.FlowLayout;
 
-import java.util.Date;
 
 public class FilmaAukera extends JFrame {
 
@@ -103,6 +96,7 @@ public class FilmaAukera extends JFrame {
 		panelDataIzena.setBounds(302, 123, 599, 39);
 		contentPane.add(panelDataIzena);
 		
+		@SuppressWarnings("deprecation")
 		JLabel lblDataAukera = new JLabel(SesioAldagaiak.dataAukeratuta.getDate() + "/" + (SesioAldagaiak.dataAukeratuta.getMonth()+1) + "/" + SesioAldagaiak.dataAukeratuta.getYear());
 		lblDataAukera.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDataAukera.setBounds(310, 130, 452, 58);

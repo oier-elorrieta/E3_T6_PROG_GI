@@ -6,10 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import org.mindrot.jbcrypt.BCrypt;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -20,11 +17,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
-import java.util.ArrayList;
 
 import model.*;
 import model.metodoak.*;
-import model.sql.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -148,6 +143,7 @@ public class Login extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 					String bezeroNAN = txtNAN.getText();
+					@SuppressWarnings("deprecation")
 					String bezeroPwd = passwordField.getText();
 					SesioAldagaiak.logeatuta = BezeroKudeatzailea.komprobatuPasahitza(bezeroNAN, bezeroPwd);
 					if (SesioAldagaiak.logeatuta) {

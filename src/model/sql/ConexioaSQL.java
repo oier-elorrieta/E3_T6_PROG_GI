@@ -2,12 +2,6 @@ package model.sql;
 
 import java.sql.*;
 
-import model.BezeroKudeatzailea;
-import model.Bezeroa;
-import model.Filma;
-import model.FilmaKudeatzailea;
-import model.SesioAldagaiak;
-
 public class ConexioaSQL {
 	private static final String url = "jdbc:mysql://localhost:3306/e3_t6_prog_gi";
 	private static final String user = "root";

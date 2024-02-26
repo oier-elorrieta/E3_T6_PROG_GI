@@ -4,38 +4,28 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
+import javax.swing.*;
 
-import model.FilmaKudeatzailea;
 import model.Saioa;
 import model.Sarrera;
 import model.SarreraKudeatzailea;
 import model.SesioAldagaiak;
-import model.Zinema;
 import model.metodoak.JFrameSortu;
 import model.metodoak.View_metodoak;
-import model.sql.KontsultakSQL;
+
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.UtilDateModel;
+
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.Properties;
-import java.util.Calendar;
-import java.util.Date;
+
 
 
 import javax.swing.JComboBox;
@@ -66,6 +56,7 @@ public class SaioaAukera extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	@SuppressWarnings({ "deprecation", "unchecked" })
 	public SaioaAukera() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(400, 250, 1182, 683);
@@ -117,6 +108,8 @@ public class SaioaAukera extends JFrame {
 		lblPertsonaKopurua.setFont(new Font("SansSerif", Font.BOLD, 18));
 		lblPertsonaKopurua.setBounds(90, 175, 221, 25);
 		
+
+		@SuppressWarnings("rawtypes")
 		JComboBox comboBox = new JComboBox(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		comboBox.setBounds(302, 178, 50, 22);

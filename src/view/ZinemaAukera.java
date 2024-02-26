@@ -2,7 +2,7 @@ package view;
 
 import javax.swing.border.EmptyBorder;
 
-import controller.APP;
+
 import model.*;
 import model.metodoak.*;
 import model.sql.*;
@@ -11,7 +11,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Arrays;
+
 
 public class ZinemaAukera extends JFrame {
     private static final long serialVersionUID = 1L;
