@@ -39,7 +39,7 @@ public class Erregistroa extends JFrame {
 	private JTextField txtAbizenak;
 	private JTextField txtNAN;
 	private JPasswordField passwordField;
-	private JPasswordField passwordField_errepikatu;
+	private JPasswordField passwordFieldErrepikatu;
 
 	/**
 	 * Launch the application.
@@ -116,14 +116,14 @@ public class Erregistroa extends JFrame {
 		passwordField.setToolTipText("Sartu pasahitza...");
 		passwordField.setBorder(new LineBorder(Color.GRAY, 1, true));
 		
-		JLabel lblPasahitza_1 = new JLabel("ERREPIKATU PASAHITZA");
-		lblPasahitza_1.setBounds(319, 360, 296, 23);
-		lblPasahitza_1.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
+		JLabel lblPasahitzaErrepikatu = new JLabel("ERREPIKATU PASAHITZA");
+		lblPasahitzaErrepikatu.setBounds(319, 360, 296, 23);
+		lblPasahitzaErrepikatu.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
 
-		passwordField_errepikatu = new JPasswordField();
-		passwordField_errepikatu.setBounds(319, 389, 546, 33);
-		passwordField_errepikatu.setToolTipText("Sartu pasahitza berriz...");
-		passwordField_errepikatu.setBorder(new LineBorder(Color.GRAY, 1, true));
+		passwordFieldErrepikatu = new JPasswordField();
+		passwordFieldErrepikatu.setBounds(319, 389, 546, 33);
+		passwordFieldErrepikatu.setToolTipText("Sartu pasahitza berriz...");
+		passwordFieldErrepikatu.setBorder(new LineBorder(Color.GRAY, 1, true));
 		
 		JLabel lblSexua = new JLabel("SEXUA (Aukeratu bat)");
 		lblSexua.setBounds(319, 441, 200, 23);
@@ -171,8 +171,8 @@ public class Erregistroa extends JFrame {
 		contentPane.add(txtNAN);
 		contentPane.add(lblPasahitza);
 		contentPane.add(passwordField);
-		contentPane.add(lblPasahitza_1);
-		contentPane.add(passwordField_errepikatu);
+		contentPane.add(lblPasahitzaErrepikatu);
+		contentPane.add(passwordFieldErrepikatu);
 		contentPane.add(lblSexua);
 		contentPane.add(rdbtnGizona);
 		contentPane.add(rdbtnEmakumea);
@@ -213,7 +213,7 @@ public class Erregistroa extends JFrame {
 				boolean erroreNAN = false;
 				
 				char[] pasahitzaCharArray = passwordField.getPassword();
-				char[] pasahitzaErrepikatutaCharArray = passwordField_errepikatu.getPassword();
+				char[] pasahitzaErrepikatutaCharArray = passwordFieldErrepikatu.getPassword();
 				String pasahitzaString = "";
 				String pasahitzaErrepikatutaString = "";
 				for (int i = 0; i < pasahitzaCharArray.length; i++) {
