@@ -48,7 +48,6 @@ public class Laburpena extends JFrame {
 	 * Create the frame.
 	 */
 	public Laburpena() {
-		SarreraKudeatzailea.kalkulatuDeskontua();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Hasiera.class.getResource("/images/cine.png")));
 		setTitle("Laburpena - Talde 6");
@@ -132,7 +131,7 @@ public class Laburpena extends JFrame {
 				public void mouseClicked(MouseEvent e) {
 					SesioAldagaiak.logeatuta = false;
 					dispose();
-					JFrameSortu.saioaAukera();
+					JFrameSortu.laburpenaAukera();
 				}
 			});
 			JLabel lblOngiEtorri = View_metodoak.lbl_textLog();

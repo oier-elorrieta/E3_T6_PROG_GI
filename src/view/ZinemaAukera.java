@@ -110,6 +110,7 @@ public class ZinemaAukera extends JFrame {
         	@Override
         	public void mouseClicked(MouseEvent e) {
         		if (SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().size() != 0) {
+        			SarreraKudeatzailea.kalkulatuDeskontua();
         			dispose();
             		JFrameSortu.laburpenaAukera();
         		} else {
