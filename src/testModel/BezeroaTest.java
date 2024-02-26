@@ -85,4 +85,24 @@ public class BezeroaTest {
 		bezeroaSetGetProba.setBezeroa_sexua('E');
 		assertEquals(bezeroaSetGetProba.getBezeroa_sexua(),'E');
 	}	
+	
+	/*-----METODOAK-----*/
+	
+	@Test
+	public void nanKomprobatuTrueTest() {
+		String nanKonprobatzailea = "93051298Z";
+		assertTrue(Bezeroa.nanKomprobatu(nanKonprobatzailea));
+	}
+	
+	@Test
+	public void nanKomprobatuFalseTest() {
+		String nanKonprobatzailea = "93151298Z";
+		assertFalse(Bezeroa.nanKomprobatu(nanKonprobatzailea));
+	}
+	
+	@Test
+	public void nanKomprobatuErrorTest() {
+		String nanKonprobatzailea = "3151298AZ";
+		assertFalse(Bezeroa.nanKomprobatu(nanKonprobatzailea));
+	}
 }

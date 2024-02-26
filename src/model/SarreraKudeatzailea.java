@@ -50,7 +50,7 @@ public class SarreraKudeatzailea {
 	}
 
 	public void setSarreraLista(ArrayList<Sarrera> sarreraLista) {
-		sarreraLista = sarreraLista;
+		this.sarreraLista = sarreraLista;
 	}
 
 	public double getTicket_prezioa() {
@@ -73,4 +73,17 @@ public class SarreraKudeatzailea {
 		double prezioGuztira = saioaAukera.getPrezioa() * pertsonaKop;
 		return prezioGuztira;
 	}
+	
+	// METODOAK
+	
+	public static void kalkulatuDeskontua() {
+		double deskontua;
+		if (SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().size() == 2) {
+			deskontua = (SesioAldagaiak.sarreraKudeatzailea.getTicket_prezioa() * 20) /100;
+			SesioAldagaiak.sarreraKudeatzailea.setTicket_prezioa(SesioAldagaiak.sarreraKudeatzailea.getTicket_prezioa() - deskontua);
+		} else if (SesioAldagaiak.sarreraKudeatzailea.getSarreraLista().size() > 2) {
+			deskontua = (SesioAldagaiak.sarreraKudeatzailea.getTicket_prezioa() * 30) /100;
+			SesioAldagaiak.sarreraKudeatzailea.setTicket_prezioa(SesioAldagaiak.sarreraKudeatzailea.getTicket_prezioa() - deskontua);
+		}
+	};
 }

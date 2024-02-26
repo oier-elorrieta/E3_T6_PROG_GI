@@ -2,19 +2,15 @@ package model.sql;
 
 import java.sql.*;
 
-import model.Filma;
-import model.FilmaKudeatzailea;
-
 public class ConexioaSQL {
+	private static final String url = "jdbc:mysql://localhost:3306/e3_t6_prog_gi";
+	private static final String user = "root";
+	private static final String pass = "";
 
 	public static void datuakKargatu() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			
-			String url = "jdbc:mysql://localhost:3306/e3_t6_prog_gi";
-			String user = "root";
-			String pass = "";
-			
+
 			Connection conexioa = DriverManager.getConnection(url, user, pass);
 			
 			Statement sentencia = conexioa.createStatement();
@@ -33,6 +29,4 @@ public class ConexioaSQL {
 			e.printStackTrace();
 		}
 	}
-	
-	
 }

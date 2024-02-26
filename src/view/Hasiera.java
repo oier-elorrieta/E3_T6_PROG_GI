@@ -7,22 +7,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import model.metodoak.JFrameSortu;
-import model.metodoak.View_metodoak;
-import model.sql.KontsultakSQL;
-
 import javax.swing.JLabel;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
+
 import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
 import javax.swing.JProgressBar;
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import javax.swing.BoxLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
@@ -66,6 +58,11 @@ public class Hasiera extends JFrame {
 		contentPane.setLayout(null);
 		contentPane.add(lblOngiEtorri);
 		
+		JLabel lblFilm_argazkia = new JLabel("");
+		lblFilm_argazkia.setIcon(new ImageIcon(Hasiera.class.getResource("/images/logomedio.png")));
+		lblFilm_argazkia.setBounds(529, 214, 99, 113);
+		contentPane.add(lblFilm_argazkia);
+		
 		JLabel lblPrograma = new JLabel("PELIKULAPP · TALDE 6");
 		lblPrograma.setForeground(Color.BLACK);
 		lblPrograma.setHorizontalAlignment(SwingConstants.CENTER);
@@ -80,27 +77,17 @@ public class Hasiera extends JFrame {
 		lblKlik.setBounds(0, 465, 1165, 38);
 		contentPane.add(lblKlik);
 		
-		JLabel lblFilm_argazkia = new JLabel("");
-		lblFilm_argazkia.setIcon(new ImageIcon(Hasiera.class.getResource("/images/logomedio.png")));
-		lblFilm_argazkia.setBounds(529, 214, 99, 113);
-		contentPane.add(lblFilm_argazkia);
-		
 		contentPane.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				 	try {
 				 		Thread.sleep(1000);
 		                dispose();
-		                JFrameSortu.zinemaAukeraSortu();
+		                JFrameSortu.zinemaAukera();
 		            } catch (Exception e2) {
 		                System.err.println("Hasiera - ERROREA");
 		            }
 			}
-		});
-		
-		
-		
-		
-		
+		});	
 	}
 }

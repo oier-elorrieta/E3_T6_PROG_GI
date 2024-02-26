@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import model.sql.KontsultakSQL;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class BezeroKudeatzailea {
 	private ArrayList<Bezeroa> bezeroaList = new ArrayList<Bezeroa>();
@@ -36,4 +36,18 @@ public class BezeroKudeatzailea {
 	public void setBezeroaList(ArrayList<Bezeroa> bezeroaList) {
 		this.bezeroaList = bezeroaList;
 	}	
+	
+	public static boolean komprobatuPasahitza(String bezeroNAN, String bezeroPwd) {
+		for(int i = 0; i < SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().size(); i++) {
+			if(SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().get(i).getBezeroa_NAN().equals(bezeroNAN)) {
+				if (BCrypt.checkpw(bezeroPwd, SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().get(i).getBezeroa_pasahitza())) {
+					SesioAldagaiak.bezeroIzena = SesioAldagaiak.bezeroaKudeatzailea.getBezeroaList().get(i);
+					SesioAldagaiak.sarreraKudeatzailea.setBezeroa(SesioAldagaiak.bezeroIzena);
+					return true;
+				}
+				return false;
+			}
+		}
+		return false;
+	}
 }

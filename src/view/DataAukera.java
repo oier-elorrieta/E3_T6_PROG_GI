@@ -1,35 +1,20 @@
 package view;
 
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Toolkit;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
-import model.Sarrera;
 import model.SesioAldagaiak;
 import model.metodoak.JFrameSortu;
 import model.metodoak.View_metodoak;
-import model.sql.KontsultakSQL;
 
-import javax.swing.ButtonGroup;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.Date;
 import java.util.Properties;
 
@@ -64,39 +49,35 @@ public class DataAukera extends JFrame {
 		setTitle("Data aukeratu - Talde 6");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		JPanel panelFilmaIzena = new JPanel();
-		panelFilmaIzena.setBorder(new LineBorder(new Color(255, 0, 0), 2, true));
-		panelFilmaIzena.setBounds(302, 73, 599, 39);
-		contentPane.add(panelFilmaIzena);
-
 		setContentPane(contentPane);
-
-		JButton btnLogin = View_metodoak.btn_login();
-
-		JButton btnJarraitu = View_metodoak.btn_jarraitu();
-
-		JButton btnAmaiera = View_metodoak.btn_amaiera();
-
-		JLabel lblSaioLista = new JLabel("DATA AUKERATU");
-		lblSaioLista.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSaioLista.setBounds(0, 9, 1166, 58);
-		lblSaioLista.setFont(new Font("Source Sans Pro Black", Font.BOLD, 45));
-		contentPane.add(lblSaioLista);
-
+		contentPane.setLayout(null);
+		
+		JLabel lbldataAukeratu = new JLabel("DATA AUKERATU");
+		lbldataAukeratu.setHorizontalAlignment(SwingConstants.CENTER);
+		lbldataAukeratu.setBounds(0, 9, 1166, 58);
+		lbldataAukeratu.setFont(new Font("Source Sans Pro Black", Font.BOLD, 45));
+		
 		JLabel lblAukZinema = new JLabel("Aukeratutako zinema:");
 		lblAukZinema.setBounds(83, 78, 221, 25);
 		lblAukZinema.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAukZinema.setVerticalAlignment(SwingConstants.TOP);
 		lblAukZinema.setFont(new Font("SansSerif", Font.BOLD, 18));
-		contentPane.add(lblAukZinema);
-
+		
+		JPanel panelFilmaIzena = new JPanel();
+		panelFilmaIzena.setBorder(new LineBorder(new Color(255, 0, 0), 2, true));
+		panelFilmaIzena.setBounds(302, 73, 599, 39);
+		
 		JLabel lblZinemaAukera = new JLabel(SesioAldagaiak.zinemaAukera.getZinema_izena());
 		lblZinemaAukera.setHorizontalAlignment(SwingConstants.CENTER);
 		lblZinemaAukera.setBounds(310, 9, 452, 58);
 		lblZinemaAukera.setFont(new Font("Dialog", Font.BOLD, 21));
-		panelFilmaIzena.add(lblZinemaAukera);
-
+		
+		JLabel lblAukeratuDataBat = new JLabel("AUKERATU DATA BAT");
+		lblAukeratuDataBat.setVerticalAlignment(SwingConstants.TOP);
+		lblAukeratuDataBat.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAukeratuDataBat.setFont(new Font("SansSerif", Font.BOLD, 24));
+		lblAukeratuDataBat.setBounds(399, 156, 324, 32);
+		
 		Properties p = new Properties();
 		UtilDateModel model = new UtilDateModel();
 		p.put("text.today", "Today");
@@ -105,20 +86,47 @@ public class DataAukera extends JFrame {
 		
 		JDatePanelImpl datePanel = new JDatePanelImpl(model, p);		
 		datePanel.setBounds(399, 199, 324, 224);
-		contentPane.add(datePanel);
 
-		contentPane.setLayout(null);
-		contentPane.add(btnLogin);
+		  if(!SesioAldagaiak.logeatuta) {
+	        	JButton btnLogin = View_metodoak.btn_login();
+	        	btnLogin.addMouseListener(new MouseAdapter() {
+	    			@Override
+	    			public void mouseClicked(MouseEvent e) {
+	    				Login login = new Login("dataAukera");
+	    				login.setVisible(true);
+	    				dispose();
+	    			}
+	    		});
+	        	contentPane.add(btnLogin);
+	        }else {
+	        	JButton btnLogOut = View_metodoak.btn_logout();
+	        	btnLogOut.addMouseListener(new MouseAdapter() {
+	    			@Override
+	    			public void mouseClicked(MouseEvent e) {	
+	    				SesioAldagaiak.logeatuta = false;
+	    				dispose();
+	    				JFrameSortu.dataAukera();
+	    			}
+	    		});
+	    		JLabel lblOngiEtorri = View_metodoak.lbl_textLog();
+	    		contentPane.add(btnLogOut);
+	    		contentPane.add(lblOngiEtorri);
+	        }
+
+		JButton btnAmaiera = View_metodoak.btn_amaiera();
+		JButton btnJarraitu = View_metodoak.btn_jarraitu();
+
+		contentPane.add(lbldataAukeratu);
+		contentPane.add(lblAukZinema);
+		contentPane.add(panelFilmaIzena);
+		panelFilmaIzena.add(lblZinemaAukera);
+		contentPane.add(lblAukeratuDataBat);
+		contentPane.add(datePanel);
 		contentPane.add(btnAmaiera);
 		contentPane.add(btnJarraitu);
 		
-		JLabel lblAukeratuDataBat = new JLabel("AUKERATU DATA BAT");
-		lblAukeratuDataBat.setVerticalAlignment(SwingConstants.TOP);
-		lblAukeratuDataBat.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAukeratuDataBat.setFont(new Font("SansSerif", Font.BOLD, 24));
-		lblAukeratuDataBat.setBounds(399, 156, 324, 32);
-		contentPane.add(lblAukeratuDataBat);
 		btnJarraitu.addMouseListener(new MouseAdapter() {
+			@SuppressWarnings("deprecation")
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {	
@@ -133,12 +141,16 @@ public class DataAukera extends JFrame {
 						SesioAldagaiak.dataAukeratuta.setHours(0);
 						SesioAldagaiak.dataAukeratuta.setMinutes(0);
 						SesioAldagaiak.dataAukeratuta.setSeconds(0);
-					}								
+					}		
 					
+					if(View_metodoak.filmakAtera(SesioAldagaiak.zinemaAukera.getSaioak()).size() == 0){
+						JOptionPane.showMessageDialog(null, "Egun honetarako ez dago saiorik.", "Errorea", JOptionPane.ERROR_MESSAGE);
+					} else {
 					dispose();
-					JFrameSortu.filmaAukeraSortu();
+					JFrameSortu.filmaAukera();
+					}
 				} catch (Exception e2) {
-					System.err.println("DataAukera - Errorea");
+                	JOptionPane.showMessageDialog(null, "Ez duzu datarik aukeratu! Aukeratu data bat.", "Errorea", JOptionPane.ERROR_MESSAGE);
 				}				
 			}
 		});
@@ -147,7 +159,7 @@ public class DataAukera extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				JFrameSortu.zinemaAukeraSortu();
+				JFrameSortu.zinemaAukera();
 			}
 		});
 	

@@ -70,6 +70,7 @@ public class Saioa {
 		this.prezioa = prezioa;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public static Date stringToDate(String data) {
 		Date dataBihurtuta = new Date();
 		String[] sub = data.split("-");
