@@ -1,35 +1,20 @@
 package view;
 
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Toolkit;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
-import model.Sarrera;
 import model.SesioAldagaiak;
 import model.metodoak.JFrameSortu;
 import model.metodoak.View_metodoak;
-import model.sql.KontsultakSQL;
 
-import javax.swing.ButtonGroup;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.Date;
 import java.util.Properties;
 
@@ -141,6 +126,7 @@ public class DataAukera extends JFrame {
 		contentPane.add(btnJarraitu);
 		
 		btnJarraitu.addMouseListener(new MouseAdapter() {
+			@SuppressWarnings("deprecation")
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {	

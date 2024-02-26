@@ -1,14 +1,9 @@
 package model;
 
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
 import org.mindrot.jbcrypt.BCrypt;
-
-import com.mysql.cj.xdevapi.Statement;
-
-import model.sql.KontsultakSQL;
 
 public class BezeroKudeatzailea {
 	private ArrayList<Bezeroa> bezeroaList = new ArrayList<Bezeroa>();

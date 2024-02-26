@@ -3,8 +3,6 @@ package model;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import testModel.TicketTest;
-
 public class SarreraKudeatzailea {
 	// ALDAGAIAK
 	private ArrayList<Sarrera> sarreraLista = new ArrayList<Sarrera>();
@@ -52,7 +50,7 @@ public class SarreraKudeatzailea {
 	}
 
 	public void setSarreraLista(ArrayList<Sarrera> sarreraLista) {
-		sarreraLista = sarreraLista;
+		this.sarreraLista = sarreraLista;
 	}
 
 	public double getTicket_prezioa() {

@@ -7,22 +7,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import model.metodoak.JFrameSortu;
-import model.metodoak.View_metodoak;
-import model.sql.KontsultakSQL;
-
 import javax.swing.JLabel;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
+
 import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
 import javax.swing.JProgressBar;
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import javax.swing.BoxLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;

@@ -12,35 +12,22 @@ import org.mindrot.jbcrypt.BCrypt;
 import model.Bezeroa;
 import model.SesioAldagaiak;
 import model.metodoak.JFrameSortu;
-import model.sql.ConexioaSQL;
 import model.sql.InsertakSQL;
 
 import javax.swing.ButtonGroup;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import java.awt.Color;
-import java.awt.Button;
 import javax.swing.JButton;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-import java.awt.Choice;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
-import javax.swing.JSeparator;
-import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Arrays;
 
 public class Erregistroa extends JFrame {
 
